@@ -1,49 +1,3 @@
-# import FreeCAD as App
-# import Part
-# import math
-# 
-# # 1. Get the currently selected object (to use as a size reference)
-# selection = Gui.Selection.getSelection()
-# 
-# if selection:
-#     target_obj = selection[0]
-#     
-#     # 2. Get the dimensions (Bounding Box) of the selected object
-#     bbox = target_obj.Shape.BoundBox
-#     print(f"Created a box with size {bbox.XLength}x{bbox.YLength}x{bbox.ZLength}. ")
-# 
-#     # 3. Calculate dimensions: Round up to the nearest integer and add 10mm
-#     # Example: 12.3mm -> 13.0mm + 10mm = 23.0mm
-#     box_l = math.ceil(bbox.XLength) + 10
-#     box_w = math.ceil(bbox.YLength) + 10
-#     # box_h = math.ceil(bbox.ZLength) + 10
-#     box_h = 100
-#     
-#     # 4. Set the fixed placement to (0, 0, -32)
-#     # Using App.Vector(x, y, z) and an empty App.Rotation() for no rotation
-#     fixed_pos = App.Vector( -box_l / 2, - box_w / 2, -32)
-#     fixed_rot = App.Rotation()
-#     fixed_placement = App.Placement(fixed_pos, fixed_rot)
-#     
-#     # 5. Create a new Box object in the document
-#     doc = App.activeDocument()
-#     new_box = doc.addObject("Part::Box", "FixedPosBox")
-#     
-#     # Set the calculated dimensions and fixed placement
-#     new_box.Length = box_l
-#     new_box.Width = box_w
-#     new_box.Height = box_h
-#     new_box.Placement = fixed_placement
-#     
-#     # Refresh the document to show the changes
-#     doc.recompute()
-#     print(f"Created a box with size {box_l}x{box_w}x{box_h} at position (0, 0, -32).")
-# else:
-#     print("Please select a reference object before running the macro.")
-
-
-
-
 import FreeCAD as App
 import FreeCADGui as Gui
 import Part
@@ -93,7 +47,7 @@ def get_geometry_info():
 
     x_dim = math.ceil(bbox.XLength) + 10
     y_dim = math.ceil(bbox.YLength) + 10
-    z_dim = math.ceil(bbox.ZLength) + 10
+    z_dim = 100
 
     new_box = App.ActiveDocument.addObject("Part::Box", "new_box")
 
