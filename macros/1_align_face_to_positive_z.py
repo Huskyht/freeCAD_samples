@@ -1,41 +1,87 @@
 import FreeCAD as App
 import FreeCADGui as Gui
+import Part
 
-# 1. Get selected object and sub-element (face)
 selection = Gui.Selection.getSelectionEx()
+
 if not selection:
-    print("Please select a face.")
+    print("Please select shapes.")
 else:
-    sel_ex = selection[0]
-    obj = sel_ex.Object
-    face = sel_ex.SubObjects[0]
-    
-    # 2. Get local normal and coordinates at the center of the face
-    u_min, u_max, v_min, v_max = face.ParameterRange
-    u_mid = (u_min + u_max) / 2
-    v_mid = (v_min + v_max) / 2
-    
-    local_normal = face.normalAt(u_mid, v_mid)
-    local_normal.normalize()
-    local_pos = face.valueAt(u_mid, v_mid)
-    
-    # 3. Calculate and apply rotation to align with Z-axis (0,0,-1)
-    target_dir = App.Vector(0, 0, -1)
-    rot_diff = App.Rotation(local_normal, target_dir)
-    
-    # Update rotation (considering existing rotation)
-    obj.Placement.Rotation = rot_diff.multiply(obj.Placement.Rotation)
-    
-    # 4. Calculate world coordinates of the face center after rotation
-    # Recompute once to determine the position after rotation is applied
+    obj = selection[0].Object
+
+    subs = selection[0].SubObjects
+
+    if len(subs) < 2:
+        print("Select at least 1 face + 1 or more shapes.")
+        raise
+
+    # -------------------------
+    # 1. Bake object to world
+    # -------------------------
+    shape = obj.Shape.copy()
+    shape = shape.transformGeometry(obj.Placement.toMatrix())
+
+    # -------------------------
+    # 2. First = face for Z align
+    # -------------------------
+    face_z = subs[0]
+
+    def get_center_and_normal(face):
+        u_min, u_max, v_min, v_max = face.ParameterRange
+        u_mid = (u_min + u_max) / 2
+        v_mid = (v_min + v_max) / 2
+
+        center = face.valueAt(u_mid, v_mid)
+        normal = face.normalAt(u_mid, v_mid)
+        normal.normalize()
+
+        return center, normal
+
+    center_z, normal_z = get_center_and_normal(face_z)
+
+    # -------------------------
+    # 3. Other shapes → bbox
+    # -------------------------
+    shapes_for_bbox = subs[1:]
+
+    # combine them
+    comp = Part.makeCompound(shapes_for_bbox)
+    bbox = comp.BoundBox
+
+    bbox_center = bbox.Center
+
+    # -------------------------
+    # 4. ROTATE (align normal → -Z)
+    # -------------------------
+    target = App.Vector(0, 0, -1)
+    rot = App.Rotation(normal_z, target)
+
+    shape = shape.transformGeometry(App.Placement(App.Vector(), rot).toMatrix())
+
+    # rotate reference points too
+    center_z = rot.multVec(center_z)
+    bbox_center = rot.multVec(bbox_center)
+
+    # -------------------------
+    # 5. MOVE XY center → origin
+    # -------------------------
+    move_xy = App.Vector(-bbox_center.x, -bbox_center.y, 0)
+    shape.translate(move_xy)
+
+    center_z = center_z + move_xy
+
+    # -------------------------
+    # 6. MOVE Z → 0
+    # -------------------------
+    shape.translate(App.Vector(0, 0, -center_z.z))
+
+    # -------------------------
+    # 7. Show result
+    # -------------------------
+    result = App.ActiveDocument.addObject("Part::Feature", "Aligned")
+    result.Shape = shape
+
+    App.ActiveDocument.removeObject(obj.Name)
     App.ActiveDocument.recompute()
-    world_pos = obj.Placement.multVec(local_pos)
-    
-    # 5. Offset the position so the face center aligns with origin (0,0,0)
-    # Subtract the calculated world coordinates from the current Base position
-    obj.Placement.Base.x -= world_pos.x
-    obj.Placement.Base.y -= world_pos.y
-    obj.Placement.Base.z -= world_pos.z
-    
-    App.ActiveDocument.recompute()
-    print(f"Success: {obj.Label} has been aligned horizontally at the origin (0,0,0).")
+
+    print("✅ Done: aligned using face + bbox center")
