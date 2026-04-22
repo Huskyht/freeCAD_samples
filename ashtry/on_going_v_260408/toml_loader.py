@@ -42,12 +42,13 @@ class toml_consts:
             
             print(toml_data)
             App.Console.PrintMessage(toml_data)
+            
         except Exception as e:
             print(f"failed to load toml file. continue with default constants.: {e}")
         return self
 
     def config_updater(self):
-        toml_data = toml.load(FILE_PATH)
+        toml.dump(self, open(FILE_PATH, mode='w'))
 
         print(toml_data)
         App.Console.PrintMessage(toml_data)
