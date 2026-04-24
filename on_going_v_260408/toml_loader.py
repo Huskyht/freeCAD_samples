@@ -6,32 +6,10 @@ import subprocess
 import sys
 import os
 import math
+import tomllib
 
 
 file_path = os.path.join(App.getUserConfigDir(), "waffle.toml")
-
-
-# below codes DOES NOT work for Arch linux. If you want to use this module install via "yay -Syu python-toml" first.
-def ensure_toml():
-    try:
-        return importlib.import_module("toml")
-    except ImportError:
-        if platform.system() == "Windows":
-            print("Windows detected. Attempting to install toml...")
-            subprocess.check_call(
-                [sys.executable, "-m", "pip", "install", "toml", "--user"]
-            )
-            importlib.invalidate_caches()
-            return importlib.import_module("toml")
-        else:
-            raise ImportError(
-                "toml library is missing. Please install it via your package manager."
-            )
-
-    except Exception as e:
-        print(f"Auto-install failed: {e}")
-        return None
-
 
 @dataclass
 class toml_consts:
@@ -45,14 +23,15 @@ class toml_consts:
     dxf_sheets_gap: float = 10.0
 
     def config_loader(self):
-        toml = ensure_toml()
         print("config_loader is running ...")
         if not os.path.exists(file_path):
             print(f"File not found: {file_path}. Using defaults.")
             return self
 
         try:
-            toml_data = toml.load(file_path)
+            with open(file_path, "rb") as f:
+                toml_data = tomllob.load(f)
+            # toml_data = toml.load(file_path)
             sheet_info_dic = toml_data.get("sheet_information", {})
 
             allowed_keys = self.__class__.__annotations__.keys()
