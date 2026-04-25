@@ -30,7 +30,7 @@ class toml_consts:
 
         try:
             with open(file_path, "rb") as f:
-                toml_data = tomllob.load(f)
+                toml_data = tomllib.load(f)
             # toml_data = toml.load(file_path)
             sheet_info_dic = toml_data.get("sheet_information", {})
 
