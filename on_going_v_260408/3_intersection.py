@@ -167,6 +167,22 @@ def align_to_xy(face):
     return face.copy().transformGeometry(placement.toMatrix())
 
 
+def arrange_faces_y(faces_list, gap=5.0):
+    arranged = []
+    offset = 0
+
+    for fl in faces_list:
+        App.Console.PrintMessage(f"  offset : {offset}\n")
+        bb = fl.BoundBox
+
+        moved = fl.copy()
+        moved.translate(App.Vector(0, offset + bb.YLength / 2, 0))
+        arranged.append(moved)
+
+        offset += bb.YLength + gap
+    return arranged
+
+
 def move_to_origin(shape):
     center = shape.BoundBox.Center
     vec = App.Vector(0, 0, 0) - center
@@ -266,29 +282,46 @@ def main():
     App.ActiveDocument.addObject("Part::Feature", "upper_die").Shape = comp_upper
 
     x_lower_sheets = align_faces_on_xy_plane(
-        comp_x_lower, y_position=100, gap=consts.dxf_sheets_gap
+        comp_x_lower, y_position=0, gap=consts.dxf_sheets_gap
     )
     y_lower_sheets = align_faces_on_xy_plane(
-        comp_y_lower, y_position=200, gap=consts.dxf_sheets_gap
+        comp_y_lower, y_position=0, gap=consts.dxf_sheets_gap
     )
     x_upper_sheets = align_faces_on_xy_plane(
-        comp_x_upper, y_position=300, gap=consts.dxf_sheets_gap
+        comp_x_upper, y_position=0, gap=consts.dxf_sheets_gap
     )
     y_upper_sheets = align_faces_on_xy_plane(
-        comp_y_upper, y_position=400, gap=consts.dxf_sheets_gap
+        comp_y_upper, y_position=0, gap=consts.dxf_sheets_gap
     )
+
+    comp_sheets_list = [x_lower_sheets, y_lower_sheets, x_upper_sheets, y_upper_sheets]
+    aligned_comp_sheets = arrange_faces_y(comp_sheets_list)
+
+    # App.ActiveDocument.addObject(
+    #     "Part::Feature", "x_lower_sheets"
+    # ).Shape = x_lower_sheets
+    # App.ActiveDocument.addObject(
+    #     "Part::Feature", "y_lower_sheets"
+    # ).Shape = y_lower_sheets
+    # App.ActiveDocument.addObject(
+    #     "Part::Feature", "x_upper_sheets"
+    # ).Shape = x_upper_sheets
+    # App.ActiveDocument.addObject(
+    #     "Part::Feature", "y_upper_sheets"
+    # ).Shape = y_upper_sheets
+
     App.ActiveDocument.addObject(
         "Part::Feature", "x_lower_sheets"
-    ).Shape = x_lower_sheets
+    ).Shape = aligned_comp_sheets[0]
     App.ActiveDocument.addObject(
         "Part::Feature", "y_lower_sheets"
-    ).Shape = y_lower_sheets
+    ).Shape = aligned_comp_sheets[1]
     App.ActiveDocument.addObject(
         "Part::Feature", "x_upper_sheets"
-    ).Shape = x_upper_sheets
+    ).Shape = aligned_comp_sheets[2]
     App.ActiveDocument.addObject(
         "Part::Feature", "y_upper_sheets"
-    ).Shape = y_upper_sheets
+    ).Shape = aligned_comp_sheets[3]
 
     # lower = die_solids[0]
     # upper = die_solids[1]
