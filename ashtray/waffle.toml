@@ -1,6 +1,7 @@
 [sheet_information]
-sheet_thickness = 2.1 # Leave a small gap in the sheetse thickness used.
-min_interval = 2.1  # recommend to set value same as sheets thickness or more.
+sheet_thickness = 1.0 # Leave a small gap in the sheetse thickness used.
+thick_gap = 0.08 # Leave a small gap in the sheetse thickness used.
+min_interval = 1.5 # recommend to set value same as sheets thickness or more.
 outer_interval = 10.0  # this value represents the distance from the edge.
 cube_z_offset = -28.8 # this value represents lower die height( LDH ). recommend to set value same as -( die holder plates number ) * n .
 
