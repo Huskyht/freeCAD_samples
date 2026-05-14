@@ -1,16 +1,28 @@
-[sheet_information]
-sheet_thickness = 1.0 # Leave a small gap in the sheetse thickness used.
-thick_gap = 0.08 # Leave a small gap in the sheetse thickness used.
-min_interval = 1.5 # recommend to set value same as sheets thickness or more.
-outer_interval = 10.0  # this value represents the distance from the edge.
-cube_z_offset = -28.8 # this value represents lower die height( LDH ). recommend to set value same as -( die holder plates number ) * n .
-
+[die_information]
 # upper die height( UDH ) is calculated from this value. 
 # UDH = cube_total_height - ( work thickness ) - ( LDH ) + ( deep drawing height )
 # This UDH MUST SHORTER than (Urethane spring height) + ( guide plate height ) * n
 # In this case, ( guide plate height ) * n >= ( deep drawing height ) * ( guide plate height ) * 2
 cube_total_height = 75.0
-safety_height = 5.0  # THIS VALUE DECIDE UPPER DIE INTER SECTION Z HEIGHT. IT SHOULD LARGER THAN TARGET SHEET METAL'S THICKNESS IN STEP FILE.
+cube_z_offset = -28.8 # this value represents lower die height( LDH ). recommend to set value same as -( die holder plates number ) * n .
+safety_height = 5.0  # THIS VALUE DECIDE UPPER DIE INTER SECTION Z HEIGHT. IT SHOULD LARGER THAN TARGET SHEET METAL'S THICKNESS.
 cube_margin = 10.0 # how large from deep drawing edge
-dxf_sheets_gap = 10.0 # default: 10.0 , this value should set larger than distance of LASER start point 
+
+[intersection]
+sheet_thickness = 1.0 # Leave a small gap in the sheetse thickness used.
+thick_gap = 0.08 # Leave a small gap in the sheetse thickness used.
+min_interval = 1.5 # recommend to set value same as sheets thickness or more.
+outer_gap = 10.0  # this value represents the distance from the edge.
+
+[lamination]
+sheet_thickness = 1.0 # Leave a small gap in the sheetse thickness used.
+#outer_gap = 0.08  # this value represents the distance from the edge.
+
+[dxf_settings]
+output = false
+sheets_gap = 10.0 # default: 10.0 , this value should set larger than distance of LASER start point 
+
+[app_preference]
+# cutting_mode = "intersection" # intersection: x/y cut, lamination: x or y cut
+cutting_mode = "lamination" # intersection: x/y cut, lamination: x or y cut
 
