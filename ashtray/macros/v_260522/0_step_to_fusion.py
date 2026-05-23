@@ -1,7 +1,6 @@
 import FreeCAD as App
 import FreeCADGui as Gui
 import Draft
-import Part
 
 # 1. Get the selection
 selection = Gui.Selection.getSelection()
