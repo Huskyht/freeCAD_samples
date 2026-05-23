@@ -2,20 +2,14 @@ from tomllib import load
 import FreeCAD as App
 import FreeCADGui as Gui
 import Part
-import Draft
 
-# Macro importing const in another file
 import sys
 import os
 
-# Get current macro directory
 current_dir = os.path.dirname(__file__)
-# Add it to Python path
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# from const import consts, IntrSheetsInfo
-# from toml_loader import load_toml, DieInfo, IntrSheetsInfo, DxfSettings, AppPreference
 from toml_loader import (
     LamiInfo,
     LamiSheetsInfo,
@@ -32,7 +26,7 @@ def align_faces_on_xy_plane(faces_list, gap):
 
 
 def align_and_orient(combined_face):
-    # --- align to XY plane ---
+    # ── align to XY plane ─────────────────────────────────────────────────
     normal = combined_face.Faces[0].normalAt(0.5, 0.5)
     target = App.Vector(0, 0, 1)
 
@@ -41,24 +35,24 @@ def align_and_orient(combined_face):
 
     aligned = combined_face.copy().transformGeometry(placement.toMatrix())
 
-    # --- move to origin ---
+    # ── move to origin ────────────────────────────────────────────────────
     center = aligned.BoundBox.Center
     aligned.translate(App.Vector(0, 0, 0) - center)
 
-    # --- check bbox ---
+    # ── check bbox ────────────────────────────────────────────────────────
     bb = aligned.BoundBox
     x_len = bb.XLength
     y_len = bb.YLength
 
-    # --- rotate if needed ---
+    # ── rotate if needed ──────────────────────────────────────────────────
     if x_len > y_len:
-        # rotate 90 deg around Z
+        # ── rotate 90 deg around Z ────────────────────────────────────────────
         rot_z = App.Rotation(App.Vector(0, 0, 1), 90)
         aligned = aligned.transformGeometry(
             App.Placement(App.Vector(), rot_z).toMatrix()
         )
 
-        # recenter again after rotation
+        # ── recenter again after rotation ─────────────────────────────────────
         center = aligned.BoundBox.Center
         aligned.translate(App.Vector(0, 0, 0) - center)
 

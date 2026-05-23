@@ -84,4 +84,4 @@ else:
     App.ActiveDocument.removeObject(obj.Name)
     App.ActiveDocument.recompute()
 
-    print("✅ Done: aligned using face + bbox center")
+    print("  Object aligned")

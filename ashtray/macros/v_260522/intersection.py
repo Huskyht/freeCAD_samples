@@ -14,14 +14,16 @@ current_dir = os.path.dirname(__file__)
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# from const import consts, IntrSheetsInfo
-# from toml_loader import load_toml, DieInfo, IntrSheetsInfo, DxfSettings, AppPreference
 from toml_loader import (
     DieInfo,
     IntrSecInfo,
     IntrSheetsInfo,
     DxfSettings,
 )
+
+# ╔══════════════════════════════════════════════════════════╗
+# ║                       Intersection                       ║
+# ╚══════════════════════════════════════════════════════════╝
 
 
 def create_faces(shape, sheets: IntrSheetsInfo, as_compound=False):
@@ -83,9 +85,9 @@ def create_offset_faces(
     return Part.makeCompound(faces) if as_compound else faces
 
 
-# =================
-# === UTILITIES ===
-# =================
+# ╭──────────────────────────────────────────────────────────╮
+# │                        UTILITIES                         │
+# ╰──────────────────────────────────────────────────────────╯
 def is_even(n: int) -> bool:
     return n % 2 == 0
 
@@ -103,7 +105,8 @@ def slice_wires(shape, vec, offset):
     return list(shape.slice(vec, offset))
 
 
-# NOTE: To extrude symmetric, Sepalate treatement as pos or neg direction and treat each side of faces.
+# ── NOTE: To extrude symmetric, Sepalate treatement as pos or neg ─────
+# ──       direction and treat each side of faces. ─────────────────────
 def faces_to_solids(faces, sheets: IntrSheetsInfo, as_compound=False):
     direction = sheets.vec.normalize()
     half = (sheets.thickness + sheets.thick_gap) / 2.0
@@ -126,20 +129,15 @@ def create_cut_result(base_faces, tool):
 
 def add_enumurate_number(comp_obj, is_upper, font, text_height):
     doc = App.ActiveDocument
-    # doc.disableRecompute()
-
-    # faces_list = faces_comp.SubShapes
     font_path = font
     final_shape = []
     dummy_ss = Draft.make_shapestring("INIT", font_path, text_height, 0.0)
-    # dummy_ss.touch()
     vec = comp_obj.Faces[0].normalAt(0.5, 0.5)
     if vec == App.Vector(1, 0, 0):
         rot = App.Rotation(App.Vector(0, 0, 1), -90)
         dummy_ss.Placement = App.Placement(App.Vector(0, 0, 0), rot)
 
     for num, face in enumerate(comp_obj.Faces, start=1):
-        # text_shape = Draft.make_shapestring(str(num), font_path, text_height, 0.0)
         dummy_ss.String = str(num)
         dummy_ss.touch()
         doc.recompute()
@@ -151,10 +149,6 @@ def add_enumurate_number(comp_obj, is_upper, font, text_height):
             text_shape.transformShape(
                 App.Placement(App.Vector(0, 0, 0), to_xy_rot).toMatrix()
             )
-            # to_xy_rot = App.Rotation(App.Vector(0, 0, 1), -90)
-            # text_shape.transformShape(
-            #     App.Placement(App.Vector(0, 0, 0), to_xy_rot).toMatrix()
-            # )
         elif vec == App.Vector(0, 1, 0):
             to_xy_rot = App.Rotation(App.Vector(1, 0, 0), -90)
             text_shape.transformShape(
@@ -226,7 +220,7 @@ def process_upper(x_faces, y_faces, x_tool, y_tool):
     )
 
 
-# NOTE: align all coumpounded faces on XY plane
+# ── NOTE: align all coumpounded faces on XY plane ─────────────────────
 def align_faces_on_xy_plane(list_compound, gap):
     # faces_list = list(compound.Faces)
     processed = [align_and_orient(c) for c in list_compound.childShapes()]
@@ -236,7 +230,7 @@ def align_faces_on_xy_plane(list_compound, gap):
 
 
 def align_and_orient(comp):
-    # --- align to XY plane ---
+    # ── align to XY plane ─────────────────────────────────────────────────
     normal = comp.Faces[0].normalAt(0.5, 0.5)
     target = App.Vector(0, 0, 1)
 
@@ -245,27 +239,25 @@ def align_and_orient(comp):
 
     aligned = comp.copy().transformGeometry(placement.toMatrix())
 
-    # --- move to origin ---
+    # ── move to origin ────────────────────────────────────────────────────
     center = aligned.BoundBox.Center
     aligned.translate(App.Vector(0, 0, 0) - center)
 
-    # --- check bbox ---
     bb = aligned.BoundBox
     x_len = bb.XLength
     y_len = bb.YLength
 
     # --- rotate if needed ---
     if x_len > y_len:
-        # rotate 90 deg around Z
+        # ── rotate 90 deg around Z ────────────────────────────────────────────
         rot_z = App.Rotation(App.Vector(0, 0, 1), 90)
         aligned = aligned.transformGeometry(
             App.Placement(App.Vector(), rot_z).toMatrix()
         )
 
-        # recenter again after rotation
+        # ── recenter again after rotation ─────────────────────────────────────
         center = aligned.BoundBox.Center
         aligned.translate(App.Vector(0, 0, 0) - center)
-
     return aligned
 
 
@@ -332,6 +324,9 @@ def arrange_faces(faces, pitch=50):
     return arranged
 
 
+# ╭──────────────────────────────────────────────────────────╮
+# │                    main enrtry point                     │
+# ╰──────────────────────────────────────────────────────────╯
 def intersection(
     die_info: DieInfo,
     intr_sec_info: IntrSecInfo,
@@ -343,8 +338,10 @@ def intersection(
 
     bbox = box.BoundBox
 
-    # FOR CUTTING SHEETS
-    # sheet definitions
+    # ╭──────────────────────────────────────────────────────────╮
+    # │                    FOR CUTTING SHEETS                    │
+    # │                    sheet definitions                     │
+    # ╰──────────────────────────────────────────────────────────╯
     x_sheets = IntrSheetsInfo.from_intr_sec_info(
         bbox.XLength, App.Vector(1, 0, 0), intr_sec_info
     )
@@ -387,8 +384,6 @@ def intersection(
         y_slotted_0, False, dxf_settings.font_path, dxf_settings.text_height
     )
 
-    # comp_x_lower = Part.makeCompound(x_slotted_0)
-    # comp_y_lower = Part.makeCompound(y_slotted_0)
     comp_x_lower = Part.makeCompound(enum_x_faces_0)
     comp_y_lower = Part.makeCompound(enum_y_faces_0)
     comp_lower = Part.makeCompound([comp_x_lower, comp_y_lower])
@@ -396,7 +391,7 @@ def intersection(
 
     # NOTE: UPPER DIE INTER SECTIONAL TREATMENT
 
-    # first, bring buck sheetes to z = 0 + CUBE_Z_OFFSET
+    # ── first, bring buck sheetes to z = 0 + CUBE_Z_OFFSET ────────────────
     x_upper_offset = (
         +die_info.cube_z_offset / 2
         + intr_sec_info.thick_gap
@@ -424,17 +419,11 @@ def intersection(
     enum_y_faces_1 = add_enumurate_number(
         y_slotted_1, True, dxf_settings.font_path, dxf_settings.text_height
     )
-    # comp_x_upper = Part.makeCompound(x_slotted_1)
-    # comp_y_upper = Part.makeCompound(y_slotted_1)
     comp_x_upper = Part.makeCompound(enum_x_faces_1)
     comp_y_upper = Part.makeCompound(enum_y_faces_1)
     comp_upper = Part.makeCompound([comp_x_upper, comp_y_upper])
     App.ActiveDocument.addObject("Part::Feature", "upper_die").Shape = comp_upper
 
-    # x_lower_sheets = align_faces_on_xy_plane(comp_x_lower, gap=dxf_settings.sheets_gap)
-    # y_lower_sheets = align_faces_on_xy_plane(comp_y_lower, gap=dxf_settings.sheets_gap)
-    # x_upper_sheets = align_faces_on_xy_plane(comp_x_upper, gap=dxf_settings.sheets_gap)
-    # y_upper_sheets = align_faces_on_xy_plane(comp_y_upper, gap=dxf_settings.sheets_gap)
     x_lower_sheets = align_faces_on_xy_plane(comp_x_lower, gap=dxf_settings.sheets_gap)
     y_lower_sheets = align_faces_on_xy_plane(comp_y_lower, gap=dxf_settings.sheets_gap)
     x_upper_sheets = align_faces_on_xy_plane(comp_x_upper, gap=dxf_settings.sheets_gap)

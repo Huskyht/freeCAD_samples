@@ -1,20 +1,13 @@
 from tomllib import load
 import FreeCAD as App
 import FreeCADGui as Gui
-import Part
-
-# Macro importing const in another file
 import sys
 import os
 
-# Get current macro directory
 current_dir = os.path.dirname(__file__)
-# Add it to Python path
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# from const import consts, SheetInfo
-# from toml_loader import load_toml, TomlConsts, SheetInfo, DxfSettings, AppPreference
 from toml_loader import (
     load_toml,
     DieInfo,
@@ -28,9 +21,9 @@ from lamination import lamination
 from intersection import intersection
 
 
-# ===================
-# === ENTRY POINT ===
-# ===================
+# ╔══════════════════════════════════════════════════════════╗
+# ║                       ENTRY POINT                        ║
+# ╚══════════════════════════════════════════════════════════╝
 def main():
     toml_data = load_toml()
     die_info = DieInfo.from_toml(toml_data)

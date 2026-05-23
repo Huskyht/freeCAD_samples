@@ -4,23 +4,22 @@ import FreeCADGui as Gui
 import Part
 import Draft
 
-# Macro importing const in another file
 import sys
 import os
 
-# Get current macro directory
 current_dir = os.path.dirname(__file__)
-# Add it to Python path
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# from const import consts, IntrSheetsInfo
-# from toml_loader import load_toml, DieInfo, IntrSheetsInfo, DxfSettings, AppPreference
 from toml_loader import (
     LamiInfo,
     LamiSheetsInfo,
     DxfSettings,
 )
+
+# ╔══════════════════════════════════════════════════════════╗
+# ║                        lamination                        ║
+# ╚══════════════════════════════════════════════════════════╝
 
 
 def lamination(lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box):
@@ -37,7 +36,7 @@ def lamination(lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box):
         )
 
     die_solids = box.cut(step_obj.Shape).Solids
-    # 0: lower, 1: upper
+    # ── 0: lower, 1: upper ────────────────────────────────────────────────
     faces_0 = create_offset_faces(die_solids[0], sheets, False, False)
     faces_1 = create_offset_faces(die_solids[1], sheets, True, False)
 
@@ -50,18 +49,9 @@ def lamination(lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box):
 
     sheets_0 = align_faces_on_xy_plane(enum_faces_0, gap=dxf_settings.sheets_gap)
     sheets_1 = align_faces_on_xy_plane(enum_faces_1, gap=dxf_settings.sheets_gap)
-    # sheets_0 = align_faces_on_xy_plane(faces_0, gap=dxf_settings.sheets_gap)
-    # sheets_1 = align_faces_on_xy_plane(faces_1, gap=dxf_settings.sheets_gap)
 
     comp_sheets_list = [sheets_0, sheets_1]
     aligned_comp_sheets = arrange_faces_y(comp_sheets_list, gap=dxf_settings.sheets_gap)
-
-    # ss_0 = add_enumurate_number(
-    #     sheets_0, dxf_settings.font_path, dxf_settings.text_height
-    # )
-    # ss_1 = add_enumurate_number(
-    #     sheets_1, dxf_settings.font_path, dxf_settings.text_height
-    # )
 
     App.ActiveDocument.addObject(
         "Part::Feature", "lower_die"
@@ -73,15 +63,9 @@ def lamination(lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box):
     App.ActiveDocument.addObject(
         "Part::Feature", "lower_sheets"
     ).Shape = aligned_comp_sheets[0]
-    # App.ActiveDocument.addObject(
-    #     "Part::Feature", "enum_number_0"
-    # ).Shape = Part.makeCompound(ss_0)
     App.ActiveDocument.addObject(
         "Part::Feature", "upper_sheets"
     ).Shape = aligned_comp_sheets[1]
-    # App.ActiveDocument.addObject(
-    #     "Part::Feature", "enum_number_1"
-    # ).Shape = Part.makeCompound(ss_1)
 
     App.Console.PrintMessage(" Creating laminating sheets ...\n")
 
@@ -119,9 +103,9 @@ def create_offset_faces(
     return Part.makeCompound(faces) if as_compound else faces
 
 
-# =================
-# === UTILITIES ===
-# =================
+# ╭──────────────────────────────────────────────────────────╮
+# │                        UTILITIES                         │
+# ╰──────────────────────────────────────────────────────────╯
 def is_even(n: int) -> bool:
     return n % 2 == 0
 
@@ -141,20 +125,16 @@ def slice_wires(shape, vec, offset):
 
 def add_enumurate_number(faces_list, is_upper, font, text_height):
     doc = App.ActiveDocument
-    # doc.disableRecompute()
 
-    # faces_list = faces_comp.SubShapes
     font_path = font
     final_shape = []
     dummy_ss = Draft.make_shapestring("INIT", font_path, text_height, 0.0)
-    # dummy_ss.touch()
     vec = faces_list[0].normalAt(0.5, 0.5)
     if vec == App.Vector(1, 0, 0):
         rot = App.Rotation(App.Vector(0, 0, 1), -90)
         dummy_ss.Placement = App.Placement(App.Vector(0, 0, 0), rot)
 
     for num, face in enumerate(faces_list, start=1):
-        # text_shape = Draft.make_shapestring(str(num), font_path, text_height, 0.0)
         dummy_ss.String = str(num)
         dummy_ss.touch()
         doc.recompute()
@@ -166,10 +146,6 @@ def add_enumurate_number(faces_list, is_upper, font, text_height):
             text_shape.transformShape(
                 App.Placement(App.Vector(0, 0, 0), to_xy_rot).toMatrix()
             )
-            # to_xy_rot = App.Rotation(App.Vector(0, 0, 1), -90)
-            # text_shape.transformShape(
-            #     App.Placement(App.Vector(0, 0, 0), to_xy_rot).toMatrix()
-            # )
         elif vec == App.Vector(0, 1, 0):
             to_xy_rot = App.Rotation(App.Vector(1, 0, 0), -90)
             text_shape.transformShape(
@@ -217,7 +193,7 @@ def add_enumurate_number(faces_list, is_upper, font, text_height):
     return final_shape
 
 
-# NOTE: align all coumpounded faces on XY plane
+# ── NOTE: align all coumpounded faces on XY plane ─────────────────────
 def align_faces_on_xy_plane(faces_list, gap):
     processed = [align_and_orient(f) for f in faces_list]
     arranged = arrange_faces_adaptive(processed, gap=gap, y_position=0)
@@ -226,7 +202,7 @@ def align_faces_on_xy_plane(faces_list, gap):
 
 
 def align_and_orient(combined_face):
-    # --- align to XY plane ---
+    # ── align to XY plane ─────────────────────────────────────────────────
     normal = combined_face.Faces[0].normalAt(0.5, 0.5)
     target = App.Vector(0, 0, 1)
 
@@ -235,24 +211,24 @@ def align_and_orient(combined_face):
 
     aligned = combined_face.copy().transformGeometry(placement.toMatrix())
 
-    # --- move to origin ---
+    # ── move to origin ────────────────────────────────────────────────────
     center = aligned.BoundBox.Center
     aligned.translate(App.Vector(0, 0, 0) - center)
 
-    # --- check bbox ---
+    # ── check bbox ────────────────────────────────────────────────────────
     bb = aligned.BoundBox
     x_len = bb.XLength
     y_len = bb.YLength
 
-    # --- rotate if needed ---
+    # ── rotate if needed ──────────────────────────────────────────────────
     if x_len > y_len:
-        # rotate 90 deg around Z
+        # ── rotate 90 deg around Z ────────────────────────────────────────────
         rot_z = App.Rotation(App.Vector(0, 0, 1), 90)
         aligned = aligned.transformGeometry(
             App.Placement(App.Vector(), rot_z).toMatrix()
         )
 
-        # recenter again after rotation
+        # ── recenter again after rotation ─────────────────────────────────────
         center = aligned.BoundBox.Center
         aligned.translate(App.Vector(0, 0, 0) - center)
 

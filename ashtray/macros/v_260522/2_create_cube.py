@@ -5,17 +5,13 @@ import Part
 import math
 from dataclasses import dataclass
 
-# Macro importing const in another file
 import sys
 import os
 
-# Get current macro directory
 current_dir = os.path.dirname(__file__)
-# Add it to Python path
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# from const import Const
 from toml_loader import AppPreference, DieInfo, load_toml, LamiInfo
 
 
@@ -88,13 +84,14 @@ def get_shape(selection, as_compound=True):
         if sel.SubObjects:
             for sub in sel.SubObjects:
                 shapes.append(sub)
-                # Capture the normal vector of the first selected Face
+                # ── Capture the normal vector of the first selected Face ──────────────
                 if first_face_normal is None and isinstance(sub, Part.Face):
-                    # Get the normal at the center of the face's parameter space (u=0.5, v=0.5)
+                    # ── Get the normal at the center of ───────────────────────────────────
+                    # ── the face's parameter space (u=0.5, v=0.5) ─────────────────────────
                     uv = sub.Surface.parameter(sub.CenterOfMass)
                     first_face_normal = sub.normalAt(uv[0], uv[1])
         else:
-            # If an entire object is selected
+            # ── If an entire object is selected ───────────────────────────────────
             if hasattr(sel.Object, "Shape"):
                 shapes.append(sel.Object.Shape)
 
@@ -115,9 +112,9 @@ def create_cube(z_offset, cube: CubeDim):
     return new_box
 
 
-# ===================
-# === ENTRY POINT ===
-# ===================
+# ╔══════════════════════════════════════════════════════════╗
+# ║                       ENTRY POINT                        ║
+# ╚══════════════════════════════════════════════════════════╝
 def main():
     App.Console.PrintMessage("Creating bounding box ...\n")
     toml_data = load_toml()
