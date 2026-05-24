@@ -2,6 +2,7 @@ from tomllib import load
 import FreeCAD as App
 import FreeCADGui as Gui
 import Part
+import CompoundTools.Explode as explode
 
 import sys
 import os
@@ -16,17 +17,27 @@ from toml_loader import (
 )
 
 
+# ── this tool will return compounded objects list which is different ──
+# ── from Part.Cut .
+# ── if com_obj has child objects of compounded, return list of compound. ──
+def cutting_tool(comp_obj, slicer_obj):
+    comp_list = comp_obj.childShapes()
+    result = []
+    for c in comp_list:
+        result.append(c.cut(slicer_obj))
+
+    return result
+
+
 # NOTE: align all coumpounded faces on XY plane
 def align_faces_on_xy_plane(comp_obj, gap):
-
-    processed = [align_and_orient(o) for o in comp_obj.childShapes()]
+    processed = [align_and_orient(o) for o in comp_obj]
     arranged = arrange_faces_adaptive(processed, gap=gap, y_position=0)
 
     return Part.makeCompound(arranged)
 
 
 def align_and_orient(combined_face):
-    App.Console.PrintMessage(f"combined_face: {combined_face.ShapeType} \n")
     # ── align to XY plane ─────────────────────────────────────────────────
     normal = combined_face.Faces[0].normalAt(0.5, 0.5)
     target = App.Vector(0, 0, 1)
@@ -114,6 +125,9 @@ def arrange_faces(faces, pitch=50):
     return arranged
 
 
+# ╭──────────────────────────────────────────────────────────╮
+# │                     Main entry point                     │
+# ╰──────────────────────────────────────────────────────────╯
 def main():
     App.Console.PrintMessage("aligning faces ...\n")
     toml_data = load_toml()
@@ -124,23 +138,29 @@ def main():
     sel = Gui.Selection.getSelection()
 
     if not sel:
-        App.Console.PrintMessage("Please select 1 or more object/s.")
+        App.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
+        raise
+    elif len(sel) < 2:
+        App.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
         raise
 
-    sheets = []
-    for obj in sel:
-        if obj.Shape.ShapeType == "Compound":
-            sheets.append(align_faces_on_xy_plane(obj.Shape, dxf_settings.sheets_gap))
+    # sheets = []
+    obj = sel[0].Shape
+    slicer = sel[1].Shape
 
-    if not sheets:
-        App.Console.PrintMessage(
-            f"failed to aligned faces. Please check obj is compounded correctly. \n"
-        )
+    comp_obj = cutting_tool(obj, slicer)
+    aligned_sheets = align_faces_on_xy_plane(comp_obj, dxf_settings.sheets_gap)
 
-    aligned_sheets = arrange_faces_y(sheets, gap=dxf_settings.sheets_gap)
-    for i, comp_sheets in enumerate(aligned_sheets):
-        name = "sheets" + str(i)
-        App.ActiveDocument.addObject("Part::Feature", name).Shape = comp_sheets
+    App.ActiveDocument.addObject("Part::Feature", "sheets").Shape = aligned_sheets
+    # if not sheets:
+    #     App.Console.PrintMessage(
+    #         f"failed to aligned faces. Please check obj is compounded correctly. \n"
+    #     )
+
+    # aligned_sheets = arrange_faces_y(sheets, gap=dxf_settings.sheets_gap)
+    # for i, comp_sheets in enumerate(aligned_sheets):
+    #     name = "sheets" + str(i)
+    #     App.ActiveDocument.addObject("Part::Feature", name).Shape = comp_sheets
 
     App.Console.PrintMessage("faces are aligned")
 
