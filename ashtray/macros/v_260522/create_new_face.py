@@ -7,12 +7,14 @@ import Part
 # ║                       ENTRY POINT                        ║
 # ╚══════════════════════════════════════════════════════════╝
 def main():
+    App.Console.PrintMessage("running create new face... \n")
     selection_ex = Gui.Selection.getSelectionEx()
-    App.Console.PrintMessage(f"selected num : {len(selection_ex)} \n")
 
     edges = get_selected_edges(selection_ex)
     if not edges:
-        App.Console.PrintError("Error: No Edges were selected in the 3D View.\n")
+        App.Console.PrintError(
+            "Error: 2 or more continuous Edges should be selected in the 3D View.\n"
+        )
         return
     App.Console.PrintMessage(f"sub element detected. : {edges} \n")
 
@@ -25,8 +27,10 @@ def main():
     App.Console.PrintMessage(f"closed_edges: {closed_edges} \n")
     wire = create_wire(closed_edges)
     face = create_face(wire)
+
     Part.show(face, "NewFace")
     App.ActiveDocument.recompute()
+    App.Console.PrintMessage("complete create new face. \n")
 
 
 def get_selected_edges(selection_ex):
@@ -37,6 +41,8 @@ def get_selected_edges(selection_ex):
             if element.ShapeType == "Edge":
                 edges.append(element)
     if edges:
+        if len(edges) <= 1:
+            return None
         return edges
     else:
         return None
@@ -48,7 +54,9 @@ def process_selected_edges(edges):
     # part.sortEdges() returns the edges organized in a continuous head-to-tail path chain (end-to-end).
     # if Edges has gap which is greater than 10e-7, part.sortEdges() returns tupple which express clusters.
     sorted_edges = Part.sortEdges(edges)
-    if isinstance(sorted_edges, tuple):
+
+    # if isinstance(sorted_edges, tuple):
+    if len(sorted_edges) >= 2:
         cluster_count = len(sorted_edges)
         App.Console.PrintError(
             f"Error: The selected edges have a gap and do not connect!\n"
@@ -60,62 +68,74 @@ def process_selected_edges(edges):
 
 
 def add_missing_edge(sorted_edges):
-    App.Console.PrintMessage("running add_missing_edge... \n")
 
-    v_start = sorted_edges[0].Vertexes[0] if len(sorted_edges[0].Vertexes) > 0 else None
-    v_end = (
-        sorted_edges[-1].Vertexes[-1] if len(sorted_edges[-1].Vertexes) > 0 else None
+    v_start = (
+        sorted_edges[0].Vertexes[0].Point if len(sorted_edges[0].Vertexes) > 0 else None
     )
+    v_end = (
+        sorted_edges[-1].Vertexes[-1].Point
+        if len(sorted_edges[-1].Vertexes) > 0
+        else None
+    )
+
+    # Ensure we didn't pick up matching vertices in between
+    if (
+        sorted_edges[0].Vertexes[-1].Point == sorted_edges[1].Vertexes[0].Point
+        or sorted_edges[0].Vertexes[-1].Point == sorted_edges[1].Vertexes[-1].Point
+    ):
+        pass
+    else:
+        # Handle reverse vertex indexing if sorted_edges inverted them
+        v_start = sorted_edges[0].Vertexes[-1].Point
+        App.Console.PrintMessage("v_start is inverted \n")
+
+    if (
+        sorted_edges[-1].Vertexes[0].Point == sorted_edges[-2].Vertexes[0].Point
+        or sorted_edges[-1].Vertexes[0].Point == sorted_edges[-2].Vertexes[-1].Point
+    ):
+        pass
+    else:
+        v_end = sorted_edges[-1].Vertexes[0].Point
+        App.Console.PrintMessage("v_end is inverted \n")
+
     # early return if edges is already closed
-    if v_start.isSame(v_end):
+    if v_start == v_end:
         App.Console.PrintMessage(
             "Shape is already closed. Skipping bridge generation.\n"
         )
         return sorted_edges
     if len(sorted_edges) <= 1:
         App.Console.PrintError("Please select continous 2 or more edges. \n")
-        raise
+        return None
     elif len(sorted_edges) == 2:
         v_exist = (
-            sorted_edges[0].Vertexes[-1] if len(sorted_edges[0].Vertexes) > 0 else None
+            sorted_edges[0].Vertexes[-1].Point
+            if len(sorted_edges[0].Vertexes) > 0
+            else None
         )
-        vec_start_end = v_end.Point - v_start.Point
-        vec_exist_point = v_exist.Point - v_start.Point
-        missing_point = (
-            v_start.Point + vec_exist_point - vec_start_end - vec_exist_point
-        )
+        if v_exist == v_start:
+            v_exist = sorted_edges[0].Vertexes[0].Point
+            App.Console.PrintMessage("v_exist is inverted \n")
+        if v_end == None or v_start == None or v_exist == None:
+            return None
+
+        vec_start_end = v_end - v_start
+        vec_exist_point = v_exist - v_start
+        missing_point = v_start - vec_exist_point + vec_start_end
         sorted_edges.append(
             Part.makeLine(
-                App.Vector(sorted_edges[-1].Vertexes[-1].Point),
+                App.Vector(v_end),
                 App.Vector(missing_point),
             )
         )
         sorted_edges.append(
-            Part.makeLine(
-                App.Vector(missing_point), App.Vector(sorted_edges[0].Vertexes[0].Point)
-            )
+            Part.makeLine(App.Vector(missing_point), App.Vector(v_start))
         )
 
     elif len(sorted_edges) >= 3:
         try:
-            # Ensure we didn't pick up matching vertices in between
-            if sorted_edges[0].Vertexes[-1].isSame(
-                sorted_edges[1].Vertexes[0]
-            ) or sorted_edges[0].Vertexes[-1].isSame(sorted_edges[1].Vertexes[-1]):
-                pass
-            else:
-                # Handle reverse vertex indexing if sortsorted_edges inverted them
-                v_start = sorted_edges[0].Vertexes[-1]
-
-            if sorted_edges[-1].Vertexes[0].isSame(
-                sorted_edges[-2].Vertexes[0]
-            ) or sorted_edges[-1].Vertexes[0].isSame(sorted_edges[-2].Vertexes[-1]):
-                pass
-            else:
-                v_end = sorted_edges[-1].Vertexes[0]
-
-            # 4. Generate the 4th missing straight edge to close the U-shape
-            bridge_edge = Part.makeLine(v_start.Point, v_end.Point)
+            # Generate the 4th missing straight edge to close the U-shape
+            bridge_edge = Part.makeLine(v_start, v_end)
             sorted_edges.append(bridge_edge)
 
         except Exception as e:
