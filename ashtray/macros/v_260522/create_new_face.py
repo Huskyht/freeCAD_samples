@@ -9,6 +9,7 @@ import Part
 def main():
     App.Console.PrintMessage("running create new face... \n")
     selection_ex = Gui.Selection.getSelectionEx()
+    App.Console.PrintMessage(f"sel.name : {selection_ex[0].Object.Label} \n")
 
     edges = get_selected_edges(selection_ex)
     if not edges:
@@ -27,6 +28,8 @@ def main():
     App.Console.PrintMessage(f"closed_edges: {closed_edges} \n")
     wire = create_wire(closed_edges)
     face = create_face(wire)
+    face.extrude(App.Vector(0, 0, -1))
+    # comp_obj = Part.makeCompound([selection_ex[0].Object.Shape, face])
 
     Part.show(face, "NewFace")
     App.ActiveDocument.recompute()
