@@ -28,10 +28,10 @@ def main():
     App.Console.PrintMessage(f"closed_edges: {closed_edges} \n")
     wire = create_wire(closed_edges)
     face = create_face(wire)
-    face.extrude(App.Vector(0, 0, -1))
-    # comp_obj = Part.makeCompound([selection_ex[0].Object.Shape, face])
+    solid = face.extrude(App.Vector(0, 0, -1))
+    comp_obj = Part.makeCompound([selection_ex[0].Object.Shape, solid])
 
-    Part.show(face, "NewFace")
+    Part.show(comp_obj, "NewFace")
     App.ActiveDocument.recompute()
     App.Console.PrintMessage("complete create new face. \n")
 
