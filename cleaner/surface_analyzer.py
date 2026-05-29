@@ -4,6 +4,16 @@ import Part
 import math
 import csv
 import datetime
+import platform
+
+COLOR_RED = "#CC241D"
+COLOR_BLUE = "#5E81AC"
+COLOR_GREEN = "#A3BE8C"
+COLOR_YELLOW = "#FABD2F"
+COLOR_GRAY = "#D8DEE9"
+COLOR_PURPLE = "#B48EAD"
+COLOR_ORANGE = "#FE8019"
+COLOR_WHITE = "#F9F5D7"
 
 
 def write_csv(file_path, data):
@@ -47,7 +57,7 @@ def analyze_face_geometries(obj):
 
     for i, face in enumerate(shape.Faces):
         print(f"\n--- Face [{i}] ---")
-        hex_color = "#D8DEE9"  # default color : light gray
+        hex_color = COLOR_GRAY
 
         # 1. get surface type
         surf = face.Surface
@@ -58,7 +68,7 @@ def analyze_face_geometries(obj):
         print(f"  Area : {face.Area:.4f} mm2")
 
         # 2. count topology conection from edge
-        adjacent_count = len(shape.ancestorsOfType(face, Part.Edge))
+        # adjacent_count = len(shape.ancestorsOfType(face, Part.Edge))
         print(f"  Edges : {len(face.Edges)}")
 
         # 3. display surface type's property
@@ -80,7 +90,7 @@ def analyze_face_geometries(obj):
                     normal.z,
                 ]
             )
-            hex_color = "#8FBCBB"
+            hex_color = COLOR_BLUE
 
         elif surf_type == "Cylinder":
             radius = surf.Radius
@@ -90,7 +100,7 @@ def analyze_face_geometries(obj):
             csv_contents.append(
                 [surf_type, area, center.x, center.y, center.z, radius, axies]
             )
-            hex_color = "#BF616A"
+            hex_color = COLOR_YELLOW
 
         elif surf_type == "Toroid":
             major_R = surf.MajorRadius
@@ -100,7 +110,7 @@ def analyze_face_geometries(obj):
             csv_contents.append(
                 [surf_type, area, center.x, center.y, center.z, major_R, minor_r]
             )
-            hex_color = "#EBCB8B"
+            hex_color = COLOR_GREEN
 
         elif surf_type == "Cone":
             semi_angle = math.degrees(surf.SemiAngle)
@@ -108,8 +118,46 @@ def analyze_face_geometries(obj):
             csv_contents.append(
                 [surf_type, area, center.x, center.y, center.z, semi_angle]
             )
-            hex_color = "#B48EAD"
+            hex_color = COLOR_PURPLE
 
+        elif surf_type == "Sphere":
+            uv = face.ParameterRange
+            u_mid = (uv[0] + uv[1]) / 2
+            v_mid = (uv[2] + uv[3]) / 2
+            normal = face.normalAt(u_mid, v_mid)
+            print("complex shape")
+            csv_contents.append(
+                [
+                    surf_type,
+                    area,
+                    center.x,
+                    center.y,
+                    center.z,
+                    normal.x,
+                    normal.y,
+                    normal.z,
+                ]
+            )
+            hex_color = COLOR_ORANGE
+        elif surf_type == "BSplineSurface":
+            uv = face.ParameterRange
+            u_mid = (uv[0] + uv[1]) / 2
+            v_mid = (uv[2] + uv[3]) / 2
+            normal = face.normalAt(u_mid, v_mid)
+            print("complex shape")
+            csv_contents.append(
+                [
+                    surf_type,
+                    area,
+                    center.x,
+                    center.y,
+                    center.z,
+                    normal.x,
+                    normal.y,
+                    normal.z,
+                ]
+            )
+            hex_color = COLOR_RED
         else:
             uv = face.ParameterRange
             u_mid = (uv[0] + uv[1]) / 2
@@ -128,7 +176,7 @@ def analyze_face_geometries(obj):
                     normal.z,
                 ]
             )
-            hex_color = "#88C0D0"  # FIX: THIS COLOR CODE LOOKS LIKE PLANE COLOR. NEED TO CHANGE OTHER VIVID COLOR
+            hex_color = COLOR_WHITE
 
         r = int(hex_color[1:3], 16) / 255.0
         g = int(hex_color[3:5], 16) / 255.0
@@ -176,7 +224,7 @@ def main():
     App.Console.PrintMessage("analizing object ... \n")
     sel_ex = Gui.Selection.getSelectionEx()
     if not sel_ex:
-        App.Console.PrintError("No object selected. \n")
+        App.Console.PrintError("No object selected. \n"
         return
 
     sel_obj = sel_ex[0].Object
@@ -193,8 +241,15 @@ def main():
         now = datetime.datetime.now()
         timestamp = now.strftime("%Y%m%d_%H%M%S")
         file_name = f"{obj.Label}_{timestamp}.csv"
-        dir_path = "/home/husky/huskyprojects/freeCAD_samples/cleaner/"
-        file_path = dir_path + file_name
+
+        os_name = platform.system()
+        if os_name == "Windows":
+            dir_path = r"C:\\Users\\XU74644\\hsky\\codes\\FreeCAD\\surface-analyzer\\"
+            file_path = dir_path + file_name
+        else:
+            dir_path = "/home/husky/huskyprojects/freeCAD_samples/cleaner/"
+            file_path = dir_path + file_name
+
         write_csv(file_path, contents)
 
     App.ActiveDocument.recompute()
