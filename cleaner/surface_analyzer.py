@@ -224,7 +224,7 @@ def main():
     App.Console.PrintMessage("analizing object ... \n")
     sel_ex = Gui.Selection.getSelectionEx()
     if not sel_ex:
-        App.Console.PrintError("No object selected. \n"
+        App.Console.PrintError("No object selected. \n")
         return
 
     sel_obj = sel_ex[0].Object
