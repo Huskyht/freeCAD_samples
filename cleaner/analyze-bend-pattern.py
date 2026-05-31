@@ -518,11 +518,6 @@ def get_real_shape_object(obj):
 
 # copy from SheetMetal Workbench's SheetMetalNewUnfolder.py
 class sheet_metal_graph:
-    @staticmethod
-    def create_graph(obj):
-        # graph = nx.Graph()
-        do_nothing = None
-
     def build_graph_of_tangent_faces(shp: Part.Shape, root: int) -> nx.Graph:
         # Created a simple undirected graph object.
         graph_of_shape_faces = nx.Graph()
@@ -560,18 +555,7 @@ class sheet_metal_graph:
                 " Unfolding it may produce unexpected results.\n"
             )
             FreeCAD.Console.PrintWarning(msg)
-        # graph_of_shape_faces should have at least three connected subgraphs
-        # (top side, bottom side, and sheet edge sides of the sheetmetal part).
-        # We only care about the subgraph that includes the selected root face.
-        for c in nx.connected_components(graph_of_shape_faces):
-            if root in c:
-                return graph_of_shape_faces.subgraph(c).copy()
-        # If there is nothing tangent to the root face, return a graph with
-        # one node and no edges.
-        # This is useful for dxf/svg export of flat plates for manufacturing.
-        single_face_graph = nx.Graph()
-        single_face_graph.add_node(root)
-        return single_face_graph
+        return graph_of_shape_faces.copy()
 
 
 def main():
@@ -609,7 +593,7 @@ def main():
 
     bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(sel_obj.Shape, root_idx)
 
-    neighbors = bend_graph.neighbors(sel_face.hashCode())
+    neighbors = list(bend_graph.neighbors(root_idx))
 
     print(f"root's neighbors : {neighbors}")
 
