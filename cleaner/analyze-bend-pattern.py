@@ -6,6 +6,7 @@ import Part
 from math import degrees, log10, pi, radians, sin, tan
 from statistics import StatisticsError, mode
 import networkx as nx
+import time
 # try:
 #     import networkx as nx
 # except ImportError:
@@ -451,8 +452,8 @@ def paint_face_by_each_surface_type(obj):
         # get surface type
         surf = face.Surface
         surf_type = surf.__class__.__name__
-        print(f"  Surface Type : {surf_type}")
-        print(f"\n--- Face [{i}] ---")
+        # print(f"\n--- Face [{i}] ---")
+        # print(f"  Surface Type : {surf_type}")
         # display surface type's property
         if surf_type == "Plane":
             hex_color = COLOR_BLUE
@@ -559,6 +560,7 @@ class sheet_metal_graph:
 
 
 def main():
+    start_time = time.perf_counter()
     FreeCAD.Console.PrintMessage("analyzing object ... \n")
     sel_ex = Gui.Selection.getSelectionEx()[0]
     if not sel_ex:
@@ -586,8 +588,6 @@ def main():
     print(f"total Faces: {len(obj.Shape.Faces)}")
     print(f"TypeID : {obj.TypeId}")
 
-    obj = paint_face_by_each_surface_type(obj)
-
     thickness = EstimateThickness.using_best_method(obj.Shape, sel_face)
     print(f"thickness : {thickness}")
 
@@ -597,8 +597,13 @@ def main():
 
     print(f"root's neighbors : {neighbors}")
 
+    obj = paint_face_by_each_surface_type(obj)
     FreeCAD.ActiveDocument.recompute()
     Gui.updateGui()
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    print(f"execution time : {elapsed_time}")
+    FreeCAD.Console.PrintMessage(" analyzing object\n")
 
 
 if __name__ == "__main__":
