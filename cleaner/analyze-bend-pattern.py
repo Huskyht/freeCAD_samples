@@ -1,3 +1,4 @@
+from networkx import graph
 from numpy import unsignedinteger
 import FreeCAD
 import FreeCADGui as Gui
@@ -5,25 +6,31 @@ import Part
 
 from math import degrees, log10, pi, radians, sin, tan
 from statistics import StatisticsError, mode
-import networkx as nx
+
 import time
-# try:
-#     import networkx as nx
-# except ImportError:
-#     App.Console.PrintUserError(
-#         "The NetworkX Python package could not be imported. "
-#         "Consider checking that it is installed, "
-#         "or reinstalling the SheetMetal workbench using the addon manager\n"
-#     )
-# try:
-#     test_graph = nx.Graph
-# except AttributeError:
-#     App.Console.PrintUserError(
-#         "The NetworkX Python package is version "
-#         + str(nx.__version__)
-#         + "\n"
-#         + "Consider checking that it is at least version 3.4.2\n "
-#     )
+import csv
+import datetime
+import platform
+import platform
+
+
+try:
+    import networkx as nx
+except ImportError:
+    FreeCAD.Console.printError("networkx libraly doesn't exist. Trying to install ...")
+
+    import subprocess
+    import sys
+    import os
+
+    bin_dir = os.path.dirname(sys.executable)
+    python_exe = os.path.join(bin_dir, "python.exe")
+
+    subprocess.check_call([python_exe, "-m", "pip", "install", "networkx"])
+    FreeCAD.Console.PrintMessage(
+        "Depending libraly is installed. Please restart FreeCAD \n"
+    )
+    sys.exit(1)
 
 # ╭──────────────────────────────────────────────────────────╮
 # │ the standard tolerance value (usually 1 x 10^{-7} )      │
@@ -41,6 +48,33 @@ def is_normal(v1, v2):
     return abs(v1.dot(v2)) < eps
 
 
+def get_normal(face: Part.Face):
+    normal = face.Surface.Axis
+
+    if face.Orientation == "Reversed":
+        normal = -normal
+
+    if abs(normal.x) <= eps:
+        normal.x = 0.0
+    if abs(normal.y) <= eps:
+        normal.y = 0.0
+    if abs(normal.z) <= eps:
+        normal.z = 0.0
+
+    return normal
+
+
+def write_csv(file_path, title, data):
+    try:
+        with open(file_path, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow([title])
+            writer.writerows(data)
+        print(f"csv is created! : {file_path}")
+    except Exception as e:
+        print(f"An error occured while writing csv ... {e}")
+
+
 # copy from SheetMetal Workbench's SheetMetalNewUnfolder.py
 class EstimateThickness:
     """This class provides helper functions to determine the sheet
@@ -56,7 +90,7 @@ class EstimateThickness:
         """
         num_places = abs(int(log10(eps)))
         root_face = selected_face
-        normal = root_face.Surface.Axis
+        normal = get_normal(root_face)
         # Checking membership of an edge in a shape directly won't work.
         # We must compare via hashCodes instead.
         root_face_edge_hashes = [e.hashCode() for e in root_face.Edges]
@@ -505,6 +539,8 @@ def get_real_shape_object(obj):
             result = get_real_shape_object(child)
             if result:
                 return result
+    if obj.TypeId == "Part::Feature":
+        return obj.Shape
 
     # Actual shape object
     if hasattr(obj, "Shape"):
@@ -519,6 +555,14 @@ def get_real_shape_object(obj):
 
 # copy from SheetMetal Workbench's SheetMetalNewUnfolder.py
 class sheet_metal_graph:
+    class bend_property:
+        bend_direction: int  # 1: same direction as base face normal. -1: inverted direction, 0: parallel faces
+        edge_idx: int
+        is_prallel_bend_line: bool
+        connetion_pattern: Part.Face
+        angle: float
+
+    @staticmethod
     def build_graph_of_tangent_faces(shp: Part.Shape, root: int) -> nx.Graph:
         # Created a simple undirected graph object.
         graph_of_shape_faces = nx.Graph()
@@ -537,18 +581,33 @@ class sheet_metal_graph:
         saw_warning = False
         for edge_index, faces in filter(lambda c: len(c[1]) == 2, candidates):
             face_a, face_b = faces
-            shared_edge = shp.Edges[edge_index]
-            tangent_result, possible_geom_warning = TangentFaces.compare(
-                face_a, face_b, shared_edge
-            )
-            saw_warning |= possible_geom_warning
-            if tangent_result:
-                graph_of_shape_faces.add_edge(
-                    index_lookup[face_a.hashCode()],
-                    index_lookup[face_b.hashCode()],
-                    # Store indexes in the label attr for debugging.
-                    label=edge_index,
+            if not (
+                (
+                    isinstance(face_a.Surface, Part.Plane)
+                    and isinstance(face_b.Surface, Part.Cylinder)
                 )
+                or (
+                    isinstance(face_a.Surface, Part.Plane)
+                    and isinstance(face_b.Surface, Part.Cylinder)
+                )
+            ):
+                # print("skipped")
+                # print(f"type(face_a.Surface) : {face_a.Surface}")
+                # print(f"type(face_b.Surface) : {face_b.Surface}")
+                pass
+            else:
+                shared_edge = shp.Edges[edge_index]
+                tangent_result, possible_geom_warning = TangentFaces.compare(
+                    face_a, face_b, shared_edge
+                )
+                saw_warning |= possible_geom_warning
+                if tangent_result:
+                    graph_of_shape_faces.add_edge(
+                        index_lookup[face_a.hashCode()],
+                        index_lookup[face_b.hashCode()],
+                        # Store indexes in the label attr for debugging.
+                        label=edge_index,
+                    )
         # emit a warning if the shape has bends across unsupported face types
         if saw_warning:
             msg = (
@@ -556,7 +615,116 @@ class sheet_metal_graph:
                 " Unfolding it may produce unexpected results.\n"
             )
             FreeCAD.Console.PrintWarning(msg)
-        return graph_of_shape_faces.copy()
+        print(f"nodes numbder : {graph_of_shape_faces.number_of_nodes()}")
+        # return graph_of_shape_faces.copy()
+        for c in nx.connected_components(graph_of_shape_faces):
+            if root in c:
+                return graph_of_shape_faces.subgraph(c).copy()
+        single_face_graph = nx.Graph()
+        single_face_graph.add_node(root)
+        return single_face_graph
+
+    @staticmethod
+    def build_bfs_tree(graph, root):
+        return nx.bfs_tree(graph, source=root)
+
+
+class bend_analyzer:
+    @staticmethod
+    def get_planes_and_cylinders(bfs_tree: nx.DiGraph, root_idx: int, shp):
+        planes = []
+        cylinders = []
+        for n in bfs_tree.nodes():
+            if bfs_tree.out_degree(n) == 0:
+                path = nx.shortest_path(bfs_tree, source=root_idx, target=n)
+                p = []
+                c = []
+                for idx in path:
+                    if isinstance(shp.Faces[idx].Surface, Part.Plane):
+                        p.append(idx)
+                    elif isinstance(shp.Faces[idx].Surface, Part.Cylinder):
+                        para_bend_line = False
+                        if len(c) >= 1:
+                            if is_parallel(
+                                shp.Faces[c[-1][1]].Surface.Axis,
+                                shp.Faces[idx].Surface.Axis,
+                            ):
+                                para_bend_line = True
+                            else:
+                                para_bend_line = False
+
+                        c.append((idx, para_bend_line))
+
+                planes.append(p)
+                cylinders.append(c)
+
+        return planes, cylinders
+
+    @staticmethod
+    def get_normal_directions(shp: Part.Shape, faces_idx):
+        return [get_normal(shp.Faces[idx]) for idx in faces_idx]
+
+    @staticmethod
+    def up_or_down(shp: Part.Shape, base_idx, cyl_idx):
+        base = shp.Faces[base_idx]
+        cyl = shp.Faces[cyl_idx]
+
+        base_normal = get_normal(base)
+
+        uv = cyl.ParameterRange
+        u_mid = (uv[0] + uv[1]) / 2
+        v_mid = (uv[2] + uv[3]) / 2
+        cyl_normal = cyl.normalAt(u_mid, v_mid)
+
+        dot_val = base_normal.dot(cyl_normal)
+
+        if dot_val > eps:
+            return 1
+        elif dot_val < -eps:
+            return -1
+        else:
+            return 0
+
+    # This function return tupple value like (face_idx, is_bend_line_parallel) which is not included root face index.
+    @staticmethod
+    def detect_bend_directions(shp: Part.Shape, planes_idx, cyl_list):
+        first_cyl_idx = cyl_list[0][0]
+
+        print(f"planes_idx: {planes_idx}")
+        if len(planes_idx) <= 1:
+            # only base
+            return [(None, None)]
+        elif len(planes_idx) == 2:
+            # base face and a bend face
+            up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+            return [(up_or_down, cyl_list[0][1])]
+
+        up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+        bend_sign = []
+        bend_sign.append((up_or_down, cyl_list[0][1]))
+        plane_0 = shp.Faces[planes_idx[0]]
+        plane_1 = shp.Faces[planes_idx[1]]
+        p0_normal_base = get_normal(plane_0)
+        p1_normal_base = get_normal(plane_1)
+        base_vec = p0_normal_base.cross(p1_normal_base)
+
+        for i in range(1, len(planes_idx) - 1):
+            print(f"i: {i}")
+            p0_normal_cur = get_normal(shp.Faces[planes_idx[i]])
+            p1_normal_cur = get_normal(shp.Faces[planes_idx[i + 1]])
+
+            cur_vec = p0_normal_cur.cross(p1_normal_cur)
+
+            dot_val = base_vec.dot(cur_vec)
+
+            if dot_val > eps:
+                bend_sign.append((up_or_down, cyl_list[i][1]))
+            elif dot_val < -eps:
+                bend_sign.append((-up_or_down, cyl_list[i][1]))
+            else:
+                bend_sign.append((0, cyl_list[i][1]))
+
+        return bend_sign
 
 
 def main():
@@ -568,42 +736,75 @@ def main():
         return
 
     sel_obj = sel_ex.Object
+    shp = get_real_shape_object(sel_obj)
+    print(f"shp: {shp}")
     sel_face = sel_ex.SubObjects[0]
     root_face_name = sel_ex.SubElementNames[0]
     root_idx = int(root_face_name.replace("Face", "")) - 1
-    print(f"root_face_name: {root_face_name}")
-    print(f"root_idx : {root_idx}")
 
-    print(f"sel_obj : {sel_obj}")
-    print(f"sel_face : {sel_face}")
-
-    print(f"Label : {sel_obj.Label}")
-    obj = get_real_shape_object(sel_obj)
-    if not obj or not hasattr(obj, "Shape"):
-        FreeCAD.Console.PrintError("No valid shape object found. \n")
-        return
+    # obj = get_real_shape_object(sel_obj)
+    # if not obj or not hasattr(obj, "Shape"):
+    #     FreeCAD.Console.PrintError("No valid shape object found. \n")
+    #     return
 
     # shape = obj.Shape
-    print(f"TypeID : {obj.TypeId}")
-    print(f"total Faces: {len(obj.Shape.Faces)}")
-    print(f"TypeID : {obj.TypeId}")
 
-    thickness = EstimateThickness.using_best_method(obj.Shape, sel_face)
+    thickness = EstimateThickness.using_best_method(shp, sel_face)
     print(f"thickness : {thickness}")
 
-    bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(sel_obj.Shape, root_idx)
+    bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(shp, root_idx)
+    bfs_tree = sheet_metal_graph.build_bfs_tree(bend_graph, root_idx)
+    print(f"bfs_tree : {bfs_tree.number_of_nodes()}")
 
-    neighbors = list(bend_graph.neighbors(root_idx))
+    connected_planes, cylinder_hinges = bend_analyzer.get_planes_and_cylinders(
+        bfs_tree, root_idx, shp
+    )
+    print(f"cylinder_hinges: {cylinder_hinges}")
+    # neighbors = list(bend_graph.neighbors(root_idx))
+    #
+    r = []
+    for i, f_list in enumerate(connected_planes):
+        # first_cyl = cylinder_hinges[i][0][0]
+        cyl_list = cylinder_hinges[i]
 
-    print(f"root's neighbors : {neighbors}")
+        r.append(bend_analyzer.detect_bend_directions(shp, f_list, cyl_list))
 
-    obj = paint_face_by_each_surface_type(obj)
+    print(f"bend_direction : {r}")
+
+    face_all_dirs = []
+    # for face_list in connected_planes:
+    #     face_all_dirs.append(bend_analyzer.get_normal_directions(shp, face_list))
+    # print(f"face_all_dirs : {face_all_dirs}")
+
+    sel_obj = paint_face_by_each_surface_type(sel_obj)
     FreeCAD.ActiveDocument.recompute()
     Gui.updateGui()
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"execution time : {elapsed_time}")
     FreeCAD.Console.PrintMessage(" analyzing object\n")
+
+    parent_name = "default_name"
+    try:
+        parent_name = sel_obj.getParentGeoFeatureGroup().Name
+    except:
+        parent_name = sel_obj.Label
+    print(f"parent_name: {parent_name}")
+    # r.insert(0, parent_name)
+
+    if r:
+        now = datetime.datetime.now()
+        timestamp = now.strftime("%Y%m%d_%H%M%S")
+        file_name = f"{parent_name}_{timestamp}.csv"
+
+        os_name = platform.system()
+        if os_name == "Windows":
+            dir_path = "C:\\Users\\XU74644hsky\\codes\\FreeCAD\\surface-analyzer\\"
+            file_path = dir_path + file_name
+        else:
+            dir_path = "/home/husky/huskyprojects/freeCAD_samples/cleaner/csv/"
+            file_path = dir_path + file_name
+        write_csv(file_path, parent_name, r)
 
 
 if __name__ == "__main__":
