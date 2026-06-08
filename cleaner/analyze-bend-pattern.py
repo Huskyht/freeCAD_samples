@@ -587,13 +587,10 @@ class sheet_metal_graph:
                     and isinstance(face_b.Surface, Part.Cylinder)
                 )
                 or (
-                    isinstance(face_a.Surface, Part.Plane)
-                    and isinstance(face_b.Surface, Part.Cylinder)
+                    isinstance(face_a.Surface, Part.Cylinder)
+                    and isinstance(face_b.Surface, Part.Plane)
                 )
             ):
-                # print("skipped")
-                # print(f"type(face_a.Surface) : {face_a.Surface}")
-                # print(f"type(face_b.Surface) : {face_b.Surface}")
                 pass
             else:
                 shared_edge = shp.Edges[edge_index]
@@ -635,7 +632,9 @@ class bend_analyzer:
         planes = []
         cylinders = []
         for n in bfs_tree.nodes():
+            # print(f" n : {n}")
             if bfs_tree.out_degree(n) == 0:
+                # print(" true_or_false : true")
                 path = nx.shortest_path(bfs_tree, source=root_idx, target=n)
                 p = []
                 c = []
@@ -665,18 +664,22 @@ class bend_analyzer:
         return [get_normal(shp.Faces[idx]) for idx in faces_idx]
 
     @staticmethod
-    def up_or_down(shp: Part.Shape, base_idx, cyl_idx):
+    # def up_or_down(shp: Part.Shape, base_idx, cyl_idx):
+    def up_or_down(shp: Part.Shape, base_idx: int, plane_1_idx: int):
         base = shp.Faces[base_idx]
-        cyl = shp.Faces[cyl_idx]
+        plane_1 = shp.Faces[plane_1_idx]
+        # cyl = shp.Faces[cyl_idx]
 
         base_normal = get_normal(base)
+        plane_1_normal = get_normal(plane_1)
 
-        uv = cyl.ParameterRange
-        u_mid = (uv[0] + uv[1]) / 2
-        v_mid = (uv[2] + uv[3]) / 2
-        cyl_normal = cyl.normalAt(u_mid, v_mid)
+        # vec = base_normal.cross(plane_1_normal)
+        # dot_val = base_normal.dot(vec)
 
-        dot_val = base_normal.dot(cyl_normal)
+        dot_val = base_normal.dot(plane_1_normal)
+        # print(f"base_normal   : {base_normal}")
+        # print(f"plane_1_normal: {plane_1_normal}")
+        print(f"dot_val : {dot_val}")
 
         if dot_val > eps:
             return 1
@@ -684,6 +687,22 @@ class bend_analyzer:
             return -1
         else:
             return 0
+
+        # p0_normal_cur = get_normal(shp.Faces[planes_idx[i]])
+
+        # uv = cyl.ParameterRange
+        # u_mid = (uv[0] + uv[1]) / 2
+        # v_mid = (uv[2] + uv[3]) / 2
+        # cyl_normal = cyl.normalAt(u_mid, v_mid)
+
+        # dot_val = base_normal.dot(cyl_normal)
+
+        # if dot_val > eps:
+        #     return 1
+        # elif dot_val < -eps:
+        #     return -1
+        # else:
+        #     return 0
 
     # This function return tupple value like (face_idx, is_bend_line_parallel) which is not included root face index.
     @staticmethod
@@ -696,10 +715,12 @@ class bend_analyzer:
             return [(None, None)]
         elif len(planes_idx) == 2:
             # base face and a bend face
-            up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+            # up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+            up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], planes_idx[1])
             return [(up_or_down, cyl_list[0][1])]
 
-        up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+        # up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+        up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], planes_idx[1])
         bend_sign = []
         bend_sign.append((up_or_down, cyl_list[0][1]))
         plane_0 = shp.Faces[planes_idx[0]]
@@ -709,7 +730,7 @@ class bend_analyzer:
         base_vec = p0_normal_base.cross(p1_normal_base)
 
         for i in range(1, len(planes_idx) - 1):
-            print(f"i: {i}")
+            # print(f"i: {i}")
             p0_normal_cur = get_normal(shp.Faces[planes_idx[i]])
             p1_normal_cur = get_normal(shp.Faces[planes_idx[i + 1]])
 
@@ -742,19 +763,23 @@ def main():
     root_face_name = sel_ex.SubElementNames[0]
     root_idx = int(root_face_name.replace("Face", "")) - 1
 
-    # obj = get_real_shape_object(sel_obj)
-    # if not obj or not hasattr(obj, "Shape"):
-    #     FreeCAD.Console.PrintError("No valid shape object found. \n")
-    #     return
-
-    # shape = obj.Shape
-
     thickness = EstimateThickness.using_best_method(shp, sel_face)
     print(f"thickness : {thickness}")
 
     bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(shp, root_idx)
+    neighbors = list(bend_graph.neighbors(0))
+    if 10 in bend_graph:
+        print("Target node is in the graph!")
+
+        # for n in neighbors:
+        #     try:
+        #         face = shp.Faces[n].Surface
+        #         print(f"{n}'s type : {face}")
+        #     except:
+        #         pass
     bfs_tree = sheet_metal_graph.build_bfs_tree(bend_graph, root_idx)
     print(f"bfs_tree : {bfs_tree.number_of_nodes()}")
+    print(f"bfs_tree_list : {list(bfs_tree)}")
 
     connected_planes, cylinder_hinges = bend_analyzer.get_planes_and_cylinders(
         bfs_tree, root_idx, shp
@@ -771,7 +796,7 @@ def main():
 
     print(f"bend_direction : {r}")
 
-    face_all_dirs = []
+    # face_all_dirs = []
     # for face_list in connected_planes:
     #     face_all_dirs.append(bend_analyzer.get_normal_directions(shp, face_list))
     # print(f"face_all_dirs : {face_all_dirs}")
@@ -799,7 +824,7 @@ def main():
 
         os_name = platform.system()
         if os_name == "Windows":
-            dir_path = "C:\\Users\\XU74644hsky\\codes\\FreeCAD\\surface-analyzer\\"
+            dir_path = "C:\\Users\\XU74644\\hsky\\codes\\FreeCAD\\surface-analyzer\\"
             file_path = dir_path + file_name
         else:
             dir_path = "/home/husky/huskyprojects/freeCAD_samples/cleaner/csv/"

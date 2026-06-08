@@ -1,0 +1,3709 @@
+23:46:44  This plugin supports grabbing the mouse only for popup windows
+23:46:44  This plugin supports grabbing the mouse only for popup windows
+23:46:48  analyzing object ... 
+23:46:48  shp: <Solid object at 0x56070553ecb0>
+23:46:49  thickness : 2.0
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 1, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 162, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 161, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 160, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 159, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 158, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 157, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 156, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 155, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 154, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 153, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 152, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 151, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 150, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 149, <Plane object>
+23:46:49  logged
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 141, <Cylinder object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 172, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 173, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 174, <Plane object>
+23:46:49  logged
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 142, <Cylinder object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 208, <Plane object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 209, <Plane object>
+23:46:49  logged
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 210, <Cylinder object>
+23:46:49  skipped
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 211, <Plane object>
+23:46:49  logged
+23:46:49  type(face_a.Surface) : 0, <Plane object>
+23:46:49  type(face_b.Surface) : 143, <Cylinder object>
+23:46:49  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 263, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 264, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 265, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 143, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 139, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 138, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 137, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 136, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 135, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 134, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 133, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 132, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 131, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 130, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 129, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 121, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 117, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 116, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 115, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 105, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 101, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 100, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 99, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 98, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 97, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 96, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 67, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 66, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 65, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 64, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 63, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 62, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 61, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 60, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 59, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 58, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 57, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 56, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 55, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 54, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 53, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 21, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 45, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 44, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 40, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 20, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 36, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 39, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 38, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 19, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 25, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 24, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 23, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 19, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 318, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 319, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 316, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 317, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 312, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 315, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 314, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 313, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 308, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 311, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 310, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 309, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 304, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 307, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 306, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 305, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 300, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 303, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 302, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 301, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 296, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 299, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 298, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 297, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 292, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 295, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 294, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 293, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 290, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 291, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 286, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 289, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 288, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 287, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 282, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 285, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 284, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 283, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 280, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 281, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 278, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 279, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 276, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 277, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 352, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 353, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 348, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 351, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 350, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 349, <Cylinder object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 336, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 347, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 346, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 345, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 344, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 343, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 342, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 341, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 340, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 339, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 338, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 337, <Plane object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 324, <Plane object>
+23:46:50  logged
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 335, <Cylinder object>
+23:46:50  skipped
+23:46:50  type(face_a.Surface) : 0, <Plane object>
+23:46:50  type(face_b.Surface) : 334, <Plane object>
+23:46:50  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 333, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 332, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 331, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 330, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 329, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 328, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 327, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 326, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 325, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 322, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 323, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 320, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 321, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 358, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 361, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 360, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 359, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 354, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 357, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 356, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 355, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 374, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 375, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 362, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 363, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 364, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 365, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 366, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 367, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 368, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 369, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 370, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 371, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 372, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 373, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 378, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 377, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 376, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 385, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 384, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 383, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 382, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 381, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 380, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 379, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 388, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 387, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 386, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 393, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 392, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 391, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 390, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 389, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 396, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 395, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 394, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 405, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 404, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 403, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 402, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 401, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 400, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 399, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 398, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 397, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 406, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 425, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 424, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 423, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 422, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 421, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 420, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 419, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 418, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 417, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 416, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 415, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 414, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 413, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 412, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 411, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 410, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 409, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 408, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 0, <Plane object>
+23:46:51  type(face_b.Surface) : 407, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 1, <Plane object>
+23:46:51  type(face_b.Surface) : 2, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 1, <Plane object>
+23:46:51  type(face_b.Surface) : 37, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 1, <Plane object>
+23:46:51  type(face_b.Surface) : 162, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 2, <Plane object>
+23:46:51  type(face_b.Surface) : 3, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 2, <Plane object>
+23:46:51  type(face_b.Surface) : 28, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 2, <Plane object>
+23:46:51  type(face_b.Surface) : 19, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 3, <Plane object>
+23:46:51  type(face_b.Surface) : 4, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 3, <Plane object>
+23:46:51  type(face_b.Surface) : 426, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 3, <Plane object>
+23:46:51  type(face_b.Surface) : 33, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 7, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 427, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 426, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 19, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 17, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 16, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 15, <Plane object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 14, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 10, <Cylinder object>
+23:46:51  skipped
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 8, <Plane object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 438, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 4, <Plane object>
+23:46:51  type(face_b.Surface) : 439, <Cylinder object>
+23:46:51  logged
+23:46:51  type(face_a.Surface) : 5, <Plane object>
+23:46:51  type(face_b.Surface) : 20, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 5, <Plane object>
+23:46:52  type(face_b.Surface) : 42, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 5, <Plane object>
+23:46:52  type(face_b.Surface) : 43, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 5, <Plane object>
+23:46:52  type(face_b.Surface) : 34, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 6, <Plane object>
+23:46:52  type(face_b.Surface) : 21, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 6, <Plane object>
+23:46:52  type(face_b.Surface) : 51, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 6, <Plane object>
+23:46:52  type(face_b.Surface) : 50, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 6, <Plane object>
+23:46:52  type(face_b.Surface) : 49, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 6, <Plane object>
+23:46:52  type(face_b.Surface) : 48, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 6, <Plane object>
+23:46:52  type(face_b.Surface) : 47, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 7, <Plane object>
+23:46:52  type(face_b.Surface) : 8, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 7, <Plane object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 7, <Plane object>
+23:46:52  type(face_b.Surface) : 427, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 8, <Plane object>
+23:46:52  type(face_b.Surface) : 9, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 8, <Plane object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 9, <Plane object>
+23:46:52  type(face_b.Surface) : 10, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 9, <Plane object>
+23:46:52  type(face_b.Surface) : 429, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 9, <Plane object>
+23:46:52  type(face_b.Surface) : 428, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 10, <Cylinder object>
+23:46:52  type(face_b.Surface) : 11, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 10, <Cylinder object>
+23:46:52  type(face_b.Surface) : 429, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 10, <Cylinder object>
+23:46:52  type(face_b.Surface) : 13, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 12, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 435, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 434, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 432, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 431, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 430, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 436, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 11, <Plane object>
+23:46:52  type(face_b.Surface) : 437, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 12, <Plane object>
+23:46:52  type(face_b.Surface) : 13, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 12, <Plane object>
+23:46:52  type(face_b.Surface) : 433, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 12, <Plane object>
+23:46:52  type(face_b.Surface) : 435, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 13, <Plane object>
+23:46:52  type(face_b.Surface) : 14, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 13, <Plane object>
+23:46:52  type(face_b.Surface) : 428, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 14, <Plane object>
+23:46:52  type(face_b.Surface) : 15, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 14, <Plane object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 15, <Plane object>
+23:46:52  type(face_b.Surface) : 16, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 15, <Plane object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 16, <Cylinder object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 16, <Cylinder object>
+23:46:52  type(face_b.Surface) : 17, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 17, <Plane object>
+23:46:52  type(face_b.Surface) : 18, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 17, <Plane object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 18, <Plane object>
+23:46:52  type(face_b.Surface) : 19, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 18, <Plane object>
+23:46:52  type(face_b.Surface) : 38, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 18, <Plane object>
+23:46:52  type(face_b.Surface) : 28, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 19, <Cylinder object>
+23:46:52  type(face_b.Surface) : 22, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 19, <Cylinder object>
+23:46:52  type(face_b.Surface) : 27, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 19, <Cylinder object>
+23:46:52  type(face_b.Surface) : 26, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 20, <Cylinder object>
+23:46:52  type(face_b.Surface) : 35, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 20, <Cylinder object>
+23:46:52  type(face_b.Surface) : 41, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 21, <Cylinder object>
+23:46:52  type(face_b.Surface) : 46, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 21, <Cylinder object>
+23:46:52  type(face_b.Surface) : 52, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 22, <Plane object>
+23:46:52  type(face_b.Surface) : 23, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 22, <Plane object>
+23:46:52  type(face_b.Surface) : 28, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 22, <Plane object>
+23:46:52  type(face_b.Surface) : 27, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 23, <Plane object>
+23:46:52  type(face_b.Surface) : 24, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 23, <Plane object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 24, <Plane object>
+23:46:52  type(face_b.Surface) : 25, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 24, <Plane object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 25, <Plane object>
+23:46:52  type(face_b.Surface) : 26, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 25, <Plane object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 26, <Plane object>
+23:46:52  type(face_b.Surface) : 27, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 26, <Plane object>
+23:46:52  type(face_b.Surface) : 28, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 27, <Plane object>
+23:46:52  type(face_b.Surface) : 28, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 28, <Cylinder object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 28, <Cylinder object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 28, <Cylinder object>
+23:46:52  type(face_b.Surface) : 33, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 29, <Cylinder object>
+23:46:52  type(face_b.Surface) : 35, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 29, <Cylinder object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 29, <Cylinder object>
+23:46:52  type(face_b.Surface) : 41, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 29, <Cylinder object>
+23:46:52  type(face_b.Surface) : 31, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 30, <Cylinder object>
+23:46:52  type(face_b.Surface) : 46, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 30, <Cylinder object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 30, <Cylinder object>
+23:46:52  type(face_b.Surface) : 52, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 30, <Cylinder object>
+23:46:52  type(face_b.Surface) : 32, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 31, <Plane object>
+23:46:52  type(face_b.Surface) : 34, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 31, <Plane object>
+23:46:52  type(face_b.Surface) : 43, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 31, <Plane object>
+23:46:52  type(face_b.Surface) : 42, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 32, <Plane object>
+23:46:52  type(face_b.Surface) : 47, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 32, <Plane object>
+23:46:52  type(face_b.Surface) : 48, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 32, <Plane object>
+23:46:52  type(face_b.Surface) : 49, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 32, <Plane object>
+23:46:52  type(face_b.Surface) : 50, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 32, <Plane object>
+23:46:52  type(face_b.Surface) : 51, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 33, <Plane object>
+23:46:52  type(face_b.Surface) : 426, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 33, <Plane object>
+23:46:52  type(face_b.Surface) : 427, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 33, <Plane object>
+23:46:52  type(face_b.Surface) : 428, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 33, <Plane object>
+23:46:52  type(face_b.Surface) : 438, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 33, <Plane object>
+23:46:52  type(face_b.Surface) : 439, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 34, <Plane object>
+23:46:52  type(face_b.Surface) : 35, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 34, <Plane object>
+23:46:52  type(face_b.Surface) : 43, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 35, <Plane object>
+23:46:52  type(face_b.Surface) : 36, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 36, <Plane object>
+23:46:52  type(face_b.Surface) : 37, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 36, <Plane object>
+23:46:52  type(face_b.Surface) : 39, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 38, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 39, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 40, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 44, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 45, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 53, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 54, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 55, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 56, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 57, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 58, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 59, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 60, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 61, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 62, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 63, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 64, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 65, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 66, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 67, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 268, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 97, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 98, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 99, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 100, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 101, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 110, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 115, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 116, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 117, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 125, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 129, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 130, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 131, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 132, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 133, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 134, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 135, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 136, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 137, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 138, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 139, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 165, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 265, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 264, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 263, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 165, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 211, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 210, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 209, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 208, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 164, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 174, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 173, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 172, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 163, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 149, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 150, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 151, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 152, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 153, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 154, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 155, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 156, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 157, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 158, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 159, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 160, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 161, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 162, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 276, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 277, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 278, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 279, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 280, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 281, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 282, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 283, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 284, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 285, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 286, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 287, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 288, <Plane object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 289, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 290, <Cylinder object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 291, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 292, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 293, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 294, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 295, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 296, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 297, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 298, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 299, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 300, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 301, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 302, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 303, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 304, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 305, <Cylinder object>
+23:46:52  skipped
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 306, <Plane object>
+23:46:52  logged
+23:46:52  type(face_a.Surface) : 37, <Plane object>
+23:46:52  type(face_b.Surface) : 307, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 308, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 309, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 310, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 311, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 312, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 313, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 314, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 315, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 316, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 317, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 318, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 319, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 320, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 321, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 322, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 323, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 324, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 325, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 326, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 327, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 328, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 329, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 330, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 331, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 332, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 333, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 334, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 335, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 336, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 337, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 338, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 339, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 340, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 341, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 342, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 343, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 344, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 345, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 346, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 347, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 348, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 349, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 350, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 351, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 352, <Cylinder object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 353, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 354, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 355, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 356, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 357, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 358, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 359, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 360, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 361, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 362, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 375, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 374, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 373, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 372, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 371, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 370, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 369, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 368, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 367, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 366, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 365, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 364, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 363, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 376, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 377, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 378, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 379, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 380, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 381, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 382, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 383, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 384, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 385, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 386, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 387, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 388, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 389, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 390, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 391, <Plane object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 392, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 393, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 394, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 395, <Cylinder object>
+23:46:53  skipped
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 396, <Plane object>
+23:46:53  logged
+23:46:53  type(face_a.Surface) : 37, <Plane object>
+23:46:53  type(face_b.Surface) : 397, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 398, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 399, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 400, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 401, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 402, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 403, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 404, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 405, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 406, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 407, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 408, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 409, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 410, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 411, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 412, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 413, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 414, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 415, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 416, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 417, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 418, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 419, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 420, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 421, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 422, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 423, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 424, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 37, <Plane object>
+23:46:54  type(face_b.Surface) : 425, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 38, <Plane object>
+23:46:54  type(face_b.Surface) : 39, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 40, <Plane object>
+23:46:54  type(face_b.Surface) : 41, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 40, <Plane object>
+23:46:54  type(face_b.Surface) : 44, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 41, <Plane object>
+23:46:54  type(face_b.Surface) : 42, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 42, <Plane object>
+23:46:54  type(face_b.Surface) : 43, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 44, <Plane object>
+23:46:54  type(face_b.Surface) : 45, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 45, <Plane object>
+23:46:54  type(face_b.Surface) : 46, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 46, <Plane object>
+23:46:54  type(face_b.Surface) : 47, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 47, <Plane object>
+23:46:54  type(face_b.Surface) : 48, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 48, <Plane object>
+23:46:54  type(face_b.Surface) : 49, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 49, <Cylinder object>
+23:46:54  type(face_b.Surface) : 50, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 50, <Plane object>
+23:46:54  type(face_b.Surface) : 51, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 51, <Plane object>
+23:46:54  type(face_b.Surface) : 52, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 52, <Plane object>
+23:46:54  type(face_b.Surface) : 53, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 53, <Plane object>
+23:46:54  type(face_b.Surface) : 54, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 54, <Plane object>
+23:46:54  type(face_b.Surface) : 55, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 55, <Plane object>
+23:46:54  type(face_b.Surface) : 56, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 56, <Cylinder object>
+23:46:54  type(face_b.Surface) : 57, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 57, <Plane object>
+23:46:54  type(face_b.Surface) : 58, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 58, <Cylinder object>
+23:46:54  type(face_b.Surface) : 59, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 59, <Plane object>
+23:46:54  type(face_b.Surface) : 60, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 60, <Cylinder object>
+23:46:54  type(face_b.Surface) : 61, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 61, <Plane object>
+23:46:54  type(face_b.Surface) : 62, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 62, <Cylinder object>
+23:46:54  type(face_b.Surface) : 63, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 63, <Plane object>
+23:46:54  type(face_b.Surface) : 64, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 64, <Plane object>
+23:46:54  type(face_b.Surface) : 65, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 65, <Plane object>
+23:46:54  type(face_b.Surface) : 66, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 66, <Plane object>
+23:46:54  type(face_b.Surface) : 67, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 67, <Plane object>
+23:46:54  type(face_b.Surface) : 68, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 68, <Plane object>
+23:46:54  type(face_b.Surface) : 69, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 68, <Plane object>
+23:46:54  type(face_b.Surface) : 268, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 68, <Plane object>
+23:46:54  type(face_b.Surface) : 96, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 69, <Plane object>
+23:46:54  type(face_b.Surface) : 70, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 69, <Plane object>
+23:46:54  type(face_b.Surface) : 80, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 69, <Plane object>
+23:46:54  type(face_b.Surface) : 72, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 71, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 87, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 85, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 81, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 73, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 74, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 75, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 76, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 77, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 78, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 79, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 80, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 96, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 94, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 93, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 85, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 270, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 272, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 273, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 274, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 70, <Plane object>
+23:46:54  type(face_b.Surface) : 275, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 71, <Cylinder object>
+23:46:54  type(face_b.Surface) : 72, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 71, <Cylinder object>
+23:46:54  type(face_b.Surface) : 87, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 71, <Cylinder object>
+23:46:54  type(face_b.Surface) : 270, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 73, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 81, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 88, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 87, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 270, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 88, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 93, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 94, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 268, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 80, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 79, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 78, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 77, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 76, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 75, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 74, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 272, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 273, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 274, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 72, <Plane object>
+23:46:54  type(face_b.Surface) : 275, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 73, <Plane object>
+23:46:54  type(face_b.Surface) : 74, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 73, <Plane object>
+23:46:54  type(face_b.Surface) : 81, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 74, <Plane object>
+23:46:54  type(face_b.Surface) : 75, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 75, <Plane object>
+23:46:54  type(face_b.Surface) : 76, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 76, <Cylinder object>
+23:46:54  type(face_b.Surface) : 77, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 77, <Plane object>
+23:46:54  type(face_b.Surface) : 78, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 78, <Cylinder object>
+23:46:54  type(face_b.Surface) : 79, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 79, <Plane object>
+23:46:54  type(face_b.Surface) : 80, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 81, <Plane object>
+23:46:54  type(face_b.Surface) : 82, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 82, <Plane object>
+23:46:54  type(face_b.Surface) : 83, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 82, <Plane object>
+23:46:54  type(face_b.Surface) : 88, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 82, <Plane object>
+23:46:54  type(face_b.Surface) : 85, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 83, <Plane object>
+23:46:54  type(face_b.Surface) : 84, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 83, <Plane object>
+23:46:54  type(face_b.Surface) : 90, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 83, <Plane object>
+23:46:54  type(face_b.Surface) : 89, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 84, <Plane object>
+23:46:54  type(face_b.Surface) : 85, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 84, <Plane object>
+23:46:54  type(face_b.Surface) : 91, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 84, <Plane object>
+23:46:54  type(face_b.Surface) : 90, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 85, <Cylinder object>
+23:46:54  type(face_b.Surface) : 86, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 85, <Cylinder object>
+23:46:54  type(face_b.Surface) : 271, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 85, <Cylinder object>
+23:46:54  type(face_b.Surface) : 269, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 85, <Cylinder object>
+23:46:54  type(face_b.Surface) : 92, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 86, <Plane object>
+23:46:54  type(face_b.Surface) : 87, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 86, <Plane object>
+23:46:54  type(face_b.Surface) : 88, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 86, <Plane object>
+23:46:54  type(face_b.Surface) : 271, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 88, <Cylinder object>
+23:46:54  type(face_b.Surface) : 271, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 88, <Cylinder object>
+23:46:54  type(face_b.Surface) : 269, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 88, <Cylinder object>
+23:46:54  type(face_b.Surface) : 92, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 88, <Cylinder object>
+23:46:54  type(face_b.Surface) : 89, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 89, <Plane object>
+23:46:54  type(face_b.Surface) : 90, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 89, <Plane object>
+23:46:54  type(face_b.Surface) : 91, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 90, <Plane object>
+23:46:54  type(face_b.Surface) : 91, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 91, <Plane object>
+23:46:54  type(face_b.Surface) : 92, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 92, <Plane object>
+23:46:54  type(face_b.Surface) : 93, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 93, <Plane object>
+23:46:54  type(face_b.Surface) : 94, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 94, <Plane object>
+23:46:54  type(face_b.Surface) : 95, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 95, <Plane object>
+23:46:54  type(face_b.Surface) : 96, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 95, <Plane object>
+23:46:54  type(face_b.Surface) : 97, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 95, <Plane object>
+23:46:54  type(face_b.Surface) : 268, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 97, <Plane object>
+23:46:54  type(face_b.Surface) : 98, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 98, <Plane object>
+23:46:54  type(face_b.Surface) : 99, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 99, <Plane object>
+23:46:54  type(face_b.Surface) : 100, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 100, <Plane object>
+23:46:54  type(face_b.Surface) : 101, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 101, <Plane object>
+23:46:54  type(face_b.Surface) : 102, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 102, <Plane object>
+23:46:54  type(face_b.Surface) : 103, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 102, <Plane object>
+23:46:54  type(face_b.Surface) : 110, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 102, <Plane object>
+23:46:54  type(face_b.Surface) : 105, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 103, <Plane object>
+23:46:54  type(face_b.Surface) : 104, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 103, <Plane object>
+23:46:54  type(face_b.Surface) : 112, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 103, <Plane object>
+23:46:54  type(face_b.Surface) : 111, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 104, <Plane object>
+23:46:54  type(face_b.Surface) : 105, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 104, <Plane object>
+23:46:54  type(face_b.Surface) : 113, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 104, <Plane object>
+23:46:54  type(face_b.Surface) : 112, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 104, <Plane object>
+23:46:54  type(face_b.Surface) : 105, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 104, <Plane object>
+23:46:54  type(face_b.Surface) : 107, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 105, <Cylinder object>
+23:46:54  type(face_b.Surface) : 106, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 105, <Cylinder object>
+23:46:54  type(face_b.Surface) : 109, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 105, <Cylinder object>
+23:46:54  type(face_b.Surface) : 108, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 105, <Cylinder object>
+23:46:54  type(face_b.Surface) : 114, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 106, <BSplineSurface object>
+23:46:54  type(face_b.Surface) : 107, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 106, <BSplineSurface object>
+23:46:54  type(face_b.Surface) : 110, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 106, <BSplineSurface object>
+23:46:54  type(face_b.Surface) : 109, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 107, <Cylinder object>
+23:46:54  type(face_b.Surface) : 108, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 107, <Cylinder object>
+23:46:54  type(face_b.Surface) : 111, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 108, <BSplineSurface object>
+23:46:54  type(face_b.Surface) : 109, <BSplineSurface object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 108, <BSplineSurface object>
+23:46:54  type(face_b.Surface) : 110, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 109, <BSplineSurface object>
+23:46:54  type(face_b.Surface) : 110, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 110, <Cylinder object>
+23:46:54  type(face_b.Surface) : 111, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 110, <Cylinder object>
+23:46:54  type(face_b.Surface) : 114, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 110, <Cylinder object>
+23:46:54  type(face_b.Surface) : 111, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 111, <Plane object>
+23:46:54  type(face_b.Surface) : 112, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 111, <Plane object>
+23:46:54  type(face_b.Surface) : 113, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 112, <Plane object>
+23:46:54  type(face_b.Surface) : 113, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 113, <Plane object>
+23:46:54  type(face_b.Surface) : 114, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 114, <Plane object>
+23:46:54  type(face_b.Surface) : 115, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 115, <Plane object>
+23:46:54  type(face_b.Surface) : 116, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 116, <Plane object>
+23:46:54  type(face_b.Surface) : 117, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 117, <Plane object>
+23:46:54  type(face_b.Surface) : 118, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 118, <Plane object>
+23:46:54  type(face_b.Surface) : 119, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 118, <Plane object>
+23:46:54  type(face_b.Surface) : 125, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 118, <Plane object>
+23:46:54  type(face_b.Surface) : 121, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 119, <Plane object>
+23:46:54  type(face_b.Surface) : 120, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 119, <Plane object>
+23:46:54  type(face_b.Surface) : 126, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 119, <Plane object>
+23:46:54  type(face_b.Surface) : 124, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 120, <Plane object>
+23:46:54  type(face_b.Surface) : 121, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 120, <Plane object>
+23:46:54  type(face_b.Surface) : 123, <Plane object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 120, <Plane object>
+23:46:54  type(face_b.Surface) : 126, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 120, <Plane object>
+23:46:54  type(face_b.Surface) : 127, <Cylinder object>
+23:46:54  logged
+23:46:54  type(face_a.Surface) : 120, <Plane object>
+23:46:54  type(face_b.Surface) : 128, <Cylinder object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 121, <Cylinder object>
+23:46:54  type(face_b.Surface) : 122, <Plane object>
+23:46:54  skipped
+23:46:54  type(face_a.Surface) : 122, <Plane object>
+23:46:55  type(face_b.Surface) : 123, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 122, <Plane object>
+23:46:55  type(face_b.Surface) : 129, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 122, <Plane object>
+23:46:55  type(face_b.Surface) : 125, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 123, <Plane object>
+23:46:55  type(face_b.Surface) : 124, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 123, <Plane object>
+23:46:55  type(face_b.Surface) : 126, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 124, <Plane object>
+23:46:55  type(face_b.Surface) : 125, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 124, <Plane object>
+23:46:55  type(face_b.Surface) : 126, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 124, <Plane object>
+23:46:55  type(face_b.Surface) : 127, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 124, <Plane object>
+23:46:55  type(face_b.Surface) : 128, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 127, <Cylinder object>
+23:46:55  type(face_b.Surface) : 128, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 127, <Cylinder object>
+23:46:55  type(face_b.Surface) : 128, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 129, <Plane object>
+23:46:55  type(face_b.Surface) : 130, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 130, <Plane object>
+23:46:55  type(face_b.Surface) : 131, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 131, <Cylinder object>
+23:46:55  type(face_b.Surface) : 132, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 132, <Plane object>
+23:46:55  type(face_b.Surface) : 133, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 133, <Plane object>
+23:46:55  type(face_b.Surface) : 134, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 134, <Plane object>
+23:46:55  type(face_b.Surface) : 135, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 135, <Plane object>
+23:46:55  type(face_b.Surface) : 136, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 136, <Plane object>
+23:46:55  type(face_b.Surface) : 137, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 137, <Plane object>
+23:46:55  type(face_b.Surface) : 138, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 138, <Cylinder object>
+23:46:55  type(face_b.Surface) : 139, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 139, <Plane object>
+23:46:55  type(face_b.Surface) : 140, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 140, <Plane object>
+23:46:55  type(face_b.Surface) : 143, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 140, <Plane object>
+23:46:55  type(face_b.Surface) : 229, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 140, <Plane object>
+23:46:55  type(face_b.Surface) : 165, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 141, <Cylinder object>
+23:46:55  type(face_b.Surface) : 144, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 141, <Cylinder object>
+23:46:55  type(face_b.Surface) : 170, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 141, <Cylinder object>
+23:46:55  type(face_b.Surface) : 171, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 141, <Cylinder object>
+23:46:55  type(face_b.Surface) : 148, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 141, <Cylinder object>
+23:46:55  type(face_b.Surface) : 260, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 141, <Cylinder object>
+23:46:55  type(face_b.Surface) : 261, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 145, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 249, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 250, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 251, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 145, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 207, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 175, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 176, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 177, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 142, <Cylinder object>
+23:46:55  type(face_b.Surface) : 178, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 146, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 266, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 267, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 262, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 212, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 213, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 214, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 143, <Cylinder object>
+23:46:55  type(face_b.Surface) : 215, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 147, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 241, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 240, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 235, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 233, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 232, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 231, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 230, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 144, <Plane object>
+23:46:55  type(face_b.Surface) : 169, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 179, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 180, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 181, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 182, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 183, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 184, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 185, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 186, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 187, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 188, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 189, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 190, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 191, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 192, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 193, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 194, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 195, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 196, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 197, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 198, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 199, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 200, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 201, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 202, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 203, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 204, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 205, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 206, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 252, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 253, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 248, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 254, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 255, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 256, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 145, <Plane object>
+23:46:55  type(face_b.Surface) : 257, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 224, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 225, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 226, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 227, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 228, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 229, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 216, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 217, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 218, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 219, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 220, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 221, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 222, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 223, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 258, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 146, <Plane object>
+23:46:55  type(face_b.Surface) : 259, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 147, <Plane object>
+23:46:55  type(face_b.Surface) : 148, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 147, <Plane object>
+23:46:55  type(face_b.Surface) : 166, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 147, <Plane object>
+23:46:55  type(face_b.Surface) : 241, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 148, <Plane object>
+23:46:55  type(face_b.Surface) : 149, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 148, <Plane object>
+23:46:55  type(face_b.Surface) : 163, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 149, <Plane object>
+23:46:55  type(face_b.Surface) : 150, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 150, <Plane object>
+23:46:55  type(face_b.Surface) : 151, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 151, <Plane object>
+23:46:55  type(face_b.Surface) : 152, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 152, <Plane object>
+23:46:55  type(face_b.Surface) : 153, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 153, <Plane object>
+23:46:55  type(face_b.Surface) : 154, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 154, <Plane object>
+23:46:55  type(face_b.Surface) : 155, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 155, <Plane object>
+23:46:55  type(face_b.Surface) : 156, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 156, <Plane object>
+23:46:55  type(face_b.Surface) : 157, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 157, <Plane object>
+23:46:55  type(face_b.Surface) : 158, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 158, <Plane object>
+23:46:55  type(face_b.Surface) : 159, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 159, <Plane object>
+23:46:55  type(face_b.Surface) : 160, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 160, <Plane object>
+23:46:55  type(face_b.Surface) : 161, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 161, <Plane object>
+23:46:55  type(face_b.Surface) : 162, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 163, <Cylinder object>
+23:46:55  type(face_b.Surface) : 170, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 163, <Cylinder object>
+23:46:55  type(face_b.Surface) : 171, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 163, <Cylinder object>
+23:46:55  type(face_b.Surface) : 166, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 163, <Cylinder object>
+23:46:55  type(face_b.Surface) : 261, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 163, <Cylinder object>
+23:46:55  type(face_b.Surface) : 260, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 249, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 250, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 251, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 167, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 207, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 175, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 176, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 177, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 178, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 164, <Cylinder object>
+23:46:55  type(face_b.Surface) : 167, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 266, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 267, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 262, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 212, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 213, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 214, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 215, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 165, <Cylinder object>
+23:46:55  type(face_b.Surface) : 168, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 169, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 230, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 231, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 232, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 233, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 242, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 240, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 166, <Plane object>
+23:46:55  type(face_b.Surface) : 241, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 248, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 253, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 252, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 206, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 205, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 204, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 203, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 202, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 201, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 200, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 199, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 198, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 197, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 196, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 195, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 194, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 193, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 192, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 191, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 190, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 189, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 188, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 187, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 186, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 185, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 184, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 183, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 182, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 181, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 180, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 179, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 254, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 255, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 256, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 167, <Plane object>
+23:46:55  type(face_b.Surface) : 257, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 229, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 228, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 227, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 226, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 225, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 224, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 223, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 222, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 221, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 220, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 219, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 218, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 217, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 216, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 258, <Cylinder object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 168, <Plane object>
+23:46:55  type(face_b.Surface) : 259, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 169, <Plane object>
+23:46:55  type(face_b.Surface) : 170, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 169, <Plane object>
+23:46:55  type(face_b.Surface) : 230, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 170, <BSplineSurface object>
+23:46:55  type(face_b.Surface) : 171, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 171, <Plane object>
+23:46:55  type(face_b.Surface) : 172, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 172, <Plane object>
+23:46:55  type(face_b.Surface) : 173, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 173, <Plane object>
+23:46:55  type(face_b.Surface) : 174, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 174, <Plane object>
+23:46:55  type(face_b.Surface) : 175, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 175, <Plane object>
+23:46:55  type(face_b.Surface) : 176, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 176, <BSplineSurface object>
+23:46:55  type(face_b.Surface) : 177, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 177, <Plane object>
+23:46:55  type(face_b.Surface) : 178, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 178, <BSplineSurface object>
+23:46:55  type(face_b.Surface) : 179, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 179, <Plane object>
+23:46:55  type(face_b.Surface) : 180, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 180, <Plane object>
+23:46:55  type(face_b.Surface) : 181, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 181, <Plane object>
+23:46:55  type(face_b.Surface) : 182, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 182, <Cylinder object>
+23:46:55  type(face_b.Surface) : 183, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 183, <Plane object>
+23:46:55  type(face_b.Surface) : 184, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 184, <Plane object>
+23:46:55  type(face_b.Surface) : 185, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 185, <Cylinder object>
+23:46:55  type(face_b.Surface) : 186, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 186, <Plane object>
+23:46:55  type(face_b.Surface) : 187, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 187, <Cylinder object>
+23:46:55  type(face_b.Surface) : 188, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 188, <Plane object>
+23:46:55  type(face_b.Surface) : 189, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 189, <Plane object>
+23:46:55  type(face_b.Surface) : 190, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 190, <Plane object>
+23:46:55  type(face_b.Surface) : 191, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 191, <Plane object>
+23:46:55  type(face_b.Surface) : 192, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 192, <Plane object>
+23:46:55  type(face_b.Surface) : 193, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 193, <Plane object>
+23:46:55  type(face_b.Surface) : 194, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 194, <Plane object>
+23:46:55  type(face_b.Surface) : 195, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 195, <Plane object>
+23:46:55  type(face_b.Surface) : 196, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 196, <Plane object>
+23:46:55  type(face_b.Surface) : 197, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 197, <Plane object>
+23:46:55  type(face_b.Surface) : 198, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 198, <Plane object>
+23:46:55  type(face_b.Surface) : 199, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 199, <Plane object>
+23:46:55  type(face_b.Surface) : 200, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 200, <Plane object>
+23:46:55  type(face_b.Surface) : 201, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 201, <Cylinder object>
+23:46:55  type(face_b.Surface) : 202, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 202, <Plane object>
+23:46:55  type(face_b.Surface) : 203, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 203, <Plane object>
+23:46:55  type(face_b.Surface) : 204, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 204, <Plane object>
+23:46:55  type(face_b.Surface) : 205, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 205, <Plane object>
+23:46:55  type(face_b.Surface) : 206, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 206, <Plane object>
+23:46:55  type(face_b.Surface) : 207, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 207, <Plane object>
+23:46:55  type(face_b.Surface) : 208, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 208, <Plane object>
+23:46:55  type(face_b.Surface) : 209, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 209, <Plane object>
+23:46:55  type(face_b.Surface) : 210, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 210, <Cylinder object>
+23:46:55  type(face_b.Surface) : 211, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 211, <Plane object>
+23:46:55  type(face_b.Surface) : 212, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 212, <Plane object>
+23:46:55  type(face_b.Surface) : 213, <BSplineSurface object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 213, <BSplineSurface object>
+23:46:55  type(face_b.Surface) : 214, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 214, <Plane object>
+23:46:55  type(face_b.Surface) : 215, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 215, <Plane object>
+23:46:55  type(face_b.Surface) : 216, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 216, <Plane object>
+23:46:55  type(face_b.Surface) : 217, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 217, <Cylinder object>
+23:46:55  type(face_b.Surface) : 218, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 218, <Plane object>
+23:46:55  type(face_b.Surface) : 219, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 219, <Cylinder object>
+23:46:55  type(face_b.Surface) : 220, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 220, <Plane object>
+23:46:55  type(face_b.Surface) : 221, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 221, <Plane object>
+23:46:55  type(face_b.Surface) : 222, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 222, <Plane object>
+23:46:55  type(face_b.Surface) : 223, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 223, <Plane object>
+23:46:55  type(face_b.Surface) : 224, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 224, <Plane object>
+23:46:55  type(face_b.Surface) : 225, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 225, <Plane object>
+23:46:55  type(face_b.Surface) : 226, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 226, <Cylinder object>
+23:46:55  type(face_b.Surface) : 227, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 227, <Plane object>
+23:46:55  type(face_b.Surface) : 228, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 228, <Plane object>
+23:46:55  type(face_b.Surface) : 229, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 230, <Plane object>
+23:46:55  type(face_b.Surface) : 231, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 231, <Cylinder object>
+23:46:55  type(face_b.Surface) : 232, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 232, <Plane object>
+23:46:55  type(face_b.Surface) : 233, <Plane object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 233, <Plane object>
+23:46:55  type(face_b.Surface) : 234, <Plane object>
+23:46:55  logged
+23:46:55  type(face_a.Surface) : 234, <Plane object>
+23:46:55  type(face_b.Surface) : 235, <Cylinder object>
+23:46:55  skipped
+23:46:55  type(face_a.Surface) : 234, <Plane object>
+23:46:55  type(face_b.Surface) : 244, <Plane object>
+23:46:55  logged
+23:46:56  type(face_a.Surface) : 234, <Plane object>
+23:46:56  type(face_b.Surface) : 242, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 235, <Cylinder object>
+23:46:56  type(face_b.Surface) : 236, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 235, <Cylinder object>
+23:46:56  type(face_b.Surface) : 239, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 236, <Plane object>
+23:46:56  type(face_b.Surface) : 237, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 236, <Plane object>
+23:46:56  type(face_b.Surface) : 245, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 236, <Plane object>
+23:46:56  type(face_b.Surface) : 244, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 236, <Plane object>
+23:46:56  type(face_b.Surface) : 238, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 236, <Plane object>
+23:46:56  type(face_b.Surface) : 246, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 236, <Plane object>
+23:46:56  type(face_b.Surface) : 247, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 237, <Plane object>
+23:46:56  type(face_b.Surface) : 238, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 237, <Plane object>
+23:46:56  type(face_b.Surface) : 243, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 237, <Plane object>
+23:46:56  type(face_b.Surface) : 245, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 238, <Plane object>
+23:46:56  type(face_b.Surface) : 239, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 238, <Plane object>
+23:46:56  type(face_b.Surface) : 243, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 239, <Plane object>
+23:46:56  type(face_b.Surface) : 240, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 239, <Plane object>
+23:46:56  type(face_b.Surface) : 242, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 240, <Plane object>
+23:46:56  type(face_b.Surface) : 241, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 242, <Cylinder object>
+23:46:56  type(face_b.Surface) : 243, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 243, <Plane object>
+23:46:56  type(face_b.Surface) : 244, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 243, <Plane object>
+23:46:56  type(face_b.Surface) : 245, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 243, <Plane object>
+23:46:56  type(face_b.Surface) : 246, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 243, <Plane object>
+23:46:56  type(face_b.Surface) : 247, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 244, <Plane object>
+23:46:56  type(face_b.Surface) : 245, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 246, <Cylinder object>
+23:46:56  type(face_b.Surface) : 247, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 246, <Cylinder object>
+23:46:56  type(face_b.Surface) : 247, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 248, <Plane object>
+23:46:56  type(face_b.Surface) : 249, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 248, <Plane object>
+23:46:56  type(face_b.Surface) : 253, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 249, <Plane object>
+23:46:56  type(face_b.Surface) : 250, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 250, <Plane object>
+23:46:56  type(face_b.Surface) : 251, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 251, <Plane object>
+23:46:56  type(face_b.Surface) : 252, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 252, <Plane object>
+23:46:56  type(face_b.Surface) : 253, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 254, <Cylinder object>
+23:46:56  type(face_b.Surface) : 255, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 254, <Cylinder object>
+23:46:56  type(face_b.Surface) : 255, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 256, <Cylinder object>
+23:46:56  type(face_b.Surface) : 257, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 256, <Cylinder object>
+23:46:56  type(face_b.Surface) : 257, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 258, <Cylinder object>
+23:46:56  type(face_b.Surface) : 259, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 258, <Cylinder object>
+23:46:56  type(face_b.Surface) : 259, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 260, <BSplineSurface object>
+23:46:56  type(face_b.Surface) : 261, <BSplineSurface object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 260, <BSplineSurface object>
+23:46:56  type(face_b.Surface) : 261, <BSplineSurface object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 262, <Plane object>
+23:46:56  type(face_b.Surface) : 263, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 262, <Plane object>
+23:46:56  type(face_b.Surface) : 267, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 263, <Plane object>
+23:46:56  type(face_b.Surface) : 264, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 264, <Plane object>
+23:46:56  type(face_b.Surface) : 265, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 265, <Plane object>
+23:46:56  type(face_b.Surface) : 266, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 266, <Plane object>
+23:46:56  type(face_b.Surface) : 267, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 269, <Plane object>
+23:46:56  type(face_b.Surface) : 270, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 269, <Plane object>
+23:46:56  type(face_b.Surface) : 271, <BSplineSurface object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 272, <Cylinder object>
+23:46:56  type(face_b.Surface) : 273, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 272, <Cylinder object>
+23:46:56  type(face_b.Surface) : 273, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 274, <Cylinder object>
+23:46:56  type(face_b.Surface) : 275, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 274, <Cylinder object>
+23:46:56  type(face_b.Surface) : 275, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 276, <Cylinder object>
+23:46:56  type(face_b.Surface) : 277, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 276, <Cylinder object>
+23:46:56  type(face_b.Surface) : 277, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 278, <Cylinder object>
+23:46:56  type(face_b.Surface) : 279, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 278, <Cylinder object>
+23:46:56  type(face_b.Surface) : 279, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 280, <Cylinder object>
+23:46:56  type(face_b.Surface) : 281, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 280, <Cylinder object>
+23:46:56  type(face_b.Surface) : 281, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 282, <Plane object>
+23:46:56  type(face_b.Surface) : 283, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 282, <Plane object>
+23:46:56  type(face_b.Surface) : 285, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 283, <Plane object>
+23:46:56  type(face_b.Surface) : 284, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 284, <Plane object>
+23:46:56  type(face_b.Surface) : 285, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 286, <Plane object>
+23:46:56  type(face_b.Surface) : 287, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 286, <Plane object>
+23:46:56  type(face_b.Surface) : 289, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 287, <Plane object>
+23:46:56  type(face_b.Surface) : 288, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 288, <Plane object>
+23:46:56  type(face_b.Surface) : 289, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 290, <Cylinder object>
+23:46:56  type(face_b.Surface) : 291, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 290, <Cylinder object>
+23:46:56  type(face_b.Surface) : 291, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 292, <Plane object>
+23:46:56  type(face_b.Surface) : 293, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 292, <Plane object>
+23:46:56  type(face_b.Surface) : 295, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 293, <Cylinder object>
+23:46:56  type(face_b.Surface) : 294, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 294, <Plane object>
+23:46:56  type(face_b.Surface) : 295, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 296, <Plane object>
+23:46:56  type(face_b.Surface) : 297, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 296, <Plane object>
+23:46:56  type(face_b.Surface) : 299, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 297, <Cylinder object>
+23:46:56  type(face_b.Surface) : 298, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 298, <Plane object>
+23:46:56  type(face_b.Surface) : 299, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 300, <Plane object>
+23:46:56  type(face_b.Surface) : 301, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 300, <Plane object>
+23:46:56  type(face_b.Surface) : 303, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 301, <Cylinder object>
+23:46:56  type(face_b.Surface) : 302, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 302, <Plane object>
+23:46:56  type(face_b.Surface) : 303, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 304, <Plane object>
+23:46:56  type(face_b.Surface) : 305, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 304, <Plane object>
+23:46:56  type(face_b.Surface) : 307, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 305, <Cylinder object>
+23:46:56  type(face_b.Surface) : 306, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 306, <Plane object>
+23:46:56  type(face_b.Surface) : 307, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 308, <Plane object>
+23:46:56  type(face_b.Surface) : 309, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 308, <Plane object>
+23:46:56  type(face_b.Surface) : 311, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 309, <Cylinder object>
+23:46:56  type(face_b.Surface) : 310, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 310, <Plane object>
+23:46:56  type(face_b.Surface) : 311, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 312, <Plane object>
+23:46:56  type(face_b.Surface) : 313, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 312, <Plane object>
+23:46:56  type(face_b.Surface) : 315, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 313, <Cylinder object>
+23:46:56  type(face_b.Surface) : 314, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 314, <Plane object>
+23:46:56  type(face_b.Surface) : 315, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 316, <Cylinder object>
+23:46:56  type(face_b.Surface) : 317, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 316, <Cylinder object>
+23:46:56  type(face_b.Surface) : 317, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 318, <Cylinder object>
+23:46:56  type(face_b.Surface) : 319, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 318, <Cylinder object>
+23:46:56  type(face_b.Surface) : 319, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 320, <Cylinder object>
+23:46:56  type(face_b.Surface) : 321, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 320, <Cylinder object>
+23:46:56  type(face_b.Surface) : 321, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 322, <Cylinder object>
+23:46:56  type(face_b.Surface) : 323, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 322, <Cylinder object>
+23:46:56  type(face_b.Surface) : 323, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 324, <Plane object>
+23:46:56  type(face_b.Surface) : 325, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 324, <Plane object>
+23:46:56  type(face_b.Surface) : 335, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 325, <Cylinder object>
+23:46:56  type(face_b.Surface) : 326, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 326, <Plane object>
+23:46:56  type(face_b.Surface) : 327, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 327, <Cylinder object>
+23:46:56  type(face_b.Surface) : 328, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 328, <Plane object>
+23:46:56  type(face_b.Surface) : 329, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 329, <Cylinder object>
+23:46:56  type(face_b.Surface) : 330, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 330, <Plane object>
+23:46:56  type(face_b.Surface) : 331, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 331, <Cylinder object>
+23:46:56  type(face_b.Surface) : 332, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 332, <Plane object>
+23:46:56  type(face_b.Surface) : 333, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 333, <Cylinder object>
+23:46:56  type(face_b.Surface) : 334, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 334, <Plane object>
+23:46:56  type(face_b.Surface) : 335, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 336, <Cylinder object>
+23:46:56  type(face_b.Surface) : 337, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 336, <Cylinder object>
+23:46:56  type(face_b.Surface) : 347, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 337, <Plane object>
+23:46:56  type(face_b.Surface) : 338, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 338, <Cylinder object>
+23:46:56  type(face_b.Surface) : 339, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 339, <Plane object>
+23:46:56  type(face_b.Surface) : 340, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 340, <Cylinder object>
+23:46:56  type(face_b.Surface) : 341, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 341, <Plane object>
+23:46:56  type(face_b.Surface) : 342, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 342, <Cylinder object>
+23:46:56  type(face_b.Surface) : 343, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 343, <Plane object>
+23:46:56  type(face_b.Surface) : 344, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 344, <Cylinder object>
+23:46:56  type(face_b.Surface) : 345, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 345, <Plane object>
+23:46:56  type(face_b.Surface) : 346, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 346, <Cylinder object>
+23:46:56  type(face_b.Surface) : 347, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 348, <Plane object>
+23:46:56  type(face_b.Surface) : 349, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 348, <Plane object>
+23:46:56  type(face_b.Surface) : 351, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 349, <Cylinder object>
+23:46:56  type(face_b.Surface) : 350, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 350, <Plane object>
+23:46:56  type(face_b.Surface) : 351, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 352, <Cylinder object>
+23:46:56  type(face_b.Surface) : 353, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 352, <Cylinder object>
+23:46:56  type(face_b.Surface) : 353, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 354, <Plane object>
+23:46:56  type(face_b.Surface) : 355, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 354, <Plane object>
+23:46:56  type(face_b.Surface) : 357, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 355, <Plane object>
+23:46:56  type(face_b.Surface) : 356, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 356, <Plane object>
+23:46:56  type(face_b.Surface) : 357, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 358, <Cylinder object>
+23:46:56  type(face_b.Surface) : 359, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 358, <Cylinder object>
+23:46:56  type(face_b.Surface) : 361, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 359, <Plane object>
+23:46:56  type(face_b.Surface) : 360, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 360, <Cylinder object>
+23:46:56  type(face_b.Surface) : 361, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 362, <Plane object>
+23:46:56  type(face_b.Surface) : 363, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 362, <Plane object>
+23:46:56  type(face_b.Surface) : 375, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 363, <Cylinder object>
+23:46:56  type(face_b.Surface) : 364, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 364, <Plane object>
+23:46:56  type(face_b.Surface) : 365, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 365, <Cylinder object>
+23:46:56  type(face_b.Surface) : 366, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 366, <Plane object>
+23:46:56  type(face_b.Surface) : 367, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 367, <Cylinder object>
+23:46:56  type(face_b.Surface) : 368, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 368, <Plane object>
+23:46:56  type(face_b.Surface) : 369, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 369, <Cylinder object>
+23:46:56  type(face_b.Surface) : 370, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 370, <Plane object>
+23:46:56  type(face_b.Surface) : 371, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 371, <Cylinder object>
+23:46:56  type(face_b.Surface) : 372, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 372, <Plane object>
+23:46:56  type(face_b.Surface) : 373, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 373, <Cylinder object>
+23:46:56  type(face_b.Surface) : 374, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 374, <Plane object>
+23:46:56  type(face_b.Surface) : 375, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 376, <Plane object>
+23:46:56  type(face_b.Surface) : 377, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 376, <Plane object>
+23:46:56  type(face_b.Surface) : 385, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 377, <Cylinder object>
+23:46:56  type(face_b.Surface) : 378, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 378, <Plane object>
+23:46:56  type(face_b.Surface) : 379, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 379, <Cylinder object>
+23:46:56  type(face_b.Surface) : 380, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 380, <Plane object>
+23:46:56  type(face_b.Surface) : 381, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 381, <Cylinder object>
+23:46:56  type(face_b.Surface) : 382, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 382, <Plane object>
+23:46:56  type(face_b.Surface) : 383, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 383, <Cylinder object>
+23:46:56  type(face_b.Surface) : 384, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 384, <Plane object>
+23:46:56  type(face_b.Surface) : 385, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 386, <Plane object>
+23:46:56  type(face_b.Surface) : 387, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 386, <Plane object>
+23:46:56  type(face_b.Surface) : 393, <Cylinder object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 387, <Cylinder object>
+23:46:56  type(face_b.Surface) : 388, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 388, <Plane object>
+23:46:56  type(face_b.Surface) : 389, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 389, <Plane object>
+23:46:56  type(face_b.Surface) : 390, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 390, <Plane object>
+23:46:56  type(face_b.Surface) : 391, <Plane object>
+23:46:56  skipped
+23:46:56  type(face_a.Surface) : 391, <Plane object>
+23:46:56  type(face_b.Surface) : 392, <Plane object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 392, <Plane object>
+23:46:56  type(face_b.Surface) : 393, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 394, <Plane object>
+23:46:56  type(face_b.Surface) : 395, <Cylinder object>
+23:46:56  logged
+23:46:56  type(face_a.Surface) : 394, <Plane object>
+23:46:57  type(face_b.Surface) : 405, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 395, <Cylinder object>
+23:46:57  type(face_b.Surface) : 396, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 396, <Plane object>
+23:46:57  type(face_b.Surface) : 397, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 397, <Cylinder object>
+23:46:57  type(face_b.Surface) : 398, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 398, <Plane object>
+23:46:57  type(face_b.Surface) : 399, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 399, <Cylinder object>
+23:46:57  type(face_b.Surface) : 400, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 400, <Plane object>
+23:46:57  type(face_b.Surface) : 401, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 401, <Plane object>
+23:46:57  type(face_b.Surface) : 402, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 402, <Plane object>
+23:46:57  type(face_b.Surface) : 403, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 403, <Plane object>
+23:46:57  type(face_b.Surface) : 404, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 404, <Plane object>
+23:46:57  type(face_b.Surface) : 405, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 406, <Cylinder object>
+23:46:57  type(face_b.Surface) : 425, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 406, <Cylinder object>
+23:46:57  type(face_b.Surface) : 407, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 407, <Plane object>
+23:46:57  type(face_b.Surface) : 408, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 408, <Cylinder object>
+23:46:57  type(face_b.Surface) : 409, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 409, <Plane object>
+23:46:57  type(face_b.Surface) : 410, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 410, <Cylinder object>
+23:46:57  type(face_b.Surface) : 411, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 411, <Plane object>
+23:46:57  type(face_b.Surface) : 412, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 412, <Plane object>
+23:46:57  type(face_b.Surface) : 413, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 413, <Plane object>
+23:46:57  type(face_b.Surface) : 414, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 414, <Cylinder object>
+23:46:57  type(face_b.Surface) : 415, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 415, <Plane object>
+23:46:57  type(face_b.Surface) : 416, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 416, <Plane object>
+23:46:57  type(face_b.Surface) : 417, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 417, <Cylinder object>
+23:46:57  type(face_b.Surface) : 418, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 418, <Plane object>
+23:46:57  type(face_b.Surface) : 419, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 419, <Plane object>
+23:46:57  type(face_b.Surface) : 420, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 420, <Cylinder object>
+23:46:57  type(face_b.Surface) : 421, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 421, <Plane object>
+23:46:57  type(face_b.Surface) : 422, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 422, <Plane object>
+23:46:57  type(face_b.Surface) : 423, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 423, <Plane object>
+23:46:57  type(face_b.Surface) : 424, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 424, <Plane object>
+23:46:57  type(face_b.Surface) : 425, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 426, <Plane object>
+23:46:57  type(face_b.Surface) : 427, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 428, <Cylinder object>
+23:46:57  type(face_b.Surface) : 433, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 428, <Cylinder object>
+23:46:57  type(face_b.Surface) : 429, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 429, <Plane object>
+23:46:57  type(face_b.Surface) : 430, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 430, <Plane object>
+23:46:57  type(face_b.Surface) : 431, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 430, <Plane object>
+23:46:57  type(face_b.Surface) : 433, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 431, <Plane object>
+23:46:57  type(face_b.Surface) : 432, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 431, <Plane object>
+23:46:57  type(face_b.Surface) : 433, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 432, <Plane object>
+23:46:57  type(face_b.Surface) : 433, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 432, <Plane object>
+23:46:57  type(face_b.Surface) : 434, <Cylinder object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 433, <Plane object>
+23:46:57  type(face_b.Surface) : 434, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 433, <Plane object>
+23:46:57  type(face_b.Surface) : 435, <Plane object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 433, <Plane object>
+23:46:57  type(face_b.Surface) : 436, <Cylinder object>
+23:46:57  logged
+23:46:57  type(face_a.Surface) : 433, <Plane object>
+23:46:57  type(face_b.Surface) : 437, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 434, <Cylinder object>
+23:46:57  type(face_b.Surface) : 435, <Plane object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 436, <Cylinder object>
+23:46:57  type(face_b.Surface) : 437, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 436, <Cylinder object>
+23:46:57  type(face_b.Surface) : 437, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 438, <Cylinder object>
+23:46:57  type(face_b.Surface) : 439, <Cylinder object>
+23:46:57  skipped
+23:46:57  type(face_a.Surface) : 438, <Cylinder object>
+23:46:57  type(face_b.Surface) : 439, <Cylinder object>
+23:46:57  nodes numbder : 176
+23:46:57  Target node is in the graph!
+23:46:57  bfs_tree : 19
+23:46:57  bfs_tree_list : [0, 141, 142, 143, 121, 105, 96, 21, 20, 19, 120, 104, 70, 6, 5, 4, 85, 10, 84]
+23:46:57  cylinder_hinges: [[(141, False)], [(142, False)], [(143, False)], [(121, False)], [(105, False)], [(21, False)], [(20, False)], [(19, False), (10, False)], [(96, False), (85, True)]]
+23:46:57  planes_idx: [0]
+23:46:57  planes_idx: [0]
+23:46:57  planes_idx: [0]
+23:46:57  planes_idx: [0, 120]
+23:46:57  planes_idx: [0, 104]
+23:46:57  planes_idx: [0, 6]
+23:46:57  planes_idx: [0, 5]
+23:46:57  planes_idx: [0, 4]
+23:46:57  planes_idx: [0, 70, 84]
+23:46:57  i: 1
+23:46:57  bend_direction : [[(None, None)], [(None, None)], [(None, None)], [(0, False)], [(0, False)], [(0, False)], [(0, False)], [(0, False)], [(0, False), (0, True)]]
+23:46:57  execution time : 9.244851590003236
+23:46:57   analyzing object
+23:46:57  parent_name: SHEETMETAL_REFERENCE
+23:46:57  csv is created! : /home/husky/huskyprojects/freeCAD_samples/cleaner/csv/SHEETMETAL_REFERENCE_20260608_234657.csv
