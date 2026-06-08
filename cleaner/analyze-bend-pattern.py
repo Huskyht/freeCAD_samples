@@ -665,18 +665,23 @@ class bend_analyzer:
 
     @staticmethod
     # def up_or_down(shp: Part.Shape, base_idx, cyl_idx):
-    def up_or_down(shp: Part.Shape, base_idx: int, plane_1_idx: int):
+    def up_or_down(shp: Part.Shape, base_idx: int, cyl_idx: int):
         base = shp.Faces[base_idx]
-        plane_1 = shp.Faces[plane_1_idx]
-        # cyl = shp.Faces[cyl_idx]
+        # plane_1 = shp.Faces[plane_1_idx]
+        cyl = shp.Faces[cyl_idx]
 
         base_normal = get_normal(base)
-        plane_1_normal = get_normal(plane_1)
+        # plane_1_normal = get_normal(plane_1)
+        
+        uv = cyl.ParameterRange
+        u_mid = (uv[0] + uv[1]) / 2
+        v_mid = (uv[2] + uv[3]) / 2
+        cyl_normal = cyl.normalAt(u_mid, v_mid)
 
         # vec = base_normal.cross(plane_1_normal)
         # dot_val = base_normal.dot(vec)
 
-        dot_val = base_normal.dot(plane_1_normal)
+        dot_val = base_normal.dot(cyl_normal)
         # print(f"base_normal   : {base_normal}")
         # print(f"plane_1_normal: {plane_1_normal}")
         print(f"dot_val : {dot_val}")
@@ -690,10 +695,7 @@ class bend_analyzer:
 
         # p0_normal_cur = get_normal(shp.Faces[planes_idx[i]])
 
-        # uv = cyl.ParameterRange
-        # u_mid = (uv[0] + uv[1]) / 2
-        # v_mid = (uv[2] + uv[3]) / 2
-        # cyl_normal = cyl.normalAt(u_mid, v_mid)
+ 
 
         # dot_val = base_normal.dot(cyl_normal)
 
