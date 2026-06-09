@@ -41,14 +41,15 @@ eps = FreeCAD.Base.Precision.approximation()
 
 
 def is_parallel(v1, v2):
-    return abs(abs(v1.normalize().dot(v2.normalize())) - 1.0) < eps
+    dot = abs(abs(v1.normalize().dot(v2.normalize())) - 1.0)
+    return -eps < dot < eps
 
 
 def is_normal(v1, v2):
     return abs(v1.dot(v2)) < eps
 
 
-def get_normal(face: Part.Face):
+def get_plane_normal(face: Part.Face):
     normal = face.Surface.Axis
 
     if face.Orientation == "Reversed":
@@ -62,6 +63,55 @@ def get_normal(face: Part.Face):
         normal.z = 0.0
 
     return normal
+
+
+def get_cylinder_normal(shp: Part.Shape, cyl: Part.Face):
+    uv = cyl.ParameterRange
+    u_mid = (uv[0] + uv[1]) / 2
+    v_mid = (uv[2] + uv[3]) / 2
+    cyl_val = cyl.valueAt(u_mid, v_mid)
+    cyl_normal = cyl.normalAt(u_mid, v_mid)
+
+    offset = cyl_val + cyl_normal * 0.01
+
+    if shp.isInstance(offset, eps, True):
+        cyl_normal = -cyl_normal
+
+    if cyl.Orientation == "Reversed":
+        cyl_normal = -cyl_normal
+
+    if abs(cyl_normal.x) <= eps:
+        cyl_normal.x = 0.0
+    if abs(cyl_normal.y) <= eps:
+        cyl_normal.y = 0.0
+    if abs(cyl_normal.z) <= eps:
+        cyl_normal.z = 0.0
+
+    return cyl_normal
+
+
+def get_cylinder_centripetral(shp: Part.Shape, cyl: Part.Face):
+    uv = cyl.ParameterRange
+    u_mid = (uv[0] + uv[1]) / 2
+    v_mid = (uv[2] + uv[3]) / 2
+    cyl_val = cyl.valueAt(u_mid, v_mid)
+    cyl_center = cyl.Surface.Center
+    cyl_normal = cyl.normalAt(u_mid, v_mid)
+
+    cyl_centripetal_vec = cyl_normal - cyl_center
+    test_vec = cyl_val + cyl_centripetal_vec * 0.01
+
+    if shp.isInside(test_vec, eps, True):
+        cyl_normal = -cyl_normal
+
+    if abs(cyl_normal.x) <= eps:
+        cyl_normal.x = 0.0
+    if abs(cyl_normal.y) <= eps:
+        cyl_normal.y = 0.0
+    if abs(cyl_normal.z) <= eps:
+        cyl_normal.z = 0.0
+
+    return cyl_normal
 
 
 def write_csv(file_path, title, data):
@@ -90,7 +140,7 @@ class EstimateThickness:
         """
         num_places = abs(int(log10(eps)))
         root_face = selected_face
-        normal = get_normal(root_face)
+        normal = get_plane_normal(root_face)
         # Checking membership of an edge in a shape directly won't work.
         # We must compare via hashCodes instead.
         root_face_edge_hashes = [e.hashCode() for e in root_face.Edges]
@@ -643,16 +693,25 @@ class bend_analyzer:
                         p.append(idx)
                     elif isinstance(shp.Faces[idx].Surface, Part.Cylinder):
                         para_bend_line = False
+                        u0, u1, v0, v1 = shp.Faces[idx].ParameterRange
+                        angle_deg = (u1 - u0) * 180.0 / pi
                         if len(c) >= 1:
+                            print(
+                                f"shp.Faces[c[-1][0]]: {c[-1][0]}, {shp.Faces[c[-1][0]].Surface.Axis}"
+                            )
+                            print(
+                                f"shp.Faces[idx]     : {idx}, {shp.Faces[idx].Surface.Axis}"
+                            )
+
                             if is_parallel(
-                                shp.Faces[c[-1][1]].Surface.Axis,
+                                shp.Faces[c[-1][0]].Surface.Axis,
                                 shp.Faces[idx].Surface.Axis,
                             ):
                                 para_bend_line = True
                             else:
                                 para_bend_line = False
 
-                        c.append((idx, para_bend_line))
+                        c.append((idx, round(angle_deg, 1), para_bend_line))
 
                 planes.append(p)
                 cylinders.append(c)
@@ -660,26 +719,32 @@ class bend_analyzer:
         return planes, cylinders
 
     @staticmethod
-    def get_normal_directions(shp: Part.Shape, faces_idx):
-        return [get_normal(shp.Faces[idx]) for idx in faces_idx]
+    def get_plane_normal_directions(shp: Part.Shape, faces_idx):
+        return [get_plane_normal(shp.Faces[idx]) for idx in faces_idx]
 
     @staticmethod
     # def up_or_down(shp: Part.Shape, base_idx, cyl_idx):
-    def up_or_down(shp: Part.Shape, base_idx: int, plane_1_idx: int):
+    def up_or_down(shp: Part.Shape, base_idx: int, cyl_idx: int):
         base = shp.Faces[base_idx]
-        plane_1 = shp.Faces[plane_1_idx]
-        # cyl = shp.Faces[cyl_idx]
+        cyl = shp.Faces[cyl_idx]
 
-        base_normal = get_normal(base)
-        plane_1_normal = get_normal(plane_1)
+        for e1 in base.Edges:
+            for e2 in base.Edges:
+                if e1.isSame(e2):
+                    shared_edge = e1
 
-        # vec = base_normal.cross(plane_1_normal)
-        # dot_val = base_normal.dot(vec)
+        edge_start, edge_end = shared_edge.ParameterRange
+        mid_param = (edge_start + edge_end) * 0.5
+        edge_midpoint = shared_edge.valueAt(mid_param)
 
-        dot_val = base_normal.dot(plane_1_normal)
-        # print(f"base_normal   : {base_normal}")
-        # print(f"plane_1_normal: {plane_1_normal}")
-        print(f"dot_val : {dot_val}")
+        cyl_center = cyl.Surface.Center
+        radial = -(edge_midpoint - cyl_center)
+        radial.normalize()
+
+        base_normal = get_plane_normal(base)
+
+        dot_val = base_normal.dot(radial)
+        # print(f"dot_val : {dot_val}")
 
         if dot_val > eps:
             return 1
@@ -688,62 +753,51 @@ class bend_analyzer:
         else:
             return 0
 
-        # p0_normal_cur = get_normal(shp.Faces[planes_idx[i]])
-
-        # uv = cyl.ParameterRange
-        # u_mid = (uv[0] + uv[1]) / 2
-        # v_mid = (uv[2] + uv[3]) / 2
-        # cyl_normal = cyl.normalAt(u_mid, v_mid)
-
-        # dot_val = base_normal.dot(cyl_normal)
-
-        # if dot_val > eps:
-        #     return 1
-        # elif dot_val < -eps:
-        #     return -1
-        # else:
-        #     return 0
-
     # This function return tupple value like (face_idx, is_bend_line_parallel) which is not included root face index.
     @staticmethod
     def detect_bend_directions(shp: Part.Shape, planes_idx, cyl_list):
         first_cyl_idx = cyl_list[0][0]
 
-        print(f"planes_idx: {planes_idx}")
+        # print(f"planes_idx: {planes_idx}")
         if len(planes_idx) <= 1:
             # only base
-            return [(None, None)]
+            return [(None, None, None)]
         elif len(planes_idx) == 2:
             # base face and a bend face
             # up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
-            up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], planes_idx[1])
-            return [(up_or_down, cyl_list[0][1])]
+            up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
+            return [(cyl_list[0][0], up_or_down, cyl_list[0][1], cyl_list[0][2])]
 
         # up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
-        up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], planes_idx[1])
+        up_or_down = bend_analyzer.up_or_down(shp, planes_idx[0], first_cyl_idx)
         bend_sign = []
-        bend_sign.append((up_or_down, cyl_list[0][1]))
+        bend_sign.append((cyl_list[0][0], up_or_down, cyl_list[0][1], cyl_list[0][2]))
         plane_0 = shp.Faces[planes_idx[0]]
         plane_1 = shp.Faces[planes_idx[1]]
-        p0_normal_base = get_normal(plane_0)
-        p1_normal_base = get_normal(plane_1)
+        p0_normal_base = get_plane_normal(plane_0)
+        p1_normal_base = get_plane_normal(plane_1)
         base_vec = p0_normal_base.cross(p1_normal_base)
 
         for i in range(1, len(planes_idx) - 1):
             # print(f"i: {i}")
-            p0_normal_cur = get_normal(shp.Faces[planes_idx[i]])
-            p1_normal_cur = get_normal(shp.Faces[planes_idx[i + 1]])
+            p0_normal_cur = get_plane_normal(shp.Faces[planes_idx[i]])
+            p1_normal_cur = get_plane_normal(shp.Faces[planes_idx[i + 1]])
 
             cur_vec = p0_normal_cur.cross(p1_normal_cur)
 
             dot_val = base_vec.dot(cur_vec)
 
             if dot_val > eps:
-                bend_sign.append((up_or_down, cyl_list[i][1]))
+                bend_sign.append(
+                    (cyl_list[i][0], up_or_down, cyl_list[0][1], cyl_list[i][2])
+                )
             elif dot_val < -eps:
-                bend_sign.append((-up_or_down, cyl_list[i][1]))
+                bend_sign.append(
+                    (cyl_list[i][0], -up_or_down, cyl_list[i][1], cyl_list[i][2])
+                )
+
             else:
-                bend_sign.append((0, cyl_list[i][1]))
+                bend_sign.append((cyl_list[i][0], 0, cyl_list[i][1], cyl_list[i][2]))
 
         return bend_sign
 
@@ -767,16 +821,16 @@ def main():
     print(f"thickness : {thickness}")
 
     bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(shp, root_idx)
-    neighbors = list(bend_graph.neighbors(0))
-    if 10 in bend_graph:
-        print("Target node is in the graph!")
+    # neighbors = list(bend_graph.neighbors(0))
+    # if 10 in bend_graph:
+    #     print("Target node is in the graph!")
 
-        # for n in neighbors:
-        #     try:
-        #         face = shp.Faces[n].Surface
-        #         print(f"{n}'s type : {face}")
-        #     except:
-        #         pass
+    # for n in neighbors:
+    #     try:
+    #         face = shp.Faces[n].Surface
+    #         print(f"{n}'s type : {face}")
+    #     except:
+    #         pass
     bfs_tree = sheet_metal_graph.build_bfs_tree(bend_graph, root_idx)
     print(f"bfs_tree : {bfs_tree.number_of_nodes()}")
     print(f"bfs_tree_list : {list(bfs_tree)}")
@@ -798,16 +852,12 @@ def main():
 
     # face_all_dirs = []
     # for face_list in connected_planes:
-    #     face_all_dirs.append(bend_analyzer.get_normal_directions(shp, face_list))
+    #     face_all_dirs.append(bend_analyzer.get_plane_normal_directions(shp, face_list))
     # print(f"face_all_dirs : {face_all_dirs}")
 
     sel_obj = paint_face_by_each_surface_type(sel_obj)
     FreeCAD.ActiveDocument.recompute()
     Gui.updateGui()
-    end_time = time.perf_counter()
-    elapsed_time = end_time - start_time
-    print(f"execution time : {elapsed_time}")
-    FreeCAD.Console.PrintMessage(" analyzing object\n")
 
     parent_name = "default_name"
     try:
@@ -830,6 +880,11 @@ def main():
             dir_path = "/home/husky/huskyprojects/freeCAD_samples/cleaner/csv/"
             file_path = dir_path + file_name
         write_csv(file_path, parent_name, r)
+
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    print(f"execution time : {elapsed_time}")
+    FreeCAD.Console.PrintMessage(" analyzing object\n")
 
 
 if __name__ == "__main__":
