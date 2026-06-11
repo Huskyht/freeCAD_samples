@@ -1,16 +1,14 @@
-from networkx import graph
-from numpy import unsignedinteger
 import FreeCAD
 import FreeCADGui as Gui
 import Part
 
-from math import degrees, log10, pi, radians, sin, tan
+from math import log10, pi, sin, tan
 from statistics import StatisticsError, mode
+from dataclasses import dataclass
 
 import time
 import csv
 import datetime
-import platform
 import platform
 
 
@@ -49,26 +47,38 @@ def is_normal(v1, v2):
     return abs(v1.dot(v2)) < eps
 
 
+def clean_vector(vec):
+    if abs(vec.x) <= eps:
+        vec.x = 0.0
+    if abs(vec.y) <= eps:
+        vec.y = 0.0
+    if abs(vec.z) <= eps:
+        vec.z = 0.0
+
+    return vec
+
+
 def get_plane_normal(face: Part.Face):
     normal = face.Surface.Axis
 
     if face.Orientation == "Reversed":
         normal = -normal
 
-    if abs(normal.x) <= eps:
-        normal.x = 0.0
-    if abs(normal.y) <= eps:
-        normal.y = 0.0
-    if abs(normal.z) <= eps:
-        normal.z = 0.0
+    return clean_vector(normal)
 
-    return normal
+
+def get_face_mid_uv(face):
+    u0, u1, v0, v1 = face.ParameterRange
+
+    return (
+        (u0 + u1) * 0.5,
+        (v0 + v1) * 0.5,
+    )
 
 
 def get_cylinder_normal(shp: Part.Shape, cyl: Part.Face):
-    uv = cyl.ParameterRange
-    u_mid = (uv[0] + uv[1]) / 2
-    v_mid = (uv[2] + uv[3]) / 2
+
+    u_mid, v_mid = get_face_mid_uv(cyl)
     cyl_val = cyl.valueAt(u_mid, v_mid)
     cyl_normal = cyl.normalAt(u_mid, v_mid)
 
@@ -80,20 +90,11 @@ def get_cylinder_normal(shp: Part.Shape, cyl: Part.Face):
     if cyl.Orientation == "Reversed":
         cyl_normal = -cyl_normal
 
-    if abs(cyl_normal.x) <= eps:
-        cyl_normal.x = 0.0
-    if abs(cyl_normal.y) <= eps:
-        cyl_normal.y = 0.0
-    if abs(cyl_normal.z) <= eps:
-        cyl_normal.z = 0.0
-
-    return cyl_normal
+    return clean_vector(cyl_normal)
 
 
 def get_cylinder_centripetral(shp: Part.Shape, cyl: Part.Face):
-    uv = cyl.ParameterRange
-    u_mid = (uv[0] + uv[1]) / 2
-    v_mid = (uv[2] + uv[3]) / 2
+    u_mid, v_mid = get_face_mid_uv(cyl)
     cyl_val = cyl.valueAt(u_mid, v_mid)
     cyl_center = cyl.Surface.Center
     cyl_normal = cyl.normalAt(u_mid, v_mid)
@@ -104,14 +105,7 @@ def get_cylinder_centripetral(shp: Part.Shape, cyl: Part.Face):
     if shp.isInside(test_vec, eps, True):
         cyl_normal = -cyl_normal
 
-    if abs(cyl_normal.x) <= eps:
-        cyl_normal.x = 0.0
-    if abs(cyl_normal.y) <= eps:
-        cyl_normal.y = 0.0
-    if abs(cyl_normal.z) <= eps:
-        cyl_normal.z = 0.0
-
-    return cyl_normal
+    return clean_vector(cyl_normal)
 
 
 def write_csv(file_path, title, data):
@@ -516,16 +510,14 @@ class TangentFaces:
 
 
 def paint_face_by_each_surface_type(obj):
-    COLOR_RED = "#CC241D"
-    COLOR_BLUE = "#5E81AC"
-    COLOR_GREEN = "#A3BE8C"
-    COLOR_YELLOW = "#FABD2F"
-    COLOR_GRAY = "#D8DEE9"
-    COLOR_PURPLE = "#B48EAD"
-    COLOR_ORANGE = "#FE8019"
-    # COLOR_WHITE = "#F9F5D7"
-
-    hex_color = COLOR_GRAY
+    SURFACE_COLORS = {
+        "Plane": "#5E81AC",
+        "Cylinder": "#FABD2F",
+        "Toroid": "#A3BE8C",
+        "Cone": "#B48EAD",
+        "Sphere": "#FE8019",
+        "BSplineSurface": "#CC241D",
+    }
 
     faces = obj.Shape.Faces
     if not faces:
@@ -536,29 +528,8 @@ def paint_face_by_each_surface_type(obj):
         # get surface type
         surf = face.Surface
         surf_type = surf.__class__.__name__
-        # print(f"\n--- Face [{i}] ---")
-        # print(f"  Surface Type : {surf_type}")
-        # display surface type's property
-        if surf_type == "Plane":
-            hex_color = COLOR_BLUE
 
-        elif surf_type == "Cylinder":
-            hex_color = COLOR_YELLOW
-
-        elif surf_type == "Toroid":
-            hex_color = COLOR_GREEN
-
-        elif surf_type == "Cone":
-            hex_color = COLOR_PURPLE
-
-        elif surf_type == "Sphere":
-            hex_color = COLOR_ORANGE
-
-        elif surf_type == "BSplineSurface":
-            hex_color = COLOR_RED
-
-        else:
-            hex_color = COLOR_GRAY
+        hex_color = SURFACE_COLORS.get(surf_type, "#D8DEE9")
 
         r = int(hex_color[1:3], 16) / 255
         g = int(hex_color[3:5], 16) / 255
@@ -596,7 +567,7 @@ def get_real_shape_object(obj):
     if hasattr(obj, "Shape"):
         try:
             if len(obj.Shape.Faces) > 0:
-                return obj
+                return obj.Shape
         except Exception:
             pass
 
@@ -605,7 +576,8 @@ def get_real_shape_object(obj):
 
 # copy from SheetMetal Workbench's SheetMetalNewUnfolder.py
 class sheet_metal_graph:
-    class bend_property:
+    @dataclass
+    class BendInfo:
         bend_direction: int  # 1: same direction as base face normal. -1: inverted direction, 0: parallel faces
         edge_idx: int
         is_prallel_bend_line: bool
@@ -729,7 +701,7 @@ class bend_analyzer:
         cyl = shp.Faces[cyl_idx]
 
         for e1 in base.Edges:
-            for e2 in base.Edges:
+            for e2 in cyl.Edges:
                 if e1.isSame(e2):
                     shared_edge = e1
 
@@ -821,16 +793,6 @@ def main():
     print(f"thickness : {thickness}")
 
     bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(shp, root_idx)
-    # neighbors = list(bend_graph.neighbors(0))
-    # if 10 in bend_graph:
-    #     print("Target node is in the graph!")
-
-    # for n in neighbors:
-    #     try:
-    #         face = shp.Faces[n].Surface
-    #         print(f"{n}'s type : {face}")
-    #     except:
-    #         pass
     bfs_tree = sheet_metal_graph.build_bfs_tree(bend_graph, root_idx)
     print(f"bfs_tree : {bfs_tree.number_of_nodes()}")
     print(f"bfs_tree_list : {list(bfs_tree)}")
@@ -839,21 +801,14 @@ def main():
         bfs_tree, root_idx, shp
     )
     print(f"cylinder_hinges: {cylinder_hinges}")
-    # neighbors = list(bend_graph.neighbors(root_idx))
-    #
+
     r = []
     for i, f_list in enumerate(connected_planes):
-        # first_cyl = cylinder_hinges[i][0][0]
         cyl_list = cylinder_hinges[i]
 
         r.append(bend_analyzer.detect_bend_directions(shp, f_list, cyl_list))
 
     print(f"bend_direction : {r}")
-
-    # face_all_dirs = []
-    # for face_list in connected_planes:
-    #     face_all_dirs.append(bend_analyzer.get_plane_normal_directions(shp, face_list))
-    # print(f"face_all_dirs : {face_all_dirs}")
 
     sel_obj = paint_face_by_each_surface_type(sel_obj)
     FreeCAD.ActiveDocument.recompute()
@@ -865,7 +820,6 @@ def main():
     except:
         parent_name = sel_obj.Label
     print(f"parent_name: {parent_name}")
-    # r.insert(0, parent_name)
 
     if r:
         now = datetime.datetime.now()
