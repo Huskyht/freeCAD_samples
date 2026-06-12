@@ -5,6 +5,8 @@ import Part
 from math import log10, pi, sin, tan
 from statistics import StatisticsError, mode
 from dataclasses import dataclass
+from enum import IntEnum
+import matplotlib.pyplot as plt
 
 import time
 import csv
@@ -576,17 +578,10 @@ def get_real_shape_object(obj):
 
 # copy from SheetMetal Workbench's SheetMetalNewUnfolder.py
 class sheet_metal_graph:
-    @dataclass
-    class BendInfo:
-        bend_direction: int  # 1: same direction as base face normal. -1: inverted direction, 0: parallel faces
-        edge_idx: int
-        is_prallel_bend_line: bool
-        connetion_pattern: Part.Face
-        angle: float
-
     @staticmethod
     def build_graph_of_tangent_faces(shp: Part.Shape, root: int) -> nx.Graph:
         # Created a simple undirected graph object.
+        print(f"root_idx: {root}")
         graph_of_shape_faces = nx.Graph()
         # Track faces by their indices, because the underlying pointers
         # to faces may get changed around while building the graph.
@@ -602,31 +597,45 @@ class sheet_metal_graph:
         # valid for watertight solids.
         saw_warning = False
         for edge_index, faces in filter(lambda c: len(c[1]) == 2, candidates):
-            face_a, face_b = faces
-            if not (
-                (
-                    isinstance(face_a.Surface, Part.Plane)
-                    and isinstance(face_b.Surface, Part.Cylinder)
-                )
-                or (
-                    isinstance(face_a.Surface, Part.Cylinder)
-                    and isinstance(face_b.Surface, Part.Plane)
-                )
+            # face_a, face_b = faces
+            if isinstance(faces[0].Surface, Part.Plane) and isinstance(
+                faces[1].Surface, Part.Cylinder
             ):
-                pass
+                face_p = faces[0]
+                face_c = faces[1]
+
+            elif isinstance(faces[0].Surface, Part.Cylinder) and isinstance(
+                faces[1].Surface, Part.Plane
+            ):
+                face_p = faces[1]
+                face_c = faces[0]
             else:
-                shared_edge = shp.Edges[edge_index]
-                tangent_result, possible_geom_warning = TangentFaces.compare(
-                    face_a, face_b, shared_edge
+                continue
+
+            shared_edge = shp.Edges[edge_index]
+            tangent_result, possible_geom_warning = TangentFaces.compare(
+                face_p, face_c, shared_edge
+            )
+            saw_warning |= possible_geom_warning
+            if tangent_result:
+                face_p_idx = index_lookup[face_p.hashCode()]
+                face_c_idx = index_lookup[face_c.hashCode()]
+                # add faces as graph nodes
+                graph_of_shape_faces.add_node(
+                    face_p_idx, label=f"face{face_p_idx}", data=shp.Faces[face_p_idx]
                 )
-                saw_warning |= possible_geom_warning
-                if tangent_result:
-                    graph_of_shape_faces.add_edge(
-                        index_lookup[face_a.hashCode()],
-                        index_lookup[face_b.hashCode()],
-                        # Store indexes in the label attr for debugging.
-                        label=edge_index,
-                    )
+                graph_of_shape_faces.add_node(
+                    face_c_idx,
+                    label=f"cylinder{face_c_idx}",
+                    data=shp.Faces[face_c_idx],
+                )
+                # add Edge as graph edge
+                graph_of_shape_faces.add_edge(
+                    face_p_idx,
+                    face_c_idx,
+                    # Store indexes in the label attr for debugging.
+                    label=edge_index,
+                )
         # emit a warning if the shape has bends across unsupported face types
         if saw_warning:
             msg = (
@@ -635,7 +644,7 @@ class sheet_metal_graph:
             )
             FreeCAD.Console.PrintWarning(msg)
         print(f"nodes numbder : {graph_of_shape_faces.number_of_nodes()}")
-        # return graph_of_shape_faces.copy()
+
         for c in nx.connected_components(graph_of_shape_faces):
             if root in c:
                 return graph_of_shape_faces.subgraph(c).copy()
@@ -647,48 +656,131 @@ class sheet_metal_graph:
     def build_bfs_tree(graph, root):
         return nx.bfs_tree(graph, source=root)
 
+    @staticmethod
+    def get_leaf_nodes(bfs_tree: nx.DiGraph):
+        leaf_nodes = []
+        for n in bfs_tree.nodes():
+            if bfs_tree.out_degree(n) == 0:
+                leaf_nodes.append(n)
+
+        return leaf_nodes
+
+    @staticmethod
+    def nodes_path(bfs_tree: nx.DiGraph, root_idx: int, leaf_idx: int):
+        return nx.shortest_path(bfs_tree, source=root_idx, target=leaf_idx)
+
+
+class BendDirection(IntEnum):
+    Down = -1
+    Up = 1
+    Flat = 0
+
+
+class SurfaceType(IntEnum):
+    Plane = 0
+    Cylinder = 1
+    Complex = 2
+
 
 class bend_analyzer:
+    @dataclass
+    class BendInfo:
+        surface_type: SurfaceType
+        idx: int
+        angle: float
+        direction: BendDirection
+        is_parallel_bend: bool
+
     @staticmethod
-    def get_planes_and_cylinders(bfs_tree: nx.DiGraph, root_idx: int, shp):
+    def separate_cyl_and_plane(to_leaf_nodes):
+        p = []
+        c = []
+        for idx in to_leaf_nodes:
+            print(f"idx: {idx}")
+            if isinstance(to_leaf_nodes[idx]["data"].Surface, Part.Plane):
+                p.append(idx)
+            elif isinstance(to_leaf_nodes[idx]["data"].Surface, Part.Cylinder):
+                para_bend_line = False
+                u0, u1, v0, v1 = to_leaf_nodes[idx]["data"].ParameterRange
+                angle_deg = (u1 - u0) * 180.0 / pi
+                if len(c) >= 1:
+                    # print(
+                    #     f"shp.Faces[c[-1][0]]: {c[-1][0]}, {shp.Faces[c[-1][0]].Surface.Axis}"
+                    # )
+                    # print(f"shp.Faces[idx]     : {idx}, {shp.Faces[idx].Surface.Axis}")
+
+                    if is_parallel(
+                        c[-1][0]["data"].Surface.Axis,
+                        to_leaf_nodes[idx]["data"].Surface.Axis,
+                    ):
+                        para_bend_line = True
+                    else:
+                        para_bend_line = False
+
+                c.append((idx, round(angle_deg, 1), para_bend_line))
+
+        return p, c
+
+    @staticmethod
+    def get_planes_and_cylinders(bfs_tree: nx.DiGraph, root_idx: int):
         planes = []
         cylinders = []
-        for n in bfs_tree.nodes():
-            # print(f" n : {n}")
-            if bfs_tree.out_degree(n) == 0:
-                # print(" true_or_false : true")
-                path = nx.shortest_path(bfs_tree, source=root_idx, target=n)
-                p = []
-                c = []
-                for idx in path:
-                    if isinstance(shp.Faces[idx].Surface, Part.Plane):
-                        p.append(idx)
-                    elif isinstance(shp.Faces[idx].Surface, Part.Cylinder):
-                        para_bend_line = False
-                        u0, u1, v0, v1 = shp.Faces[idx].ParameterRange
-                        angle_deg = (u1 - u0) * 180.0 / pi
-                        if len(c) >= 1:
-                            print(
-                                f"shp.Faces[c[-1][0]]: {c[-1][0]}, {shp.Faces[c[-1][0]].Surface.Axis}"
-                            )
-                            print(
-                                f"shp.Faces[idx]     : {idx}, {shp.Faces[idx].Surface.Axis}"
-                            )
 
-                            if is_parallel(
-                                shp.Faces[c[-1][0]].Surface.Axis,
-                                shp.Faces[idx].Surface.Axis,
-                            ):
-                                para_bend_line = True
-                            else:
-                                para_bend_line = False
+        leaf_nodes = sheet_metal_graph.get_leaf_nodes(bfs_tree)
+        nodes_path = [
+            sheet_metal_graph.nodes_path(bfs_tree, root_idx, p) for p in leaf_nodes
+        ]
+        print(f"nodes_path : {nodes_path}")
+        for path in nodes_path:
+            p, c = bend_analyzer.separate_cyl_and_plane(path)
+            planes.append(p)
+            cylinders.append(c)
 
-                        c.append((idx, round(angle_deg, 1), para_bend_line))
-
-                planes.append(p)
-                cylinders.append(c)
+        # planes.append(p)
+        # cylinders.append(c)
 
         return planes, cylinders
+
+    # @staticmethod
+    # def get_planes_and_cylinders(bfs_tree: nx.DiGraph, root_idx: int, shp):
+    #     planes = []
+    #     cylinders = []
+    #     for n in bfs_tree.nodes():
+    #         # print(f" n : {n}")
+    #         if bfs_tree.out_degree(n) == 0:
+    #             # print(" true_or_false : true")
+    #             path = nx.shortest_path(bfs_tree, source=root_idx, target=n)
+    #             p = []
+    #             c = []
+    #             for idx in path:
+    #                 if isinstance(shp.Faces[idx].Surface, Part.Plane):
+    #                     p.append(idx)
+    #                 elif isinstance(shp.Faces[idx].Surface, Part.Cylinder):
+    #                     para_bend_line = False
+    #                     u0, u1, v0, v1 = shp.Faces[idx].ParameterRange
+    #                     angle_deg = (u1 - u0) * 180.0 / pi
+    #                     if len(c) >= 1:
+    #                         print(
+    #                             f"shp.Faces[c[-1][0]]: {c[-1][0]}, {shp.Faces[c[-1][0]].Surface.Axis}"
+    #                         )
+    #                         print(
+    #                             f"shp.Faces[idx]     : {idx}, {shp.Faces[idx].Surface.Axis}"
+    #                         )
+
+    #                         if is_parallel(
+    #                             shp.Faces[c[-1][0]].Surface.Axis,
+    #                             shp.Faces[idx].Surface.Axis,
+    #                         ):
+    #                             para_bend_line = True
+    #                         else:
+    #                             para_bend_line = False
+
+    #                     c.append((idx, round(angle_deg, 1), para_bend_line))
+
+    #             planes.append(p)
+    #             cylinders.append(c)
+
+    #     return planes, cylinders
 
     @staticmethod
     def get_plane_normal_directions(shp: Part.Shape, faces_idx):
@@ -700,10 +792,14 @@ class bend_analyzer:
         base = shp.Faces[base_idx]
         cyl = shp.Faces[cyl_idx]
 
+        shared_edge = None
         for e1 in base.Edges:
             for e2 in cyl.Edges:
                 if e1.isSame(e2):
                     shared_edge = e1
+
+        if not shared_edge:
+            return None
 
         edge_start, edge_end = shared_edge.ParameterRange
         mid_param = (edge_start + edge_end) * 0.5
@@ -793,12 +889,24 @@ def main():
     print(f"thickness : {thickness}")
 
     bend_graph = sheet_metal_graph.build_graph_of_tangent_faces(shp, root_idx)
+    print(f"bend_graph: {list(bend_graph)}")
     bfs_tree = sheet_metal_graph.build_bfs_tree(bend_graph, root_idx)
     print(f"bfs_tree : {bfs_tree.number_of_nodes()}")
     print(f"bfs_tree_list : {list(bfs_tree)}")
 
+    # TEST:
+    nx.draw(bfs_tree, with_labels=True)
+    plt.savefig(
+        "bend_graph.png",
+        format="png",
+        dpi=300,
+    )
+    plt.clf()
+    plt.close()
+
+    #  NOTE:
     connected_planes, cylinder_hinges = bend_analyzer.get_planes_and_cylinders(
-        bfs_tree, root_idx, shp
+        bfs_tree, root_idx
     )
     print(f"cylinder_hinges: {cylinder_hinges}")
 
