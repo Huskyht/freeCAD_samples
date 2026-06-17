@@ -2,11 +2,15 @@ import os
 import sys
 import FreeCAD
 
+import tools
+
 Gui = FreeCAD.Gui
 
 # Define absolute paths relative to this folder
-WBWBPath = os.path.dirname(__file__)
+# WBWBPath = os.path.dirname(__file__)
+WBWBPath = tools.wb_dir
 WBIconsPath = os.path.join(WBWBPath, "icons")
+# WBIconsPath = os.path.join(WBWBPath, "icons")
 
 # Force FreeCAD's internal Python engine to see your new WaffleBaker folder files
 if WBWBPath not in sys.path:
@@ -16,6 +20,9 @@ if WBWBPath not in sys.path:
 class WaffleBakerWorkBench(Gui.Workbench):
     """Create Intersectional/Laminational sheet metal dies from sheet metal 3D models."""
 
+    global WBWBPath
+    global WBIconsPath
+
     # These show up in the top selection dropdown menu
     MenuText = "Waffle Baker"
     ToolTip = "Create intersectional/laminational sheet metal dies"
@@ -23,10 +30,20 @@ class WaffleBakerWorkBench(Gui.Workbench):
 
     def Initialize(self):
         # Dynamically import create_cube.py when the workbench switches on
-        import create_cube_cmd
+        import step_to_fusion
+        import align_model
+        import create_cube
+        import cut_cube
+        import cut_and_rearrange
 
         # Must perfectly match the string in Gui.addCommand at the bottom of create_cube.py
-        self.list = ["create_cube_cmd"]
+        self.list = [
+            "step_to_fusion",
+            "align_model",
+            "create_cube",
+            "cut_cube",
+            "cut_and_rearrange",
+        ]
 
         # Build UI layout structures
         self.appendToolbar("Waffle Baker Options", self.list)

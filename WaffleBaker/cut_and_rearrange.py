@@ -128,7 +128,7 @@ def arrange_faces(faces, pitch=50):
 # ╭──────────────────────────────────────────────────────────╮
 # │                     Main entry point                     │
 # ╰──────────────────────────────────────────────────────────╯
-def main():
+def cut_and_rearrange_wrapper():
     App.Console.PrintMessage("aligning faces ...\n")
     toml_data = load_toml()
     dxf_settings = DxfSettings.from_toml(toml_data)
@@ -152,18 +152,38 @@ def main():
     aligned_sheets = align_faces_on_xy_plane(comp_obj, dxf_settings.sheets_gap)
 
     App.ActiveDocument.addObject("Part::Feature", "sheets").Shape = aligned_sheets
-    # if not sheets:
-    #     App.Console.PrintMessage(
-    #         f"failed to aligned faces. Please check obj is compounded correctly. \n"
-    #     )
-
-    # aligned_sheets = arrange_faces_y(sheets, gap=dxf_settings.sheets_gap)
-    # for i, comp_sheets in enumerate(aligned_sheets):
-    #     name = "sheets" + str(i)
-    #     App.ActiveDocument.addObject("Part::Feature", name).Shape = comp_sheets
-
     App.Console.PrintMessage("faces are aligned")
 
 
-if __name__ == "__main__":
-    main()
+class CutAndRearrangeCmd:
+    """This class defines the toolbar button and menu action for FreeCAD."""
+
+    def GetResources(self):
+        # TODO: the thumbnail is set to temporary png. NEED TO CREATE AND SET IT.
+        return {
+            "Pixmap": "2_create_cube.png",
+            "MenuText": "Cut and Rearrange dies sheets",
+            "ToolTip": "Cut Sheets with solid and make new sheets on xy plane",
+        }
+
+    # ╔══════════════════════════════════════════════════════════╗
+    # ║                       ENTRY POINT                        ║
+    # ╚══════════════════════════════════════════════════════════╝
+    def Activated(self):
+        """This function turn imported model to easy-to-use Solid model and open in New document."""
+        App.Console.PrintMessage("  Create new dies sheets...\n")
+        try:
+            cut_and_rearrange_wrapper()
+
+        except Exception as e:
+            App.Console.PrintError(f"Error executing cut_and_reaarange: {str(e)}\n")
+
+    def IsActive(self):
+        """Optional: Determines if the button is clickable.
+        Returns True if a document is open, otherwise greys out the button."""
+        return App.ActiveDocument is not None
+
+
+# Register this script into FreeCAD's global command manager.
+# The string 'create_cube' MUST exactly match the item you put into self.list inside InitGui.py
+Gui.addCommand("cut_and_rearrange", CutAndRearrangeCmd())

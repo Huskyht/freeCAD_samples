@@ -353,6 +353,8 @@ def intersection(
 
     x_faces = create_faces(box, x_sheets)
     y_faces = create_faces(box, y_sheets)
+    App.Console.PrintMessage(f"x_faces: {x_faces} \n")
+    App.Console.PrintMessage(f"y_faces: {y_faces} \n")
 
     x_cutting_sheets = faces_to_solids(x_faces, x_sheets, True)
     y_cutting_sheets = faces_to_solids(y_faces, y_sheets, True)

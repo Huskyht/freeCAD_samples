@@ -6,7 +6,7 @@ import Part
 # ╔══════════════════════════════════════════════════════════╗
 # ║                       ENTRY POINT                        ║
 # ╚══════════════════════════════════════════════════════════╝
-def main():
+def make_face():
     App.Console.PrintMessage("running create new face... \n")
     selection_ex = Gui.Selection.getSelectionEx()
     App.Console.PrintMessage(f"sel.name : {selection_ex[0].Object.Label} \n")
@@ -155,5 +155,35 @@ def create_face(wire):
     return Part.makeFace(wire, "Part::FaceMakerBullseye")
 
 
-if __name__ == "__main__":
-    main()
+class CreateNewFaceCmd:
+    """This class defines the toolbar button and menu action for FreeCAD."""
+
+    def GetResources(self):
+        # TODO: the thumbnail is set to temporary png. NEED TO CREATE AND SET IT.
+        return {
+            "Pixmap": "2_create_cube.png",
+            "MenuText": "Create new face",
+            "ToolTip": " Create a new face from Selected 2/3 or more Edges which are connected ",
+        }
+
+    # ╔══════════════════════════════════════════════════════════╗
+    # ║                       ENTRY POINT                        ║
+    # ╚══════════════════════════════════════════════════════════╝
+    def Activated(self):
+        """This function turn imported model to easy-to-use Solid model and open in New document."""
+        App.Console.PrintMessage("  Creating a new face...\n")
+        try:
+            make_face()
+
+        except Exception as e:
+            App.Console.PrintError(f"Error executing create_new_face: {str(e)}\n")
+
+    def IsActive(self):
+        """Optional: Determines if the button is clickable.
+        Returns True if a document is open, otherwise greys out the button."""
+        return App.ActiveDocument is not None
+
+
+# Register this script into FreeCAD's global command manager.
+# The string 'create_cube' MUST exactly match the item you put into self.list inside InitGui.py
+Gui.addCommand("create_new_face", CreateNewFaceCmd())

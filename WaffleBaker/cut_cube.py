@@ -24,7 +24,7 @@ from intersection import intersection
 # ╔══════════════════════════════════════════════════════════╗
 # ║                       ENTRY POINT                        ║
 # ╚══════════════════════════════════════════════════════════╝
-def cut_cube():
+def cut_cube_wrapper():
     toml_data = load_toml()
     die_info = DieInfo.from_toml(toml_data)
     dxf_settings = DxfSettings.from_toml(toml_data)
@@ -55,21 +55,21 @@ def cut_cube():
     doc.recompute()
 
 
-class CutCube:
+class CutCubeCmd:
     """This class defines the toolbar button and menu action for FreeCAD."""
 
     def GetResources(self):
         return {
-            "Pixmap": "1_move_to_origin.png",
-            "MenuText": "Align 3D model to origin",
-            "ToolTip": "Select surface which lie on the lower die and center of xy plane surface in order",
+            "Pixmap": "1_align_model.png",
+            "MenuText": "Cut Cube",
+            "ToolTip": "Create Intersectional/Laminational sheets dies",
         }
 
     def Activated(self):
         """This method runs automatically whenever you click the toolbar button."""
         App.Console.PrintMessage("  align model on xy plane...\n")
         try:
-            cut_cube()
+            cut_cube_wrapper()
             App.Console.PrintMessage(" align model on xy plane\n")
         except Exception as e:
             App.Console.PrintError(f"Error executing align_model: {str(e)}\n")
@@ -82,4 +82,4 @@ class CutCube:
 
 # Register this script into FreeCAD's global command manager.
 # The string 'create_cube' MUST exactly match the item you put into self.list inside InitGui.py
-Gui.addCommand("cut_cube", CutCube())
+Gui.addCommand("cut_cube", CutCubeCmd())

@@ -12,6 +12,8 @@ current_dir = os.path.dirname(__file__)
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
+from toml_loader import AppPreference, DieInfo, load_toml, LamiInfo
+
 
 @dataclass
 class CubeDim:
@@ -100,7 +102,7 @@ def get_shape(selection, as_compound=True):
     return Part.makeCompound(shapes) if as_compound else shapes
 
 
-def create_cube(z_offset, cube: CubeDim):
+def create_new_cube(z_offset, cube: CubeDim):
     new_box = Part.makeBox(cube.x, cube.y, cube.z)
     placement = App.Placement(
         App.Vector(-cube.x / 2, -cube.y / 2, z_offset), App.Rotation()
@@ -116,7 +118,7 @@ class CreateCubeCmd:
     def GetResources(self):
         return {
             "Pixmap": "2_create_cube.png",
-            "MenuText": "Create Cube Base",
+            "MenuText": "Create Cube",
             "ToolTip": "Create Intersectional/Laminational blank bounding box cube.",
         }
 
@@ -127,8 +129,6 @@ class CreateCubeCmd:
         """This method runs automatically whenever you click the toolbar button."""
         App.Console.PrintMessage("  Creating bounding box ...\n")
         try:
-            from toml_loader import AppPreference, DieInfo, load_toml, LamiInfo
-
             toml_data = load_toml()
             die_info = DieInfo.from_toml(toml_data)
             app_preference = AppPreference.from_toml(toml_data)
@@ -146,7 +146,7 @@ class CreateCubeCmd:
             else:
                 cube_dim = CubeDim.define_cube_size_intr(bbox, die_info)
 
-            box = create_cube(die_info.cube_z_offset, cube_dim)
+            box = create_new_cube(die_info.cube_z_offset, cube_dim)
             Part.show(box)
             App.ActiveDocument.recompute()
             App.Console.PrintMessage(" Creating bounding box \n")
@@ -162,4 +162,4 @@ class CreateCubeCmd:
 
 # Register this script into FreeCAD's global command manager.
 # The string 'create_cube' MUST exactly match the item you put into self.list inside InitGui.py
-Gui.addCommand("create_cube_cmd", CreateCubeCmd())
+Gui.addCommand("create_cube", CreateCubeCmd())
