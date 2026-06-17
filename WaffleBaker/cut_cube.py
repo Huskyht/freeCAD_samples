@@ -1,12 +1,6 @@
-from tomllib import load
-import FreeCAD as App
+import FreeCAD
 import FreeCADGui as Gui
-import sys
-import os
 
-current_dir = os.path.dirname(__file__)
-if current_dir not in sys.path:
-    sys.path.append(current_dir)
 
 from toml_loader import (
     load_toml,
@@ -30,7 +24,7 @@ def cut_cube_wrapper():
     dxf_settings = DxfSettings.from_toml(toml_data)
     app_preference = AppPreference.from_toml(toml_data)
 
-    doc = App.ActiveDocument
+    doc = FreeCAD.ActiveDocument
     sel = Gui.Selection.getSelectionEx()
 
     step_obj = sel[0].Object
@@ -46,7 +40,7 @@ def cut_cube_wrapper():
         intr_sec_info = IntrSecInfo.from_toml(toml_data)
         intersection(die_info, intr_sec_info, dxf_settings, step_obj, box)
     else:
-        App.Console.PrintMessage(
+        FreeCAD.Console.PrintMessage(
             "Please set cutting_mode in waffle.toml before execute command."
         )
         return
@@ -67,17 +61,19 @@ class CutCubeCmd:
 
     def Activated(self):
         """This method runs automatically whenever you click the toolbar button."""
-        App.Console.PrintMessage("  align model on xy plane...\n")
-        try:
-            cut_cube_wrapper()
-            App.Console.PrintMessage(" align model on xy plane\n")
-        except Exception as e:
-            App.Console.PrintError(f"Error executing align_model: {str(e)}\n")
+        FreeCAD.Console.PrintMessage("  cutting cube...\n")
+        cut_cube_wrapper()
+        FreeCAD.Console.PrintMessage(" cutting cube\n")
+        # try:
+        #     cut_cube_wrapper()
+        #     FreeCAD.Console.PrintMessage(" cutting cube\n")
+        # except Exception as e:
+        #     FreeCAD.Console.PrintError(f"Error executing cut_cube: {str(e)}\n")
 
     def IsActive(self):
         """Optional: Determines if the button is clickable.
         Returns True if a document is open, otherwise greys out the button."""
-        return App.ActiveDocument is not None
+        return FreeCAD.ActiveDocument is not None
 
 
 # Register this script into FreeCAD's global command manager.

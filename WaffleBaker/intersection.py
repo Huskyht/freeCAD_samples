@@ -1,18 +1,6 @@
-from tomllib import load
-import FreeCAD as App
-import FreeCADGui as Gui
+import FreeCAD
 import Part
 import Draft
-
-# Macro importing const in another file
-import sys
-import os
-
-# Get current macro directory
-current_dir = os.path.dirname(__file__)
-# Add it to Python path
-if current_dir not in sys.path:
-    sys.path.append(current_dir)
 
 from toml_loader import (
     DieInfo,
@@ -128,14 +116,14 @@ def create_cut_result(base_faces, tool):
 
 
 def add_enumurate_number(comp_obj, is_upper, font, text_height):
-    doc = App.ActiveDocument
+    doc = FreeCAD.ActiveDocument
     font_path = font
     final_shape = []
     dummy_ss = Draft.make_shapestring("INIT", font_path, text_height, 0.0)
     vec = comp_obj.Faces[0].normalAt(0.5, 0.5)
-    if vec == App.Vector(1, 0, 0):
-        rot = App.Rotation(App.Vector(0, 0, 1), -90)
-        dummy_ss.Placement = App.Placement(App.Vector(0, 0, 0), rot)
+    if vec == FreeCAD.Vector(1, 0, 0):
+        rot = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), -90)
+        dummy_ss.Placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
 
     for num, face in enumerate(comp_obj.Faces, start=1):
         dummy_ss.String = str(num)
@@ -144,15 +132,15 @@ def add_enumurate_number(comp_obj, is_upper, font, text_height):
 
         text_shape = dummy_ss.Shape.copy()
 
-        if vec == App.Vector(1, 0, 0):
-            to_xy_rot = App.Rotation(App.Vector(0, 1, 0), 90)
+        if vec == FreeCAD.Vector(1, 0, 0):
+            to_xy_rot = FreeCAD.Rotation(FreeCAD.Vector(0, 1, 0), 90)
             text_shape.transformShape(
-                App.Placement(App.Vector(0, 0, 0), to_xy_rot).toMatrix()
+                FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), to_xy_rot).toMatrix()
             )
-        elif vec == App.Vector(0, 1, 0):
-            to_xy_rot = App.Rotation(App.Vector(1, 0, 0), -90)
+        elif vec == FreeCAD.Vector(0, 1, 0):
+            to_xy_rot = FreeCAD.Rotation(FreeCAD.Vector(1, 0, 0), -90)
             text_shape.transformShape(
-                App.Placement(App.Vector(0, 0, 0), to_xy_rot).toMatrix()
+                FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), to_xy_rot).toMatrix()
             )
 
         bbox = text_shape.BoundBox
@@ -162,28 +150,28 @@ def add_enumurate_number(comp_obj, is_upper, font, text_height):
         y_offset = 0.0
         z_offset = 0.0
         if is_upper:
-            if vec == App.Vector(1, 0, 0):
+            if vec == FreeCAD.Vector(1, 0, 0):
                 x_offset = com.x - (bbox.XMax - bbox.XMin) / 2 + 0.01
                 y_offset = (bbox.YMax - bbox.YMin) / 2
                 z_offset = face_bbox.ZMin + (bbox.ZMax - bbox.ZMin) + 5
-            elif vec == App.Vector(0, 1, 0):
+            elif vec == FreeCAD.Vector(0, 1, 0):
                 x_offset = (bbox.XMax - bbox.XMin) / 2
                 y_offset = com.y - (bbox.YMax - bbox.YMin) / 2 + 0.01
                 z_offset = face_bbox.ZMax - (bbox.ZMax - bbox.ZMin) / 2 - 2
 
         else:
-            if vec == App.Vector(1, 0, 0):
+            if vec == FreeCAD.Vector(1, 0, 0):
                 x_offset = com.x - (bbox.XMax - bbox.XMin) / 2 + 0.01
                 y_offset = face_bbox.YMax - bbox.YMax - 2
                 z_offset = face_bbox.ZMax - (bbox.ZMax - bbox.ZMin) / 2 - 2
-            elif vec == App.Vector(0, 1, 0):
+            elif vec == FreeCAD.Vector(0, 1, 0):
                 x_offset = face_bbox.XMax - bbox.XMax - 2
                 y_offset = com.y - (bbox.YMax - bbox.YMin) / 2 + 0.01
                 z_offset = face_bbox.ZMin + (bbox.ZMax - bbox.ZMin) + 2
 
-        text_move_placement = App.Placement(
-            App.Vector(x_offset, y_offset, z_offset),
-            App.Rotation(),
+        text_move_placement = FreeCAD.Placement(
+            FreeCAD.Vector(x_offset, y_offset, z_offset),
+            FreeCAD.Rotation(),
         )
         text_shape.transformShape(text_move_placement.toMatrix())
 
@@ -232,16 +220,16 @@ def align_faces_on_xy_plane(list_compound, gap):
 def align_and_orient(comp):
     # ── align to XY plane ─────────────────────────────────────────────────
     normal = comp.Faces[0].normalAt(0.5, 0.5)
-    target = App.Vector(0, 0, 1)
+    target = FreeCAD.Vector(0, 0, 1)
 
-    rot = App.Rotation(normal, target)
-    placement = App.Placement(App.Vector(0, 0, 0), rot)
+    rot = FreeCAD.Rotation(normal, target)
+    placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
 
     aligned = comp.copy().transformGeometry(placement.toMatrix())
 
     # ── move to origin ────────────────────────────────────────────────────
     center = aligned.BoundBox.Center
-    aligned.translate(App.Vector(0, 0, 0) - center)
+    aligned.translate(FreeCAD.Vector(0, 0, 0) - center)
 
     bb = aligned.BoundBox
     x_len = bb.XLength
@@ -250,14 +238,14 @@ def align_and_orient(comp):
     # --- rotate if needed ---
     if x_len > y_len:
         # ── rotate 90 deg around Z ────────────────────────────────────────────
-        rot_z = App.Rotation(App.Vector(0, 0, 1), 90)
+        rot_z = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), 90)
         aligned = aligned.transformGeometry(
-            App.Placement(App.Vector(), rot_z).toMatrix()
+            FreeCAD.Placement(FreeCAD.Vector(), rot_z).toMatrix()
         )
 
         # ── recenter again after rotation ─────────────────────────────────────
         center = aligned.BoundBox.Center
-        aligned.translate(App.Vector(0, 0, 0) - center)
+        aligned.translate(FreeCAD.Vector(0, 0, 0) - center)
     return aligned
 
 
@@ -270,7 +258,7 @@ def arrange_faces_adaptive(faces, gap=5.0, y_position=0):
         short_side = min(bb.XLength, bb.YLength)
 
         moved = f.copy()
-        moved.translate(App.Vector(offset, y_position, 0))
+        moved.translate(FreeCAD.Vector(offset, y_position, 0))
 
         arranged.append(moved)
 
@@ -281,10 +269,10 @@ def arrange_faces_adaptive(faces, gap=5.0, y_position=0):
 
 def align_to_xy(face):
     normal = face.normalAt(0.5, 0.5)
-    target = App.Vector(0, 0, 1)
+    target = FreeCAD.Vector(0, 0, 1)
 
-    rot = App.Rotation(normal, target)
-    placement = App.Placement(App.Vector(0, 0, 0), rot)
+    rot = FreeCAD.Rotation(normal, target)
+    placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
 
     return face.copy().transformGeometry(placement.toMatrix())
 
@@ -297,7 +285,7 @@ def arrange_faces_y(faces_list, gap=5.0):
         bb = fl.BoundBox
 
         moved = fl.copy()
-        moved.translate(App.Vector(0, offset + bb.YLength / 2, 0))
+        moved.translate(FreeCAD.Vector(0, offset + bb.YLength / 2, 0))
         arranged.append(moved)
 
         offset += bb.YLength + gap
@@ -306,7 +294,7 @@ def arrange_faces_y(faces_list, gap=5.0):
 
 def move_to_origin(shape):
     center = shape.BoundBox.Center
-    vec = App.Vector(0, 0, 0) - center
+    vec = FreeCAD.Vector(0, 0, 0) - center
 
     s = shape.copy()
     s.translate(vec)
@@ -318,7 +306,7 @@ def arrange_faces(faces, pitch=50):
 
     for i, f in enumerate(faces):
         moved = f.copy()
-        moved.translate(App.Vector(0, i * pitch, 0))
+        moved.translate(FreeCAD.Vector(0, i * pitch, 0))
         arranged.append(moved)
 
     return arranged
@@ -334,7 +322,7 @@ def intersection(
     step_obj,
     box,
 ):
-    App.Console.PrintMessage("Creating Inter-sectional sheets ...\n")
+    FreeCAD.Console.PrintMessage("Creating Inter-sectional sheets ...\n")
 
     bbox = box.BoundBox
 
@@ -343,18 +331,18 @@ def intersection(
     # │                    sheet definitions                     │
     # ╰──────────────────────────────────────────────────────────╯
     x_sheets = IntrSheetsInfo.from_intr_sec_info(
-        bbox.XLength, App.Vector(1, 0, 0), intr_sec_info
+        bbox.XLength, FreeCAD.Vector(1, 0, 0), intr_sec_info
     )
     y_sheets = IntrSheetsInfo.from_intr_sec_info(
-        bbox.YLength, App.Vector(0, 1, 0), intr_sec_info
+        bbox.YLength, FreeCAD.Vector(0, 1, 0), intr_sec_info
     )
-    App.Console.PrintMessage(f"x_sheets: {x_sheets} \n")
-    App.Console.PrintMessage(f"y_sheets: {y_sheets} \n")
+    FreeCAD.Console.PrintMessage(f"x_sheets: {x_sheets} \n")
+    FreeCAD.Console.PrintMessage(f"y_sheets: {y_sheets} \n")
 
     x_faces = create_faces(box, x_sheets)
     y_faces = create_faces(box, y_sheets)
-    App.Console.PrintMessage(f"x_faces: {x_faces} \n")
-    App.Console.PrintMessage(f"y_faces: {y_faces} \n")
+    FreeCAD.Console.PrintMessage(f"x_faces: {x_faces} \n")
+    FreeCAD.Console.PrintMessage(f"y_faces: {y_faces} \n")
 
     x_cutting_sheets = faces_to_solids(x_faces, x_sheets, True)
     y_cutting_sheets = faces_to_solids(y_faces, y_sheets, True)
@@ -372,8 +360,8 @@ def intersection(
     # NOTE: LOWER DIE INTER SECTIONAL TREATMENT
     x_lower_offset = -die_info.cube_z_offset / 2 - intr_sec_info.thick_gap / 2
     y_lower_offset = -die_info.cube_total_height - (die_info.cube_z_offset) / 2
-    x_cutting_sheets.translate(App.Vector(0, 0, x_lower_offset))
-    y_cutting_sheets.translate(App.Vector(0, 0, y_lower_offset))
+    x_cutting_sheets.translate(FreeCAD.Vector(0, 0, x_lower_offset))
+    y_cutting_sheets.translate(FreeCAD.Vector(0, 0, y_lower_offset))
 
     # LOWER:  execute boolean cut
     x_slotted_0 = x_faces_0.cut(y_cutting_sheets)
@@ -389,7 +377,7 @@ def intersection(
     comp_x_lower = Part.makeCompound(enum_x_faces_0)
     comp_y_lower = Part.makeCompound(enum_y_faces_0)
     comp_lower = Part.makeCompound([comp_x_lower, comp_y_lower])
-    App.ActiveDocument.addObject("Part::Feature", "lower_die").Shape = comp_lower
+    FreeCAD.ActiveDocument.addObject("Part::Feature", "lower_die").Shape = comp_lower
 
     # NOTE: UPPER DIE INTER SECTIONAL TREATMENT
 
@@ -411,8 +399,8 @@ def intersection(
         + (die_info.cube_total_height + die_info.cube_z_offset - die_info.safety_height)
         / 2
     )
-    x_cutting_sheets.translate(App.Vector(0, 0, x_upper_offset))
-    y_cutting_sheets.translate(App.Vector(0, 0, y_upper_offset))
+    x_cutting_sheets.translate(FreeCAD.Vector(0, 0, x_upper_offset))
+    y_cutting_sheets.translate(FreeCAD.Vector(0, 0, y_upper_offset))
     x_slotted_1 = x_faces_1.cut(y_cutting_sheets)
     y_slotted_1 = y_faces_1.cut(x_cutting_sheets)
     enum_x_faces_1 = add_enumurate_number(
@@ -424,7 +412,7 @@ def intersection(
     comp_x_upper = Part.makeCompound(enum_x_faces_1)
     comp_y_upper = Part.makeCompound(enum_y_faces_1)
     comp_upper = Part.makeCompound([comp_x_upper, comp_y_upper])
-    App.ActiveDocument.addObject("Part::Feature", "upper_die").Shape = comp_upper
+    FreeCAD.ActiveDocument.addObject("Part::Feature", "upper_die").Shape = comp_upper
 
     x_lower_sheets = align_faces_on_xy_plane(comp_x_lower, gap=dxf_settings.sheets_gap)
     y_lower_sheets = align_faces_on_xy_plane(comp_y_lower, gap=dxf_settings.sheets_gap)
@@ -434,17 +422,17 @@ def intersection(
     comp_sheets_list = [x_lower_sheets, y_lower_sheets, x_upper_sheets, y_upper_sheets]
     aligned_comp_sheets = arrange_faces_y(comp_sheets_list, gap=dxf_settings.sheets_gap)
 
-    App.ActiveDocument.addObject(
+    FreeCAD.ActiveDocument.addObject(
         "Part::Feature", "x_lower_sheets"
     ).Shape = aligned_comp_sheets[0]
-    App.ActiveDocument.addObject(
+    FreeCAD.ActiveDocument.addObject(
         "Part::Feature", "y_lower_sheets"
     ).Shape = aligned_comp_sheets[1]
-    App.ActiveDocument.addObject(
+    FreeCAD.ActiveDocument.addObject(
         "Part::Feature", "x_upper_sheets"
     ).Shape = aligned_comp_sheets[2]
-    App.ActiveDocument.addObject(
+    FreeCAD.ActiveDocument.addObject(
         "Part::Feature", "y_upper_sheets"
     ).Shape = aligned_comp_sheets[3]
 
-    App.Console.PrintMessage(" Creating Inter-sectional sheets ...\n")
+    FreeCAD.Console.PrintMessage(" Creating Inter-sectional sheets ...\n")

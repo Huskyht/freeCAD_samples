@@ -9,7 +9,7 @@ Gui = FreeCAD.Gui
 # Define absolute paths relative to this folder
 # WBWBPath = os.path.dirname(__file__)
 WBWBPath = tools.wb_dir
-WBIconsPath = os.path.join(WBWBPath, "icons")
+WBIconsPath = tools.icons_dir
 # WBIconsPath = os.path.join(WBWBPath, "icons")
 
 # Force FreeCAD's internal Python engine to see your new WaffleBaker folder files

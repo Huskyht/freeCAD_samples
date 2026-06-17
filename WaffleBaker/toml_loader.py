@@ -1,15 +1,16 @@
-import FreeCAD as App
+import FreeCAD
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 import os
 import math
+import tools
 
 # import tomllib
 try:
     import tomllib
 except ImportError:
     # NOTE: FOR WINDOWS ONLY. Need to fix to apply on Linux
-    App.Console.printError("networkx library doesn't exist. Trying to install ...")
+    FreeCAD.Console.printError("tomllib library doesn't exist. Trying to install ...")
     import subprocess
     import sys
     import os
@@ -18,25 +19,28 @@ except ImportError:
     python_exe = os.path.join(bin_dir, "python.exe")
 
     subprocess.check_call([python_exe, "-m", "pip", "install", "tomllib"])
-    App.Console.PrintMessage(
+    FreeCAD.Console.PrintMessage(
         "Depending libraly is installed. Please restart FreeCAD \n"
     )
     sys.exit(1)
 
 
 def load_toml() -> dict:
-    file_path = Path(App.getUserConfigDir() + "waffle.toml")
+
+    file_path = Path(tools.config_dir + "waffle.toml")
 
     if not file_path.exists():
-        App.Console.PrintMessage(f"File not found: {file_path}. Using defaults. \n")
+        FreeCAD.Console.PrintMessage(f"File not found: {file_path}. Using defaults. \n")
         return {}
     try:
         with file_path.open("rb") as f:
             data = tomllib.load(f)
-        App.Console.PrintMessage(f"Loaded TOML data: {data} \n")
+        FreeCAD.Console.PrintMessage(f"Loaded TOML data: {data} \n")
         return data
     except Exception as e:
-        App.Console.PrintMessage(f"Failed to load TOML file: {e}. Using defaults. \n")
+        FreeCAD.Console.PrintMessage(
+            f"Failed to load TOML file: {e}. Using defaults. \n"
+        )
         return {}
 
 
@@ -108,13 +112,16 @@ class LamiInfo:
 class DxfSettings:
     output: bool = False
     sheets_gap: float = 10.0
-    font_path: Path = Path("/usr/share/fonts/Adwaita/AdwaitaMono-Regular.ttf")
+    font_path: str = os.path.join(
+        tools.wb_dir, "fonts/SauceCodeProNerdFont-Regular.ttf"
+    )
     text_height = 4.0
 
     @classmethod
     def from_toml(cls, toml_data: dict) -> "DxfSettings":
         section = extract_section(toml_data, "dxf_settings")
         filtered = filter_dict_by_fields(section, set(cls.__annotations__.keys()))
+        FreeCAD.Console.PrintMessage(f"DxfSettings: {cls} \n")
         return cls(**filtered)
 
 
@@ -132,7 +139,7 @@ class AppPreference:
 @dataclass
 class IntrSheetsInfo:
     bounder_length: float
-    vec: App.Base.Vector
+    vec: FreeCAD.Base.Vector
     sheet_num: int = 0
     thickness: float = 0.0
     thick_gap: float = 0.0
@@ -143,7 +150,7 @@ class IntrSheetsInfo:
     def from_intr_sec_info(
         cls,
         bounder_length: float,
-        vec: App.Base.Vector,
+        vec: FreeCAD.Base.Vector,
         intr_sec_info: IntrSecInfo,
     ):
         info = IntrSheetsInfo(bounder_length, vec)
@@ -164,14 +171,14 @@ class IntrSheetsInfo:
         ) / (info.sheet_num - 1)
         info.interval = round(full_interval, 1)
 
-        App.Console.PrintMessage(f"IntrSheetsInfo: {info} \n")
+        FreeCAD.Console.PrintMessage(f"IntrSheetsInfo: {info} \n")
         return info
 
 
 @dataclass
 class LamiSheetsInfo:
     bounder_length: float
-    vec: App.Base.Vector
+    vec: FreeCAD.Base.Vector
     sheet_num: int = 0
     thickness: float = 0.0
     outer_gap: float = 0.0
@@ -180,7 +187,7 @@ class LamiSheetsInfo:
     def from_lami_info(
         cls,
         bounder_length: float,
-        vec: App.Base.Vector,
+        vec: FreeCAD.Base.Vector,
         lami_info: LamiInfo,
     ):
         info = LamiSheetsInfo(bounder_length, vec)
@@ -195,5 +202,5 @@ class LamiSheetsInfo:
         number: float = offset_width / denom
         info.sheet_num = math.floor(number)
 
-        App.Console.PrintMessage(f"LamiSheetsInfo: {info} \n")
+        FreeCAD.Console.PrintMessage(f"LamiSheetsInfo: {info} \n")
         return info

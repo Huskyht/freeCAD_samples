@@ -1,15 +1,7 @@
-from tomllib import load
-import FreeCAD as App
+import FreeCAD
 import FreeCADGui as Gui
 import Part
-import CompoundTools.Explode as explode
 
-import sys
-import os
-
-current_dir = os.path.dirname(__file__)
-if current_dir not in sys.path:
-    sys.path.append(current_dir)
 
 from toml_loader import (
     load_toml,
@@ -40,16 +32,16 @@ def align_faces_on_xy_plane(comp_obj, gap):
 def align_and_orient(combined_face):
     # ── align to XY plane ─────────────────────────────────────────────────
     normal = combined_face.Faces[0].normalAt(0.5, 0.5)
-    target = App.Vector(0, 0, 1)
+    target = FreeCAD.Vector(0, 0, 1)
 
-    rot = App.Rotation(normal, target)
-    placement = App.Placement(App.Vector(0, 0, 0), rot)
+    rot = FreeCAD.Rotation(normal, target)
+    placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
 
     aligned = combined_face.copy().transformGeometry(placement.toMatrix())
 
     # ── move to origin ────────────────────────────────────────────────────
     center = aligned.BoundBox.Center
-    aligned.translate(App.Vector(0, 0, 0) - center)
+    aligned.translate(FreeCAD.Vector(0, 0, 0) - center)
 
     # ── check bbox ────────────────────────────────────────────────────────
     bb = aligned.BoundBox
@@ -59,14 +51,14 @@ def align_and_orient(combined_face):
     # ── rotate if needed ──────────────────────────────────────────────────
     if x_len > y_len:
         # ── rotate 90 deg around Z ────────────────────────────────────────────
-        rot_z = App.Rotation(App.Vector(0, 0, 1), 90)
+        rot_z = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), 90)
         aligned = aligned.transformGeometry(
-            App.Placement(App.Vector(), rot_z).toMatrix()
+            FreeCAD.Placement(FreeCAD.Vector(), rot_z).toMatrix()
         )
 
         # ── recenter again after rotation ─────────────────────────────────────
         center = aligned.BoundBox.Center
-        aligned.translate(App.Vector(0, 0, 0) - center)
+        aligned.translate(FreeCAD.Vector(0, 0, 0) - center)
 
     return aligned
 
@@ -80,7 +72,7 @@ def arrange_faces_adaptive(faces, gap=5.0, y_position=0):
         short_side = min(bb.XLength, bb.YLength)
 
         moved = f.copy()
-        moved.translate(App.Vector(offset, y_position, 0))
+        moved.translate(FreeCAD.Vector(offset, y_position, 0))
 
         arranged.append(moved)
 
@@ -91,10 +83,10 @@ def arrange_faces_adaptive(faces, gap=5.0, y_position=0):
 
 def align_to_xy(face):
     normal = face.normalAt(0.5, 0.5)
-    target = App.Vector(0, 0, 1)
+    target = FreeCAD.Vector(0, 0, 1)
 
-    rot = App.Rotation(normal, target)
-    placement = App.Placement(App.Vector(0, 0, 0), rot)
+    rot = FreeCAD.Rotation(normal, target)
+    placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
 
     return face.copy().transformGeometry(placement.toMatrix())
 
@@ -107,7 +99,7 @@ def arrange_faces_y(faces_list, gap=5.0):
         bb = fl.BoundBox
 
         moved = fl.copy()
-        moved.translate(App.Vector(0, offset + bb.YLength / 2, 0))
+        moved.translate(FreeCAD.Vector(0, offset + bb.YLength / 2, 0))
         arranged.append(moved)
 
         offset += bb.YLength + gap
@@ -119,7 +111,7 @@ def arrange_faces(faces, pitch=50):
 
     for i, f in enumerate(faces):
         moved = f.copy()
-        moved.translate(App.Vector(0, i * pitch, 0))
+        moved.translate(FreeCAD.Vector(0, i * pitch, 0))
         arranged.append(moved)
 
     return arranged
@@ -129,7 +121,7 @@ def arrange_faces(faces, pitch=50):
 # │                     Main entry point                     │
 # ╰──────────────────────────────────────────────────────────╯
 def cut_and_rearrange_wrapper():
-    App.Console.PrintMessage("aligning faces ...\n")
+    FreeCAD.Console.PrintMessage("aligning faces ...\n")
     toml_data = load_toml()
     dxf_settings = DxfSettings.from_toml(toml_data)
     # die_info = DieInfo.from_toml(toml_data)
@@ -138,10 +130,10 @@ def cut_and_rearrange_wrapper():
     sel = Gui.Selection.getSelection()
 
     if not sel:
-        App.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
+        FreeCAD.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
         raise
     elif len(sel) < 2:
-        App.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
+        FreeCAD.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
         raise
 
     # sheets = []
@@ -151,8 +143,8 @@ def cut_and_rearrange_wrapper():
     comp_obj = cutting_tool(obj, slicer)
     aligned_sheets = align_faces_on_xy_plane(comp_obj, dxf_settings.sheets_gap)
 
-    App.ActiveDocument.addObject("Part::Feature", "sheets").Shape = aligned_sheets
-    App.Console.PrintMessage("faces are aligned")
+    FreeCAD.ActiveDocument.addObject("Part::Feature", "sheets").Shape = aligned_sheets
+    FreeCAD.Console.PrintMessage("faces are aligned")
 
 
 class CutAndRearrangeCmd:
@@ -171,17 +163,17 @@ class CutAndRearrangeCmd:
     # ╚══════════════════════════════════════════════════════════╝
     def Activated(self):
         """This function turn imported model to easy-to-use Solid model and open in New document."""
-        App.Console.PrintMessage("  Create new dies sheets...\n")
+        FreeCAD.Console.PrintMessage("  Create new dies sheets...\n")
         try:
             cut_and_rearrange_wrapper()
 
         except Exception as e:
-            App.Console.PrintError(f"Error executing cut_and_reaarange: {str(e)}\n")
+            FreeCAD.Console.PrintError(f"Error executing cut_and_reaarange: {str(e)}\n")
 
     def IsActive(self):
         """Optional: Determines if the button is clickable.
         Returns True if a document is open, otherwise greys out the button."""
-        return App.ActiveDocument is not None
+        return FreeCAD.ActiveDocument is not None
 
 
 # Register this script into FreeCAD's global command manager.
