@@ -120,31 +120,34 @@ def arrange_faces(faces, pitch=50):
 # ╭──────────────────────────────────────────────────────────╮
 # │                     Main entry point                     │
 # ╰──────────────────────────────────────────────────────────╯
-def cut_and_rearrange_wrapper():
-    FreeCAD.Console.PrintMessage("aligning faces ...\n")
-    toml_data = load_toml()
-    dxf_settings = DxfSettings.from_toml(toml_data)
-    # die_info = DieInfo.from_toml(toml_data)
-    # app_preference = AppPreference.from_toml(toml_data)
-
-    sel = Gui.Selection.getSelection()
-
-    if not sel:
-        FreeCAD.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
-        raise
-    elif len(sel) < 2:
-        FreeCAD.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
-        raise
-
-    # sheets = []
-    obj = sel[0].Shape
-    slicer = sel[1].Shape
-
-    comp_obj = cutting_tool(obj, slicer)
-    aligned_sheets = align_faces_on_xy_plane(comp_obj, dxf_settings.sheets_gap)
-
-    FreeCAD.ActiveDocument.addObject("Part::Feature", "sheets").Shape = aligned_sheets
-    FreeCAD.Console.PrintMessage("faces are aligned")
+# def cut_and_rearrange_wrapper():
+#     FreeCAD.Console.PrintMessage("aligning faces ...\n")
+#     toml_data = load_toml()
+#     dxf_settings = DxfSettings.from_toml(toml_data)
+#     # die_info = DieInfo.from_toml(toml_data)
+#     # app_preference = AppPreference.from_toml(toml_data)
+#
+#     sel = Gui.Selection.getSelection()
+#
+#     if not sel:
+#         FreeCAD.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
+#         return None
+#     elif len(sel) < 2:
+#         FreeCAD.Console.PrintMessage("Please select cut/slice  objects simultaneously.")
+#         return None
+#     elif len(sel) == 2:
+#         cutting_obj = sel[1].Shape
+#     elif len(sel) > 2:
+#         cutting_obj = Part.makeCompound(sel[1:-1]).Shape
+#
+#     # sheets = []
+#     obj = sel[0].Shape
+#
+#     comp_obj = cutting_tool(obj, cutting_obj)
+#     aligned_sheets = align_faces_on_xy_plane(comp_obj, dxf_settings.sheets_gap)
+#
+#     FreeCAD.ActiveDocument.addObject("Part::Feature", "sheets").Shape = aligned_sheets
+#     FreeCAD.Console.PrintMessage("faces are aligned")
 
 
 class CutAndRearrangeCmd:
@@ -164,11 +167,56 @@ class CutAndRearrangeCmd:
     def Activated(self):
         """This function turn imported model to easy-to-use Solid model and open in New document."""
         FreeCAD.Console.PrintMessage("  Create new dies sheets...\n")
-        try:
-            cut_and_rearrange_wrapper()
+        # try:
+        # cut_and_rearrange_wrapper()
 
-        except Exception as e:
-            FreeCAD.Console.PrintError(f"Error executing cut_and_reaarange: {str(e)}\n")
+        FreeCAD.Console.PrintMessage("aligning faces ...\n")
+        toml_data = load_toml()
+        dxf_settings = DxfSettings.from_toml(toml_data)
+        # die_info = DieInfo.from_toml(toml_data)
+        # app_preference = AppPreference.from_toml(toml_data)
+
+        sel = Gui.Selection.getSelection()
+
+        obj = sel[0].Shape
+        name = sel[0].Name
+        cutting_obj = None
+        if not sel:
+            FreeCAD.Console.PrintMessage(
+                "Please select cut/slice  objects simultaneously."
+            )
+            return
+        elif len(sel) < 2:
+            FreeCAD.Console.PrintMessage(
+                "Please select cut/slice  objects simultaneously."
+            )
+            return
+        elif len(sel) == 2:
+            cutting_obj = sel[1].Shape
+        elif len(sel) > 2:
+            shp_list = [s.Shape for s in sel[1:]]
+            print(f"shp_list: {shp_list}")
+            cutting_obj = Part.makeCompound(shp_list)
+
+        # sheets = []
+        if not cutting_obj:
+            return
+
+        cutted_sheets_list = cutting_tool(obj, cutting_obj)
+        comp_obj = Part.makeCompound(cutted_sheets_list)
+        aligned_sheets = align_faces_on_xy_plane(
+            cutted_sheets_list, dxf_settings.sheets_gap
+        )
+
+        FreeCAD.ActiveDocument.addObject(
+            "Part::Feature", "sheets"
+        ).Shape = aligned_sheets
+        FreeCAD.ActiveDocument.removeObject(name)
+        FreeCAD.ActiveDocument.addObject("Part::Feature", name).Shape = comp_obj
+        FreeCAD.Console.PrintMessage("faces are aligned")
+
+        # except Exception as e:
+        #     FreeCAD.Console.PrintError(f"Error executing cut_and_reaarange: {str(e)}\n")
 
     def IsActive(self):
         """Optional: Determines if the button is clickable.
