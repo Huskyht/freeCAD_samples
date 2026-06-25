@@ -54,7 +54,7 @@ class CutCubeCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "1_align_model.png",
+            "Pixmap": "cut_cube.png",
             "MenuText": "Cut Cube",
             "ToolTip": "Create Intersectional/Laminational sheets dies",
         }

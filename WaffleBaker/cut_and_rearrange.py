@@ -156,7 +156,7 @@ class CutAndRearrangeCmd:
     def GetResources(self):
         # TODO: the thumbnail is set to temporary png. NEED TO CREATE AND SET IT.
         return {
-            "Pixmap": "2_create_cube.png",
+            "Pixmap": "cut_and_rearrange.png",
             "MenuText": "Cut and Rearrange dies sheets",
             "ToolTip": "Cut Sheets with solid and make new sheets on xy plane",
         }

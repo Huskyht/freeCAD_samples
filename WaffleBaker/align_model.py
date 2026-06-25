@@ -94,7 +94,7 @@ class AlignModelCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "1_align_model.png",
+            "Pixmap": "move_to_origin.png",
             "MenuText": "Align 3D model to origin",
             "ToolTip": "Select surface which lie on the lower die and center of xy plane surface in order",
         }

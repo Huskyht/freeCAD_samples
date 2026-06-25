@@ -112,7 +112,7 @@ class CreateCubeCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "2_create_cube.png",
+            "Pixmap": "create_cube.png",
             "MenuText": "Create Cube",
             "ToolTip": "Create Intersectional/Laminational blank bounding box cube.",
         }

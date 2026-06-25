@@ -161,7 +161,7 @@ class CreateNewFaceCmd:
     def GetResources(self):
         # TODO: the thumbnail is set to temporary png. NEED TO CREATE AND SET IT.
         return {
-            "Pixmap": "2_create_cube.png",
+            "Pixmap": "create_cube.png",
             "MenuText": "Create new face",
             "ToolTip": " Create a new face from Selected 2/3 or more Edges which are connected ",
         }

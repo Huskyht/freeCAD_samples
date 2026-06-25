@@ -65,7 +65,7 @@ class StepToFusionCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "2_create_cube.png",
+            "Pixmap": "clense_model.png",
             "MenuText": "step to fusion",
             "ToolTip": "Turn 3D model into Solid model.",
         }
