@@ -3,6 +3,7 @@ import sys
 import FreeCAD
 
 import tools
+import load_config
 
 Gui = FreeCAD.Gui
 

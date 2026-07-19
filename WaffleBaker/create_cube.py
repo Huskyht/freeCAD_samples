@@ -124,6 +124,7 @@ class CreateCubeCmd:
         """This method runs automatically whenever you click the toolbar button."""
         FreeCAD.Console.PrintMessage("  Creating bounding box ...\n")
         try:
+            FreeCAD.Console.PrintMessage(f"json cache print test: {_cache}")
             toml_data = load_toml()
             die_info = DieInfo.from_toml(toml_data)
             app_preference = AppPreference.from_toml(toml_data)
