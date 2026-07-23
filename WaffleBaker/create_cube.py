@@ -1,18 +1,13 @@
-import FreeCAD as App
+import FreeCAD
 import FreeCADGui as Gui
 import Part
 
 import math
 from dataclasses import dataclass
 
-import sys
-import os
+# from toml_loader import AppPreference, DieInfo, load_toml, LamiInfo
 
-current_dir = os.path.dirname(__file__)
-if current_dir not in sys.path:
-    sys.path.append(current_dir)
-
-from toml_loader import AppPreference, DieInfo, load_toml, LamiInfo
+from config_loader import AppPreference, DieInfo, LamiInfo
 
 
 @dataclass
@@ -28,10 +23,10 @@ class CubeDim:
         cube.y = math.ceil(bbox.YLength) + die_info.cube_margin
         cube.z = die_info.cube_total_height
 
-        App.Console.PrintMessage("Bounding Box Sizes:\n")
-        App.Console.PrintMessage(f"  X: {cube.x:.4f}\n")
-        App.Console.PrintMessage(f"  Y: {cube.y:.4f}\n")
-        App.Console.PrintMessage(f"  Z: {cube.z:.4f}\n")
+        FreeCAD.Console.PrintMessage("Bounding Box Sizes:\n")
+        FreeCAD.Console.PrintMessage(f"  X: {cube.x:.4f}\n")
+        FreeCAD.Console.PrintMessage(f"  Y: {cube.y:.4f}\n")
+        FreeCAD.Console.PrintMessage(f"  Z: {cube.z:.4f}\n")
 
         return cube
 
@@ -62,19 +57,21 @@ class CubeDim:
             cube.x = width
             cube.y = length
 
-        App.Console.PrintMessage("Bounding Box Sizes:\n")
-        App.Console.PrintMessage(f"  X: {cube.x:.4f}\n")
-        App.Console.PrintMessage(f"  Y: {cube.y:.4f}\n")
-        App.Console.PrintMessage(f"  Z: {cube.z:.4f}\n")
+        FreeCAD.Console.PrintMessage("Bounding Box Sizes:\n")
+        FreeCAD.Console.PrintMessage(f"  X: {cube.x:.4f}\n")
+        FreeCAD.Console.PrintMessage(f"  Y: {cube.y:.4f}\n")
+        FreeCAD.Console.PrintMessage(f"  Z: {cube.z:.4f}\n")
 
         return cube
 
 
 def get_shape(selection, as_compound=True):
-    App.Console.PrintMessage(f"  selection: {selection}\n")
+    FreeCAD.Console.PrintMessage(f"  selection: {selection}\n")
 
     if not selection:
-        App.Console.PrintMessage("Error: Please select at least one face or object.\n")
+        FreeCAD.Console.PrintMessage(
+            "Error: Please select at least one face or object.\n"
+        )
         raise ValueError("No valid geometry found.")
 
     shapes = []
@@ -96,7 +93,7 @@ def get_shape(selection, as_compound=True):
                 shapes.append(sel.Object.Shape)
 
     if not shapes:
-        App.Console.PrintMessage("Error: No valid geometry found.\n")
+        FreeCAD.Console.PrintMessage("Error: No valid geometry found.\n")
         raise ValueError("No valid geometry found.")
 
     return Part.makeCompound(shapes) if as_compound else shapes
@@ -104,8 +101,8 @@ def get_shape(selection, as_compound=True):
 
 def create_new_cube(z_offset, cube: CubeDim):
     new_box = Part.makeBox(cube.x, cube.y, cube.z)
-    placement = App.Placement(
-        App.Vector(-cube.x / 2, -cube.y / 2, z_offset), App.Rotation()
+    placement = FreeCAD.Placement(
+        FreeCAD.Vector(-cube.x / 2, -cube.y / 2, z_offset), FreeCAD.Rotation()
     )
     new_box.Placement = placement
 
@@ -117,7 +114,7 @@ class CreateCubeCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "2_create_cube.png",
+            "Pixmap": "create_cube.png",
             "MenuText": "Create Cube",
             "ToolTip": "Create Intersectional/Laminational blank bounding box cube.",
         }
@@ -127,11 +124,13 @@ class CreateCubeCmd:
     # ╚══════════════════════════════════════════════════════════╝
     def Activated(self):
         """This method runs automatically whenever you click the toolbar button."""
-        App.Console.PrintMessage("  Creating bounding box ...\n")
+        FreeCAD.Console.PrintMessage("  Creating bounding box ...\n")
         try:
-            toml_data = load_toml()
-            die_info = DieInfo.from_toml(toml_data)
-            app_preference = AppPreference.from_toml(toml_data)
+            # toml_data = load_toml()
+            # die_info = DieInfo.from_toml(toml_data)
+            # app_preference = AppPreference.(toml_data)
+            die_info = DieInfo.from_cache()
+            app_preference = AppPreference.from_cache()
 
             selection_ex = Gui.Selection.getSelectionEx()
             shape = get_shape(selection_ex, True)
@@ -139,7 +138,8 @@ class CreateCubeCmd:
             bbox = shape.BoundBox
 
             if app_preference.cutting_mode == "lamination":
-                sheet_thickness = LamiInfo.from_toml(toml_data).sheet_thickness
+                # sheet_thickness = LamiInfo.from_toml(toml_data).sheet_thickness
+                sheet_thickness = LamiInfo.from_cache().sheet_thickness
                 cube_dim = CubeDim.define_cube_size_lami(
                     bbox, die_info, sheet_thickness
                 )
@@ -148,16 +148,16 @@ class CreateCubeCmd:
 
             box = create_new_cube(die_info.cube_z_offset, cube_dim)
             Part.show(box)
-            App.ActiveDocument.recompute()
-            App.Console.PrintMessage(" Creating bounding box \n")
+            FreeCAD.ActiveDocument.recompute()
+            FreeCAD.Console.PrintMessage(" Creating bounding box \n")
 
         except Exception as e:
-            App.Console.PrintError(f"Error executing Create Cube: {str(e)}\n")
+            FreeCAD.Console.PrintError(f"Error executing Create Cube: {str(e)}\n")
 
     def IsActive(self):
         """Optional: Determines if the button is clickable.
         Returns True if a document is open, otherwise greys out the button."""
-        return App.ActiveDocument is not None
+        return FreeCAD.ActiveDocument is not None
 
 
 # Register this script into FreeCAD's global command manager.

@@ -3,13 +3,14 @@ import sys
 import FreeCAD
 
 import tools
+from config_loader import load_config
 
 Gui = FreeCAD.Gui
 
 # Define absolute paths relative to this folder
 # WBWBPath = os.path.dirname(__file__)
 WBWBPath = tools.wb_dir
-WBIconsPath = os.path.join(WBWBPath, "icons")
+WBIconsPath = tools.icons_dir
 # WBIconsPath = os.path.join(WBWBPath, "icons")
 
 # Force FreeCAD's internal Python engine to see your new WaffleBaker folder files
@@ -22,6 +23,7 @@ class WaffleBakerWorkBench(Gui.Workbench):
 
     global WBWBPath
     global WBIconsPath
+    global load_config
 
     # These show up in the top selection dropdown menu
     MenuText = "Waffle Baker"
@@ -35,6 +37,8 @@ class WaffleBakerWorkBench(Gui.Workbench):
         import create_cube
         import cut_cube
         import cut_and_rearrange
+
+        load_config()
 
         # Must perfectly match the string in Gui.addCommand at the bottom of create_cube.py
         self.list = [

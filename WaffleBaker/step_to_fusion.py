@@ -1,4 +1,4 @@
-import FreeCAD as App
+import FreeCAD
 import FreeCADGui as Gui
 import Draft
 
@@ -9,7 +9,7 @@ def convert_model():
     if not selection:
         print("Please select the imported STEP object.")
     else:
-        original_doc = App.ActiveDocument
+        original_doc = FreeCAD.ActiveDocument
         original_obj = selection[0]
         obj_name = original_obj.Name
 
@@ -41,7 +41,7 @@ def convert_model():
 
             # 5. CREATE THE NEW CLEAN DOCUMENT
             new_doc_name = obj_name + "_Cleaned"
-            new_doc = App.newDocument(new_doc_name)
+            new_doc = FreeCAD.newDocument(new_doc_name)
 
             # 6. Place the refined shape into the NEW document
             final_feature = new_doc.addObject("Part::Feature", "Step_Solid")
@@ -51,7 +51,7 @@ def convert_model():
 
             # 7. DELETE THE ORIGINAL MESSY DOCUMENT
             # This instantly wipes out the Revolve, Axis, and all temporary solids
-            App.closeDocument(original_doc.Name)
+            FreeCAD.closeDocument(original_doc.Name)
 
             # Switch the view to the new document
             Gui.setActiveDocument(new_doc)
@@ -65,7 +65,7 @@ class StepToFusionCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "2_create_cube.png",
+            "Pixmap": "clense_model.png",
             "MenuText": "step to fusion",
             "ToolTip": "Turn 3D model into Solid model.",
         }
@@ -75,17 +75,17 @@ class StepToFusionCmd:
     # ╚══════════════════════════════════════════════════════════╝
     def Activated(self):
         """This function turn imported model to easy-to-use Solid model and open in New document."""
-        App.Console.PrintMessage("  converting 3D model into Solid model...\n")
+        FreeCAD.Console.PrintMessage("  converting 3D model into Solid model...\n")
         try:
             convert_model()
 
         except Exception as e:
-            App.Console.PrintError(f"Error executing step_to_fusion: {str(e)}\n")
+            FreeCAD.Console.PrintError(f"Error executing step_to_fusion: {str(e)}\n")
 
     def IsActive(self):
         """Optional: Determines if the button is clickable.
         Returns True if a document is open, otherwise greys out the button."""
-        return App.ActiveDocument is not None
+        return FreeCAD.ActiveDocument is not None
 
 
 # Register this script into FreeCAD's global command manager.

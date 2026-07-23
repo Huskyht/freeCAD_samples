@@ -16,14 +16,15 @@ outer_gap = 10.0  # this value represents the distance from the edge.
 
 [lamination]
 sheet_thickness = 1.0 # Leave a small gap in the sheetse thickness used.
-#outer_gap = 0.08  # this value represents the distance from the edge.
+outer_gap = 0.04  # this value represents the distance from the edge.
 
 [dxf_settings]
 output = false
 sheets_gap = 10.0 # default: 10.0 , this value should set larger than distance of LASER start point 
-font_path = "/usr/share/fonts/TTF/SauceCodeProNerdFont-Regular.ttf"
+# font_path =  "/usr/share/fonts/SourceCodePro/SauceCodeProNerdFontMono-Regular.ttf"
+text_height = 4.0
 
 [app_preference]
-cutting_mode = "intersection" # intersection: x/y cut, lamination: x or y cut
-# cutting_mode = "lamination" # intersection: x/y cut, lamination: x or y cut
+# cutting_mode = "intersection" # intersection: x/y cut, lamination: x or y cut
+cutting_mode = "lamination" # intersection: x/y cut, lamination: x or y cut
 

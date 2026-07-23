@@ -1,15 +1,17 @@
-from tomllib import load
-import FreeCAD as App
+import FreeCAD
 import FreeCADGui as Gui
-import sys
-import os
 
-current_dir = os.path.dirname(__file__)
-if current_dir not in sys.path:
-    sys.path.append(current_dir)
 
-from toml_loader import (
-    load_toml,
+# from toml_loader import (
+#     load_toml,
+#     DieInfo,
+#     IntrSecInfo,
+#     LamiInfo,
+#     LamiSheetsInfo,
+#     DxfSettings,
+#     AppPreference,
+# )
+from config_loader import (
     DieInfo,
     IntrSecInfo,
     LamiInfo,
@@ -25,12 +27,16 @@ from intersection import intersection
 # ║                       ENTRY POINT                        ║
 # ╚══════════════════════════════════════════════════════════╝
 def cut_cube_wrapper():
-    toml_data = load_toml()
-    die_info = DieInfo.from_toml(toml_data)
-    dxf_settings = DxfSettings.from_toml(toml_data)
-    app_preference = AppPreference.from_toml(toml_data)
+    # toml_data = load_toml()
+    # die_info = DieInfo.from_toml(toml_data)
+    # dxf_settings = DxfSettings.from_toml(toml_data)
+    # app_preference = AppPreference.from_toml(toml_data)
 
-    doc = App.ActiveDocument
+    die_info = DieInfo.from_cache()
+    dxf_settings = DxfSettings.from_cache()
+    app_preference = AppPreference.from_cache()
+
+    doc = FreeCAD.ActiveDocument
     sel = Gui.Selection.getSelectionEx()
 
     step_obj = sel[0].Object
@@ -40,13 +46,15 @@ def cut_cube_wrapper():
     step_obj.ViewObject.Visibility = False
 
     if app_preference.cutting_mode == "lamination":
-        lami_info = LamiInfo.from_toml(toml_data)
+        # lami_info = LamiInfo.from_toml(toml_data)
+        lami_info = LamiInfo.from_cache()
         lamination(lami_info, dxf_settings, step_obj, box)
     elif app_preference.cutting_mode == "intersection":
-        intr_sec_info = IntrSecInfo.from_toml(toml_data)
+        # intr_sec_info = IntrSecInfo.from_toml(toml_data)
+        intr_sec_info = IntrSecInfo.from_cache()
         intersection(die_info, intr_sec_info, dxf_settings, step_obj, box)
     else:
-        App.Console.PrintMessage(
+        FreeCAD.Console.PrintMessage(
             "Please set cutting_mode in waffle.toml before execute command."
         )
         return
@@ -60,24 +68,26 @@ class CutCubeCmd:
 
     def GetResources(self):
         return {
-            "Pixmap": "1_align_model.png",
+            "Pixmap": "cut_cube.png",
             "MenuText": "Cut Cube",
             "ToolTip": "Create Intersectional/Laminational sheets dies",
         }
 
     def Activated(self):
         """This method runs automatically whenever you click the toolbar button."""
-        App.Console.PrintMessage("  align model on xy plane...\n")
-        try:
-            cut_cube_wrapper()
-            App.Console.PrintMessage(" align model on xy plane\n")
-        except Exception as e:
-            App.Console.PrintError(f"Error executing align_model: {str(e)}\n")
+        FreeCAD.Console.PrintMessage("  cutting cube...\n")
+        cut_cube_wrapper()
+        FreeCAD.Console.PrintMessage(" cutting cube\n")
+        # try:
+        #     cut_cube_wrapper()
+        #     FreeCAD.Console.PrintMessage(" cutting cube\n")
+        # except Exception as e:
+        #     FreeCAD.Console.PrintError(f"Error executing cut_cube: {str(e)}\n")
 
     def IsActive(self):
         """Optional: Determines if the button is clickable.
         Returns True if a document is open, otherwise greys out the button."""
-        return App.ActiveDocument is not None
+        return FreeCAD.ActiveDocument is not None
 
 
 # Register this script into FreeCAD's global command manager.
