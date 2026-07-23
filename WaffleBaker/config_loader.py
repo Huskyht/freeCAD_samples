@@ -26,11 +26,23 @@ _cache = {
 }
 
 
+def set_param(key, value):
+    _cache[key] = value
+
+
+def get_cached_data():
+    return _cache
+
+
 def load_config():
     global _cache
 
     if not file_path.exists():
-        FreeCAD.Console.PrintMessage(f"File not found: {file_path}. Using defaults. \n")
+        FreeCAD.Console.PrintMessage(f"File not found: {file_path}.\n")
+        FreeCAD.Console.PrintMessage(
+            f"Trying to create new config file ...: {file_path}.\n"
+        )
+        save_config()
     try:
         with file_path.open("rb") as f:
             _cache.update(json.load(f))

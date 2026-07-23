@@ -4,10 +4,22 @@ import Part
 
 import math
 from dataclasses import dataclass
+import os
 
 # from toml_loader import AppPreference, DieInfo, load_toml, LamiInfo
 
-from config_loader import AppPreference, DieInfo, LamiInfo
+# from WaffleBaker import config_loader
+from config_loader import (
+    AppPreference,
+    DieInfo,
+    LamiInfo,
+    get_cached_data,
+    load_config,
+    set_param,
+    save_config,
+)
+import tools
+from PySide6 import QtUiTools
 
 
 @dataclass
@@ -109,6 +121,59 @@ def create_new_cube(z_offset, cube: CubeDim):
     return new_box
 
 
+class CreateCubeTaskPanel:
+    def __init__(self, cache_data):
+        ui_path = os.path.join(tools.ui_path, "CreateCubeOptions.ui")
+        # ui_path = os.path.join(wb_dir, "/Resources/UnfoldOptions.ui")
+        loader = QtUiTools.QUiLoader()
+        self.form = loader.load(ui_path)
+
+        self.form.cube_total_height.setValue(float(cache_data["cube_total_height"]))
+        self.form.cube_z_offset.setValue(float(cache_data["cube_z_offset"]))
+        self.form.safety_height.setValue(float(cache_data["safety_height"]))
+        self.form.cube_margin.setValue(float(cache_data["cube_margin"]))
+
+        if cache_data["cutting_mode"] == "intersection":
+            self.form.intersection.setChecked(True)
+        else:
+            self.form.lamination.setChecked(True)
+
+    def accept(self):
+        set_param("cube_total_height", self.form.cube_total_height.value())
+        set_param("cube_z_offset", self.form.cube_z_offset.value())
+        set_param("safety_height", self.form.safety_height.value())
+        set_param("cube_margin", self.form.cube_margin.value())
+
+        if self.form.intersection.isChecked():
+            set_param("mode", "intersection")
+        elif self.form.lamination.isChecked():
+            set_param("cutting_mode", "lamination")
+        else:
+            set_param("cutting_mode", "intersection")
+
+        save_config()
+        die_info = DieInfo.from_cache()
+        app_preference = AppPreference.from_cache()
+        selection_ex = Gui.Selection.getSelectionEx()
+        shape = get_shape(selection_ex, True)
+
+        bbox = shape.BoundBox
+
+        if app_preference.cutting_mode == "lamination":
+            # sheet_thickness = LamiInfo.from_toml(toml_data).sheet_thickness
+            sheet_thickness = LamiInfo.from_cache().sheet_thickness
+            cube_dim = CubeDim.define_cube_size_lami(bbox, die_info, sheet_thickness)
+        else:
+            cube_dim = CubeDim.define_cube_size_intr(bbox, die_info)
+
+        box = create_new_cube(die_info.cube_z_offset, cube_dim)
+        Part.show(box)
+        FreeCAD.ActiveDocument.recompute()
+        FreeCAD.Console.PrintMessage(" Creating bounding box \n")
+
+        return True
+
+
 class CreateCubeCmd:
     """This class defines the toolbar button and menu action for FreeCAD."""
 
@@ -129,27 +194,30 @@ class CreateCubeCmd:
             # toml_data = load_toml()
             # die_info = DieInfo.from_toml(toml_data)
             # app_preference = AppPreference.(toml_data)
-            die_info = DieInfo.from_cache()
-            app_preference = AppPreference.from_cache()
+            cache_data = get_cached_data()
+            panel = CreateCubeTaskPanel(cache_data)
+            Gui.Control.showDialog(panel)
 
-            selection_ex = Gui.Selection.getSelectionEx()
-            shape = get_shape(selection_ex, True)
+            # die_info = DieInfo.from_cache()
+            # app_preference = AppPreference.from_cache()
+            # selection_ex = Gui.Selection.getSelectionEx()
+            # shape = get_shape(selection_ex, True)
 
-            bbox = shape.BoundBox
+            # bbox = shape.BoundBox
 
-            if app_preference.cutting_mode == "lamination":
-                # sheet_thickness = LamiInfo.from_toml(toml_data).sheet_thickness
-                sheet_thickness = LamiInfo.from_cache().sheet_thickness
-                cube_dim = CubeDim.define_cube_size_lami(
-                    bbox, die_info, sheet_thickness
-                )
-            else:
-                cube_dim = CubeDim.define_cube_size_intr(bbox, die_info)
+            # if app_preference.cutting_mode == "lamination":
+            #     # sheet_thickness = LamiInfo.from_toml(toml_data).sheet_thickness
+            #     sheet_thickness = LamiInfo.from_cache().sheet_thickness
+            #     cube_dim = CubeDim.define_cube_size_lami(
+            #         bbox, die_info, sheet_thickness
+            #     )
+            # else:
+            #     cube_dim = CubeDim.define_cube_size_intr(bbox, die_info)
 
-            box = create_new_cube(die_info.cube_z_offset, cube_dim)
-            Part.show(box)
-            FreeCAD.ActiveDocument.recompute()
-            FreeCAD.Console.PrintMessage(" Creating bounding box \n")
+            # box = create_new_cube(die_info.cube_z_offset, cube_dim)
+            # Part.show(box)
+            # FreeCAD.ActiveDocument.recompute()
+            # FreeCAD.Console.PrintMessage(" Creating bounding box \n")
 
         except Exception as e:
             FreeCAD.Console.PrintError(f"Error executing Create Cube: {str(e)}\n")
