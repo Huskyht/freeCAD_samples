@@ -2,7 +2,7 @@ import FreeCAD
 import Part
 import Draft
 
-from toml_loader import (
+from config_loader import (
     DieInfo,
     IntrSecInfo,
     IntrSheetsInfo,
@@ -352,8 +352,11 @@ def intersection(
     die_solids = box.cut(step_obj.Shape).Solids
 
     # !TODO: Below codes does NOT REFACTOR YET...
-    x_faces_0 = create_faces(die_solids[0], x_sheets, True)
-    x_faces_1 = create_faces(die_solids[1], x_sheets, True)
+
+    # x_faces_0 = create_faces(die_solids[0], x_sheets, True)
+    # x_faces_1 = create_faces(die_solids[1], x_sheets, True)
+    x_faces_0 = create_offset_faces(die_solids[0], x_sheets, False, True)
+    x_faces_1 = create_offset_faces(die_solids[1], x_sheets, True, True)
     y_faces_0 = create_offset_faces(die_solids[0], y_sheets, False, True)
     y_faces_1 = create_offset_faces(die_solids[1], y_sheets, True, True)
 

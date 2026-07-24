@@ -5,7 +5,7 @@ import Draft
 from pathlib import Path
 
 
-from toml_loader import (
+from config_loader import (
     LamiInfo,
     LamiSheetsInfo,
     DxfSettings,

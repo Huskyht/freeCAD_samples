@@ -8,6 +8,7 @@ import tools
 import json
 
 file_path = Path(tools.config_dir + "waffle.json")
+font_path: str = os.path.join(tools.wb_dir, "fonts/SauceCodeProNerdFont-Regular.ttf")
 
 _cache = {
     "cube_total_height": "75.0",
@@ -20,7 +21,7 @@ _cache = {
     "outer_gap": "10.0",  # this value represents the distance from the edge.
     "output": "false",
     "sheets_gap": "10.0",  # default: 10.0 , this value should set larger than distance of LASER start point
-    "font_path": "/usr/share/fonts/TTF/SauceCodeProNerdFont-Regular.ttf",
+    "font_path": font_path,
     "text_height": "4.0",
     "cutting_mode": "intersection",  # intersection: x/y cut, lamination: x or y cut
 }

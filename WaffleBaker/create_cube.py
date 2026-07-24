@@ -145,7 +145,7 @@ class CreateCubeTaskPanel:
         set_param("cube_margin", self.form.cube_margin.value())
 
         if self.form.intersection.isChecked():
-            set_param("mode", "intersection")
+            set_param("cutting_mode", "intersection")
         elif self.form.lamination.isChecked():
             set_param("cutting_mode", "lamination")
         else:
