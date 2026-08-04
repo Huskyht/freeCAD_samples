@@ -6,6 +6,7 @@ from pathlib import Path
 
 
 from config_loader import (
+    DieInfo,
     LamiInfo,
     LamiSheetsInfo,
     DxfSettings,
@@ -16,7 +17,9 @@ from config_loader import (
 # ╚══════════════════════════════════════════════════════════╝
 
 
-def lamination(lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box):
+def lamination(
+    die_info: DieInfo, lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box
+):
     FreeCAD.Console.PrintMessage("Creating laminating sheets ...\n")
     bbox = box.BoundBox
 
@@ -24,23 +27,38 @@ def lamination(lami_info: LamiInfo, dxf_settings: DxfSettings, step_obj, box):
         sheets = LamiSheetsInfo.from_lami_info(
             bbox.YLength, FreeCAD.Vector(0, 1, 0), lami_info
         )
+        short_side = "x"
     else:
         sheets = LamiSheetsInfo.from_lami_info(
             bbox.XLength, FreeCAD.Vector(1, 0, 0), lami_info
         )
+        short_side = "y"
 
     die_solids = box.cut(step_obj.Shape).Solids
     # ── 0: lower, 1: upper ────────────────────────────────────────────────
     faces_0 = create_offset_faces(die_solids[0], sheets, False, False)
-    faces_1 = create_offset_faces(die_solids[1], sheets, True, False)
+    faces_1 = create_offset_faces(die_solids[1], sheets, True, True)
+
+    z_offset = (
+        die_info.cube_total_height + die_info.cube_z_offset
+    ) / 2 + lami_info.sheet_thickness
+
+    has_clamp_slots = create_clamp_slots(
+        faces_1,
+        z_offset,
+        lami_info.clamp_slot_width,
+        lami_info.clamp_slot_height,
+        bbox.XLength,
+        short_side,
+    )
+
     font_path = dxf_settings.font_path
-    print(f"font_path : {font_path}")
 
     enum_faces_0 = add_enumurate_number(
         faces_0, False, font_path, dxf_settings.text_height
     )
     enum_faces_1 = add_enumurate_number(
-        faces_1, True, font_path, dxf_settings.text_height
+        has_clamp_slots, True, font_path, dxf_settings.text_height
     )
 
     sheets_0 = align_faces_on_xy_plane(enum_faces_0, gap=dxf_settings.sheets_gap)
@@ -117,6 +135,73 @@ def quick_sort(arr):
 
 def slice_wires(shape, vec, offset):
     return list(shape.slice(vec, offset))
+
+
+def create_clamp_slots(
+    sheets,
+    z_val: float,
+    clamp_width: float,
+    clamp_height: float,
+    clamp_z: float,
+    short_side: str,
+):
+    # get representative face from compound or array[Part::Face] object
+
+    if sheets.ShapeType == "Compound":
+        rep_face = sheets.Faces[0]
+    elif sheets.ShapeType == "Face":
+        rep_face = sheets[0]
+    else:
+        return None
+
+    # get paramameter range and normal direction
+    u0, u1, v0, v1 = rep_face.ParameterRange
+    u = (u0 + u1) / 2
+    v = (v0 + v1) / 2
+
+    face_normal = rep_face.normalAt(u, v)
+
+    # define the positons of 2 cubes which is used for making clamp slots
+    # First, define position on u-v plane
+    # cube_v = v1 - z_val
+    cube_pos_v = (u1 - u0) - z_val - clamp_height / 2
+    cube_pos_u_0 = v0
+    cube_pos_u_1 = v1
+
+    pos_0 = rep_face.valueAt(cube_pos_v, cube_pos_u_0)
+    pos_1 = rep_face.valueAt(cube_pos_v, cube_pos_u_1)
+
+    # create new box which is used for cutting clamp slots
+    if short_side == "y":
+        cube_x = clamp_height
+        cube_y = clamp_width
+    else:
+        cube_x = clamp_width
+        cube_y = clamp_height
+    cube_z = clamp_z
+
+    # aligned.translate(FreeCAD.Vector(0, 0, 0) - center)
+    cutting_tool_0 = Part.makeBox(cube_x, cube_y, cube_z)
+    cutting_tool_1 = Part.makeBox(cube_x, cube_y, cube_z)
+    cutting_tool_0.translate(FreeCAD.Vector(-cube_x / 2, -cube_y / 2, -cube_z / 10))
+    cutting_tool_1.translate(FreeCAD.Vector(-cube_x / 2, -cube_y / 2, -cube_z / 10))
+    rotation = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), face_normal)
+
+    # center_vec = FreeCAD.Vector(0, 0, -50.0)
+
+    transition_0 = FreeCAD.Placement(pos_0, rotation)
+    transition_1 = FreeCAD.Placement(pos_1, rotation)
+
+    cutting_tool_0.transformShape(transition_0.toMatrix())
+    cutting_tool_1.transformShape(transition_1.toMatrix())
+    # FreeCAD.ActiveDocument.addObject("Part::Feature", "clamp_0").Shape = cutting_tool_0
+    # FreeCAD.ActiveDocument.addObject("Part::Feature", "clamp_1").Shape = cutting_tool_1
+
+    comp_cutting_tools = Part.makeCompound([cutting_tool_0, cutting_tool_1])
+    result = sheets.cut(comp_cutting_tools)
+    faces_list = list(result.Faces)
+
+    return faces_list
 
 
 def add_enumurate_number(faces_list, is_upper, font, text_height):

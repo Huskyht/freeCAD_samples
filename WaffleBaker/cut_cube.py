@@ -103,7 +103,7 @@ def cut_cube_wrapper():
     if app_preference.cutting_mode == "lamination":
         # lami_info = LamiInfo.from_toml(toml_data)
         lami_info = LamiInfo.from_cache()
-        lamination(lami_info, dxf_settings, step_obj, box)
+        lamination(die_info, lami_info, dxf_settings, step_obj, box)
     elif app_preference.cutting_mode == "intersection":
         # intr_sec_info = IntrSecInfo.from_toml(toml_data)
         intr_sec_info = IntrSecInfo.from_cache()

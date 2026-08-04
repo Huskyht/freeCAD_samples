@@ -169,6 +169,8 @@ class CreateCubeTaskPanel:
         box = create_new_cube(die_info.cube_z_offset, cube_dim)
         Part.show(box)
         FreeCAD.ActiveDocument.recompute()
+
+        Gui.Selection.clearSelection()
         FreeCAD.Console.PrintMessage(" Creating bounding box \n")
 
         return True

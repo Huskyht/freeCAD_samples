@@ -145,15 +145,10 @@ class IntrSecInfo:
 
 @dataclass
 class LamiInfo:
-    # This values are  used if the values were not set in toml file.
     sheet_thickness: float = 2.0
-    # thick_gap: float = 0.10
-    # min_interval: float = 2.0
     outer_gap: float = 0.04
-    # cube_z_offset: float = -32.0
-    # cube_total_height: float = 100.0
-    # safety_height: float = 5.0
-    # cube_margin: float = 10.0
+    clamp_slot_width: float = 4.0
+    clamp_slot_height: float = 6.0
 
     @classmethod
     def from_toml(cls, toml_data: dict) -> "LamiInfo":
@@ -168,6 +163,12 @@ class LamiInfo:
         return cls(
             sheet_thickness=float(_cache.get("sheet_thickness", cls.sheet_thickness)),
             outer_gap=float(_cache.get("outer_gap", cls.outer_gap)),
+            clamp_slot_width=float(
+                _cache.get("clamp_slot_width", cls.clamp_slot_width)
+            ),
+            clamp_slot_height=float(
+                _cache.get("clamp_slot_height", cls.clamp_slot_height)
+            ),
         )
 
 
