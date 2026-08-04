@@ -27,12 +27,14 @@ def lamination(
         sheets = LamiSheetsInfo.from_lami_info(
             bbox.YLength, FreeCAD.Vector(0, 1, 0), lami_info
         )
-        short_side = "x"
+        short_side = "y"
+        clamp_slot_length = bbox.XLength
     else:
         sheets = LamiSheetsInfo.from_lami_info(
             bbox.XLength, FreeCAD.Vector(1, 0, 0), lami_info
         )
-        short_side = "y"
+        short_side = "x"
+        clamp_slot_length = bbox.YLength
 
     die_solids = box.cut(step_obj.Shape).Solids
     # ── 0: lower, 1: upper ────────────────────────────────────────────────
@@ -48,7 +50,7 @@ def lamination(
         z_offset,
         lami_info.clamp_slot_width,
         lami_info.clamp_slot_height,
-        bbox.XLength,
+        clamp_slot_length,
         short_side,
     )
 
@@ -172,7 +174,7 @@ def create_clamp_slots(
     pos_1 = rep_face.valueAt(cube_pos_v, cube_pos_u_1)
 
     # create new box which is used for cutting clamp slots
-    if short_side == "y":
+    if short_side == "x":
         cube_x = clamp_height
         cube_y = clamp_width
     else:
