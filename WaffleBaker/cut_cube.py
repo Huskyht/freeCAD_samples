@@ -45,6 +45,8 @@ class CutCubeTaskPanel:
         self.form.outer_gap.setValue(float(cache_data["outer_gap"]))
         self.form.sheets_gap.setValue(float(cache_data["sheets_gap"]))
         self.form.text_height.setValue(float(cache_data["text_height"]))
+        self.form.clamp_slot_width.setValue(float(cache_data["clamp_slot_width"]))
+        self.form.clamp_slot_height.setValue(float(cache_data["clamp_slot_height"]))
 
         if cache_data["cutting_mode"] == "intersection":
             self.form.intersection.setChecked(True)
@@ -53,13 +55,13 @@ class CutCubeTaskPanel:
 
     def accept(self):
         FreeCAD.Console.PrintMessage("  cutting cube...\n")
-        cut_cube_wrapper()
-        FreeCAD.Console.PrintMessage(" cutting cube\n")
 
         set_param("sheet_thickness", self.form.sheet_thickness.value())
         set_param("thick_gap", self.form.thick_gap.value())
         set_param("min_interval", self.form.min_interval.value())
         set_param("outer_gap", self.form.outer_gap.value())
+        set_param("clamp_slot_width", self.form.clamp_slot_width.value())
+        set_param("clamp_slot_height", self.form.clamp_slot_height.value())
 
         if self.form.intersection.isChecked():
             set_param("cutting_mode", "intersection")
@@ -67,6 +69,9 @@ class CutCubeTaskPanel:
             set_param("cutting_mode", "lamination")
         else:
             set_param("cutting_mode", "intersection")
+
+        cut_cube_wrapper()
+        FreeCAD.Console.PrintMessage(" cutting cube\n")
 
         save_config()
 

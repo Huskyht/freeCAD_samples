@@ -128,7 +128,7 @@ def add_enumurate_number(comp_obj, is_upper, font, text_height):
     for num, face in enumerate(comp_obj.Faces, start=1):
         dummy_ss.String = str(num)
         dummy_ss.touch()
-        doc.recompute()
+        doc.recompute([dummy_ss])
 
         text_shape = dummy_ss.Shape.copy()
 
@@ -206,6 +206,62 @@ def process_upper(x_faces, y_faces, x_tool, y_tool):
             Part.makeCompound(y_result),
         ]
     )
+
+
+def create_clamp_slots(
+    sheets, z_val: float, clamp_width: float, clamp_height: float, clamp_z: float
+):
+    # get representative face from compound or array[Part::Face] object
+
+    if sheets.ShapeType == "Compound":
+        rep_face = sheets.Faces[0]
+    elif sheets.ShapeType == "Face":
+        rep_face = sheets[0]
+    else:
+        return None
+
+    # get paramameter range and normal direction
+    u0, u1, v0, v1 = rep_face.ParameterRange
+    u = (u0 + u1) / 2
+    v = (v0 + v1) / 2
+
+    face_normal = rep_face.normalAt(u, v)
+
+    # define the positons of 2 cubes which is used for making clamp slots
+    # First, define position on u-v plane
+    # cube_v = v1 - z_val
+    cube_pos_v = (u1 - u0) - z_val - clamp_height / 2
+    cube_pos_u_0 = v0
+    cube_pos_u_1 = v1
+
+    pos_0 = rep_face.valueAt(cube_pos_v, cube_pos_u_0)
+    pos_1 = rep_face.valueAt(cube_pos_v, cube_pos_u_1)
+
+    # create new box which is used for cutting clamp slots
+    cube_x = clamp_height
+    cube_y = clamp_width
+    cube_z = clamp_z
+
+    # aligned.translate(FreeCAD.Vector(0, 0, 0) - center)
+    cutting_tool_0 = Part.makeBox(cube_x, cube_y, cube_z)
+    cutting_tool_1 = Part.makeBox(cube_x, cube_y, cube_z)
+    cutting_tool_0.translate(FreeCAD.Vector(-cube_x / 2, -cube_y / 2, -cube_z / 10))
+    cutting_tool_1.translate(FreeCAD.Vector(-cube_x / 2, -cube_y / 2, -cube_z / 10))
+    rotation = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), face_normal)
+
+    # center_vec = FreeCAD.Vector(0, 0, -50.0)
+
+    transition_0 = FreeCAD.Placement(pos_0, rotation)
+    transition_1 = FreeCAD.Placement(pos_1, rotation)
+
+    cutting_tool_0.transformShape(transition_0.toMatrix())
+    cutting_tool_1.transformShape(transition_1.toMatrix())
+    # FreeCAD.ActiveDocument.addObject("Part::Feature", "clamp_0").Shape = cutting_tool_0
+    # FreeCAD.ActiveDocument.addObject("Part::Feature", "clamp_1").Shape = cutting_tool_1
+
+    comp_cutting_tools = Part.makeCompound([cutting_tool_0, cutting_tool_1])
+
+    return Part.makeCompound(sheets.cut(comp_cutting_tools))
 
 
 # ── NOTE: align all coumpounded faces on XY plane ─────────────────────
@@ -406,9 +462,29 @@ def intersection(
     y_cutting_sheets.translate(FreeCAD.Vector(0, 0, y_upper_offset))
     x_slotted_1 = x_faces_1.cut(y_cutting_sheets)
     y_slotted_1 = y_faces_1.cut(x_cutting_sheets)
-    enum_x_faces_1 = add_enumurate_number(
-        x_slotted_1, True, dxf_settings.font_path, dxf_settings.text_height
+
+    # TODO: ADD clamping slot on x plane faces
+    z_offset = (
+        die_info.cube_total_height + die_info.cube_z_offset
+    ) / 2 + intr_sec_info.sheet_thickness
+
+    x_has_clamp_slots = create_clamp_slots(
+        x_slotted_1,
+        z_offset,
+        intr_sec_info.clamp_slot_width,
+        intr_sec_info.clamp_slot_height,
+        bbox.XLength,
     )
+    if x_has_clamp_slots is None:
+        FreeCAD.Console.PrintMessage(f"x_has_clamp_slots: {x_has_clamp_slots} \n")
+        return
+
+    enum_x_faces_1 = add_enumurate_number(
+        x_has_clamp_slots, True, dxf_settings.font_path, dxf_settings.text_height
+    )
+    # enum_x_faces_1 = add_enumurate_number(
+    #     x_slotted_1, True, dxf_settings.font_path, dxf_settings.text_height
+    # )
     enum_y_faces_1 = add_enumurate_number(
         y_slotted_1, True, dxf_settings.font_path, dxf_settings.text_height
     )

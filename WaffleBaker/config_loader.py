@@ -19,6 +19,8 @@ _cache = {
     "thick_gap": "0.08",  # Leave a small gap in the sheetse thickness used.
     "min_interval": "1.5",  # recommend to set value same as sheets thickness or more.
     "outer_gap": "10.0",  # this value represents the distance from the edge.
+    "clamp_slot_width": "4.0",
+    "clamp_slot_height": "6.0",
     "output": "false",
     "sheets_gap": "10.0",  # default: 10.0 , this value should set larger than distance of LASER start point
     "font_path": font_path,
@@ -57,6 +59,7 @@ def load_config():
 def save_config():
     try:
         with open(file_path, "w", encoding="utf-8") as f:
+            print("config file updated")
             json.dump(_cache, f, indent=4)
     except Exception as e:
         print(f"failed to save currently settings in config file.: {e}")
@@ -109,6 +112,8 @@ class IntrSecInfo:
     min_interval: float = 2.0
     outer_gap: float = 10.0
     cube_z_offset: float = -32.0
+    clamp_slot_width: float = 4.0
+    clamp_slot_height: float = 6.0
     # cube_total_height: float = 100.0
     # safety_height: float = 5.0
     # cube_margin: float = 10.0
@@ -129,6 +134,12 @@ class IntrSecInfo:
             min_interval=float(_cache.get("min_interval", cls.min_interval)),
             outer_gap=float(_cache.get("outer_gap", cls.outer_gap)),
             cube_z_offset=float(_cache.get("cube_z_offset", cls.cube_z_offset)),
+            clamp_slot_width=float(
+                _cache.get("clamp_slot_width", cls.clamp_slot_width)
+            ),
+            clamp_slot_height=float(
+                _cache.get("clamp_slot_height", cls.clamp_slot_height)
+            ),
         )
 
 
