@@ -31,6 +31,7 @@ def make_face():
     solid = face.extrude(App.Vector(0, 0, -1))
     comp_obj = Part.makeCompound([selection_ex[0].Object.Shape, solid])
 
+    selection_ex[0].Object.ViewObject.Visibility = False
     Part.show(comp_obj, "NewFace")
     App.ActiveDocument.recompute()
     App.Console.PrintMessage("complete create new face. \n")
@@ -81,32 +82,40 @@ def add_missing_edge(sorted_edges):
         else None
     )
 
-    # Ensure we didn't pick up matching vertices in between
-    if (
-        sorted_edges[0].Vertexes[-1].Point == sorted_edges[1].Vertexes[0].Point
-        or sorted_edges[0].Vertexes[-1].Point == sorted_edges[1].Vertexes[-1].Point
-    ):
-        pass
-    else:
-        # Handle reverse vertex indexing if sorted_edges inverted them
-        v_start = sorted_edges[0].Vertexes[-1].Point
-        App.Console.PrintMessage("v_start is inverted \n")
-
-    if (
-        sorted_edges[-1].Vertexes[0].Point == sorted_edges[-2].Vertexes[0].Point
-        or sorted_edges[-1].Vertexes[0].Point == sorted_edges[-2].Vertexes[-1].Point
-    ):
-        pass
-    else:
-        v_end = sorted_edges[-1].Vertexes[0].Point
-        App.Console.PrintMessage("v_end is inverted \n")
-
     # early return if edges is already closed
-    if v_start == v_end:
+    if v_start and v_end and v_start.isEqual(v_end, 1e-5):
         App.Console.PrintMessage(
             "Shape is already closed. Skipping bridge generation.\n"
         )
         return sorted_edges
+
+    # Ensure we didn't pick up matching vertices in between
+    if (
+        sorted_edges[0].Vertexes[0].Point == sorted_edges[1].Vertexes[0].Point
+        or sorted_edges[0].Vertexes[0].Point == sorted_edges[1].Vertexes[-1].Point
+    ):
+        # Handle reverse vertex indexing if sorted_edges inverted them
+        v_start = sorted_edges[0].Vertexes[-1].Point
+        App.Console.PrintMessage("v_start is inverted \n")
+    else:
+        pass
+
+    if (
+        sorted_edges[-1].Vertexes[-1].Point == sorted_edges[-2].Vertexes[0].Point
+        or sorted_edges[-1].Vertexes[-1].Point == sorted_edges[-2].Vertexes[-1].Point
+    ):
+        v_end = sorted_edges[-1].Vertexes[0].Point
+        App.Console.PrintMessage("v_end is inverted \n")
+    else:
+        pass
+
+    # Ensure the wire is not closed. Early return if the wire is already closed.
+    if v_start.isEqual(v_end, 1e-5):
+        App.Console.PrintMessage(
+            "Shape is already closed (after inversion). Skipping.\n"
+        )
+        return sorted_edges
+
     if len(sorted_edges) <= 1:
         App.Console.PrintError("Please select continous 2 or more edges. \n")
         return None
@@ -152,7 +161,9 @@ def create_wire(closed_edges):
 
 
 def create_face(wire):
-    return Part.makeFace(wire, "Part::FaceMakerBullseye")
+    # return Part.makeFace(wire, "Part::FaceMakerBullseye")
+    # return Part.makeFace(wire, "Part::FaceMakerSimple")
+    return Part.Face(wire)
 
 
 class CreateNewFaceCmd:

@@ -37,6 +37,7 @@ class WaffleBakerWorkBench(Gui.Workbench):
         import create_cube
         import cut_cube
         import cut_and_rearrange
+        import create_new_face
 
         load_config()
 
@@ -47,6 +48,7 @@ class WaffleBakerWorkBench(Gui.Workbench):
             "create_cube",
             "cut_cube",
             "cut_and_rearrange",
+            "create_new_face",
         ]
 
         # Build UI layout structures

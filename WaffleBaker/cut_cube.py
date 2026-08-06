@@ -98,8 +98,6 @@ def cut_cube_wrapper():
     box_obj = sel[1].Object
     box = box_obj.Shape
 
-    step_obj.ViewObject.Visibility = False
-
     if app_preference.cutting_mode == "lamination":
         # lami_info = LamiInfo.from_toml(toml_data)
         lami_info = LamiInfo.from_cache()
@@ -114,6 +112,7 @@ def cut_cube_wrapper():
         )
         return
 
+    step_obj.ViewObject.Visibility = False
     doc.removeObject(box_obj.Name)
     doc.recompute()
 
