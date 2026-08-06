@@ -117,22 +117,45 @@ def create_cut_result(base_faces, tool):
 
 def add_enumurate_number(comp_obj, is_upper, font, text_height):
     doc = FreeCAD.ActiveDocument
-    font_path = font
-    final_shape = []
-    dummy_ss = Draft.make_shapestring("INIT", font_path, text_height, 0.0)
-    vec = comp_obj.Faces[0].normalAt(0.5, 0.5)
-    if vec == FreeCAD.Vector(1, 0, 0):
-        rot = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), -90)
-        dummy_ss.Placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
 
-    for num, face in enumerate(comp_obj.Faces, start=1):
-        dummy_ss.String = str(num)
+    final_shape = []
+
+    num_shapes = {}
+    dummy_ss = Draft.make_shapestring("INIT", font, text_height, 0.0)
+    for i in range(10):
+        dummy_ss.String = str(i)
         dummy_ss.touch()
         doc.recompute([dummy_ss])
+        num_shapes[str(i)] = dummy_ss.Shape.copy()
+    doc.removeObject(dummy_ss.Name)
 
-        text_shape = dummy_ss.Shape.copy()
+    vec = comp_obj.Faces[0].normalAt(0.5, 0.5)
+    # if vec == FreeCAD.Vector(1, 0, 0):
+    #     rot = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), -90)
+    #     dummy_ss.Placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
+
+    for num, face in enumerate(comp_obj.Faces, start=1):
+        # dummy_ss.String = str(num)
+        # dummy_ss.touch()
+        # doc.recompute([dummy_ss])
+        num_str = str(num)
+        char_shapes = []
+        current_x_offset = 0.0
+
+        for char in num_str:
+            s = num_shapes[char].copy()
+            if current_x_offset > 0:
+                s.translate(FreeCAD.Vector(current_x_offset, 0, 0))
+            char_shapes.append(s)
+            current_x_offset += s.BoundBox.XLength * 1.1
+
+        text_shape = Part.makeCompound(char_shapes)
+        # text_shape = dummy_ss.Shape.copy()
 
         if vec == FreeCAD.Vector(1, 0, 0):
+            rot = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), -90)
+            text_shape.Placement = FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), rot)
+
             to_xy_rot = FreeCAD.Rotation(FreeCAD.Vector(0, 1, 0), 90)
             text_shape.transformShape(
                 FreeCAD.Placement(FreeCAD.Vector(0, 0, 0), to_xy_rot).toMatrix()
@@ -179,7 +202,7 @@ def add_enumurate_number(comp_obj, is_upper, font, text_height):
 
         final_shape.append(combined_shape)
 
-    doc.removeObject(dummy_ss.Name)
+    # doc.removeObject(dummy_ss.Name)
 
     return final_shape
 
