@@ -465,7 +465,7 @@ def intersection(
 
     # ── first, bring buck sheetes to z = 0 + CUBE_Z_OFFSET ────────────────
     x_upper_offset = (
-        +die_info.cube_z_offset / 2
+        -x_lower_offset
         + intr_sec_info.thick_gap
         + (
             -die_info.cube_total_height
@@ -475,12 +475,13 @@ def intersection(
         / 2
     )
     y_upper_offset = (
-        (die_info.cube_total_height + (die_info.cube_z_offset) / 2)
+        -y_lower_offset
         - die_info.cube_z_offset
         + die_info.safety_height
         + (die_info.cube_total_height + die_info.cube_z_offset - die_info.safety_height)
         / 2
     )
+    print("heelot")
     x_cutting_sheets.translate(FreeCAD.Vector(0, 0, x_upper_offset))
     y_cutting_sheets.translate(FreeCAD.Vector(0, 0, y_upper_offset))
     x_slotted_1 = x_faces_1.cut(y_cutting_sheets)
