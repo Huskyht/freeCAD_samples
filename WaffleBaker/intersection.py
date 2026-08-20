@@ -440,7 +440,7 @@ def intersection(
     y_faces_1 = create_offset_faces(die_solids[1], y_sheets, True, True)
 
     # NOTE: LOWER DIE INTER SECTIONAL TREATMENT
-    x_lower_offset = -die_info.cube_z_offset / 2 - intr_sec_info.thick_gap / 2
+    x_lower_offset = -die_info.cube_z_offset / 2 - intr_sec_info.thick_gap
     y_lower_offset = -die_info.cube_total_height - (die_info.cube_z_offset) / 2
     x_cutting_sheets.translate(FreeCAD.Vector(0, 0, x_lower_offset))
     y_cutting_sheets.translate(FreeCAD.Vector(0, 0, y_lower_offset))
@@ -497,7 +497,7 @@ def intersection(
         z_offset,
         intr_sec_info.clamp_slot_width,
         intr_sec_info.clamp_slot_height,
-        bbox.XLength,
+        bbox.XLength * 2,
     )
     if x_has_clamp_slots is None:
         FreeCAD.Console.PrintMessage(f"x_has_clamp_slots: {x_has_clamp_slots} \n")

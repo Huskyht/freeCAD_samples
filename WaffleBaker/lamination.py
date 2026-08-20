@@ -50,7 +50,7 @@ def lamination(
         z_offset,
         lami_info.clamp_slot_width,
         lami_info.clamp_slot_height,
-        clamp_slot_length,
+        clamp_slot_length * 2,
         short_side,
     )
 
